@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ReactResizeDetector from 'react-resize-detector';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { connect } from 'react-redux';
 import authUtils from './authUtils';
@@ -15,7 +16,7 @@ export class AppTemplate extends Component {
     this.menus = menuItems.menus;
     this.menuUtils = menuUtils;
     this.children = props.children;
-    this.state = { menuOpen: false };
+    this.state = { menuOpen: false, width: 320 };
     this.close = this.close.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleKeyMenu = this.handleKeyMenu.bind(this);
@@ -25,7 +26,15 @@ export class AppTemplate extends Component {
     this.responseGoogleLogout = this.responseGoogleLogout.bind(this);
     this.googleButtons = this.googleButtons.bind(this);
     this.authUtils = authUtils;
+    this.parentRef = React.createRef();
+    this.onResize = this.onResize.bind(this);
   }
+
+  // componentDidMount(){
+  //   this.setState
+  // }
+
+  onResize(width) { this.setState({ width }); }
 
   get currentStyles() {
     let result = {};
@@ -133,20 +142,19 @@ export class AppTemplate extends Component {
     );
   }
 
-  headerSection() {
+  headerSection(logoWidth, marginTop) {
     return (
       <div id="header" className={`material-header ${this.currentStyles.headerClass}`}>
         <div className="headercontent" />
         <div>
-          <div style={{ marginLeft: '5px', marginTop: '-18px' }}>
-            <div className="flex-header">
-              <h2 className="header-text" style={{ marginBottom: '0px', marginTop: '1px', fontSize: '34px' }}>
-                <a className="header-text" href="/" style={{ textAlign: 'left', textDecoration: 'none' }}>College Lutheran Church</a>
-              </h2>
-              <p className="subTitle" style={{ maxWidth: '100%' }}>
-                We celebrate God&apos;s grace and share His love in Christ!
-              </p>
-            </div>
+          <div style={{ marginLeft: '5px', marginTop }}>
+            <img
+              width={logoWidth}
+              id="ig"
+              className="style-scope iron-image"
+              alt="headerlogo"
+              src="https://dl.dropboxusercontent.com/s/qg69q7f5so4aqsb/appAutoLogo.png?dl=0"
+            />
           </div>
         </div>
       </div>
@@ -154,14 +162,28 @@ export class AppTemplate extends Component {
   }
 
   render() {
-    const { menuOpen } = this.state;
+    let logoWidth = '742px', marginTop = '-15px';
+    const { menuOpen, width } = this.state;
+    console.log(width);
+    if (width < 970) { logoWidth = '272px'; marginTop = '1px'; }
     const style = `${this.currentStyles.sidebarClass} ${menuOpen ? 'open' : 'close'}`;
     return (
       <div className="page-host">
         <div tabIndex={0} role="button" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
           <div className="drawer" style={{ backgroundColor: '#c0c0c0' }}>
-            <div className="navImage">
-              <img alt="Luther Rose" id="webjamwidelogo" src={`${this.currentStyles.sidebarImagePath}`} style={{ marginRight: 0, width: '86px' }} />
+            <div className="material-header x-scope paper-material-0 drawer" elevation="0" style={{ backgroundColor: '#881204' }}>
+              <a style={{ display: 'block', color: '#fff', textDecoration: 'none' }} href="tel:5404447337">
+                <h4
+                  className="material-header-h4-call"
+                  style={{
+                    textAlign: 'center', marginRight: '280px', paddingTop: '4px', paddingBottom: 0, width: '200px',
+                  }}
+                >
+                  Call
+                  <br />
+                  540-444-7337
+                </h4>
+              </a>
             </div>
             { this.navLinks() }
           </div>
@@ -172,13 +194,14 @@ export class AppTemplate extends Component {
           </span>
           <div className="mainPanel">
             <div className="swipe-area" />
-            {this.headerSection()}
+            {this.headerSection(logoWidth, marginTop)}
             <div style={{ width: 'auto' }} id="contentBlock" className="content-block">
               { this.children }
               <Footer />
             </div>
           </div>
         </div>
+        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
       </div>
     );
   }
