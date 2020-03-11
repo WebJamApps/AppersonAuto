@@ -70,7 +70,7 @@ export class Homepage extends Component {
   }
 }
 
-Homepage.defaultProps = { homeContent: {} };
+Homepage.defaultProps = { homeContent: { title: '', comments: '' } };
 Homepage.propTypes = {
   homeContent: PropTypes.shape({
     title: PropTypes.string,
