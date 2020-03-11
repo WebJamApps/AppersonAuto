@@ -43,7 +43,7 @@ const WideAbout = ({ homeContent, width }) => (
             <div
               id="slideshow1"
               style={{
-                marginTop: '40px', marginRight: '100px', textAlign: 'left', marginLeft: '8px', 
+                marginTop: '40px', marginRight: '100px', textAlign: 'left', marginLeft: '8px',
               }}
             >
               <img
@@ -58,7 +58,7 @@ const WideAbout = ({ homeContent, width }) => (
     </div>
   </div>
 );
-WideAbout.defaultProps = { homeContent: {}, width: 1004 };
+WideAbout.defaultProps = { homeContent: { title: '', comments: '' }, width: 1004 };
 WideAbout.propTypes = {
   width: PropTypes.number,
   homeContent: PropTypes.shape({
