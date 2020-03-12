@@ -62,11 +62,45 @@ export class AppTemplate extends Component {
     );
   }
 
-  navLinks() {
+  mobileMenu() {
     return (
       <div className="nav-list">
-        <p style={{ fontSize: '1px', marginBottom: '2px' }} />
-        <div className="menu-item" style={{ backgroundColor: 'black' }}>
+        <a
+          style={{
+            display: 'block', color: '#fff', textDecoration: 'none', backgroundColor: '#881204', height: '72px', paddingTop: '4px', marginTop: '-1px',
+          }}
+          href="tel:5404447337"
+        >
+          <h4
+            className="material-header-h4-call"
+            style={{
+              textAlign: 'center', marginRight: '280px', paddingBottom: 0, width: '200px',
+            }}
+          >
+            Call
+            <br />
+            540-444-7337
+          </h4>
+        </a>
+        <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
+          <p style={{ color: '#fff', marginBottom: '2px' }}>
+            <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff' }}>
+              <span>1601 Apperson Drive</span>
+            </a>
+            <br />
+            Salem, VA 24153
+          </p>
+        </div>
+        {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
+      </div>
+    );
+  }
+
+  navLinks(width) {
+    if (width < 900) return this.mobileMenu();
+    return (
+      <div className="nav-list">
+        <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
           <p style={{ color: '#fff', marginBottom: '2px' }}>
             <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff' }}>
               <span>1601 Apperson Drive</span>
@@ -99,6 +133,25 @@ export class AppTemplate extends Component {
     );
   }
 
+  callUs() { // eslint-disable-line class-methods-use-this
+    return (
+      <div className="material-header x-scope paper-material-0 drawer" elevation="0" style={{ backgroundColor: '#881204' }}>
+        <a style={{ display: 'block', color: '#fff', textDecoration: 'none' }} href="tel:5404447337">
+          <h4
+            className="material-header-h4-call"
+            style={{
+              textAlign: 'center', marginRight: '280px', paddingBottom: 0, width: '200px',
+            }}
+          >
+            Call
+            <br />
+            540-444-7337
+          </h4>
+        </a>
+      </div>
+    );
+  }
+
   render() {
     let logoWidth = '742px', marginTop = '-15px';
     const { menuOpen, width } = this.state;
@@ -107,22 +160,9 @@ export class AppTemplate extends Component {
     return (
       <div className="page-host">
         <div tabIndex={0} role="button" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
-          <div className="drawer" style={{ backgroundColor: '#c0c0c0' }}>
-            <div className="material-header x-scope paper-material-0 drawer" elevation="0" style={{ backgroundColor: '#881204' }}>
-              <a style={{ display: 'block', color: '#fff', textDecoration: 'none' }} href="tel:5404447337">
-                <h4
-                  className="material-header-h4-call"
-                  style={{
-                    textAlign: 'center', marginRight: '280px', paddingBottom: 0, width: '200px',
-                  }}
-                >
-                  Call
-                  <br />
-                  540-444-7337
-                </h4>
-              </a>
-            </div>
-            { this.navLinks() }
+          <div className="drawer" style={{ backgroundColor: '#505050' }}>
+            {width > 899 ? this.callUs() : null}
+            { this.navLinks(width) }
           </div>
         </div>
         <div className="main-panel">

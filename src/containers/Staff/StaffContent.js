@@ -2,7 +2,6 @@ import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { HashLink as Link } from 'react-router-hash-link';
 import staffItems from './staffItems.json';
-import ELCALogo from '../../components/elcaLogo';
 
 const makeStaff = () => {
   let moreStaff = '';
@@ -15,8 +14,6 @@ const makeStaff = () => {
   }
   return ReactHtmlParser(moreStaff);
 };
-
-const pageName = 'staff';
 
 const StaffContent = () => (
   <div className="page-content">
@@ -142,7 +139,6 @@ const StaffContent = () => (
             </div>
           </section>
           {makeStaff()}
-          <ELCALogo pageName={pageName} />
         </div>
       </div>
     </div>

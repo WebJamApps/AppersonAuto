@@ -1,82 +1,38 @@
 {
   "menus": [{
-      "classname": "dashboard",
+      "classname": "",
       "type": "link",
-      "iconClass": "fas fa-user-secret",
-      "link": "admin",
-      "name": "Admin Dashboard",
-      "auth": true
+      "iconClass": "",
+      "link": "/auto-maintenance",
+      "name": "Auto Maintenance"
     },
     {
       "classname": "",
       "type": "link",
-      "iconClass": "fas fa-arrows-alt",
-      "link": "/belief",
-      "name": "Our Lutheran Beliefs"
+      "iconClass": "",
+      "link": "/general-auto-repair",
+      "name": "General Auto Repair"
     },
     {
       "classname": "",
       "type": "link",
-      "iconClass": "fas fa-users",
-      "link": "/staff",
-      "name": "Church Staff"
+      "iconClass": "",
+      "link": "/major-auto-repair",
+      "name": "Major Auto Repair"
     },
     {
       "classname": "",
       "type": "link",
-      "iconClass": "fas fa-music",
-      "link": "/music",
-      "name": "Music"
-    },
-    {
-      "classname": "",
-      "type": "link",
-      "iconClass": "fas fa-handshake",
-      "link": "/giving",
-      "name": "Giving"
-    },
-    {
-      "classname": "",
-      "type": "link",
-      "iconClass": "fas fa-futbol",
-      "link": "/youth",
-      "name": "Youth Ministry"
-    },
-    {
-      "classname": "",
-      "type": "link",
-      "iconClass": "fas fa-child",
-      "link": "/family",
-      "name": "Children & Families"
-    },
-    {
-      "classname": "",
-      "type": "link",
-      "iconClass": "far fa-newspaper",
-      "link": "/news",
-      "name": "News & Forum"
+      "iconClass": "",
+      "link": "/contact",
+      "name": "Contact"
     },
     {
       "classname": "home",
       "type": "link",
-      "iconClass": "fas fa-heart",
+      "iconClass": "",
       "link": "/",
       "name": "Home"
-    },
-    {
-      "classname": "login",
-      "type": "googleLogin",
-      "iconClass": "fas fa-login",
-      "link": "",
-      "name": "Login"
-    },
-    {
-      "classname": "logout",
-      "type": "googleLogout",
-      "iconClass": "fas fa-logout",
-      "link": "",
-      "name": "Logout",
-      "auth": true
     }
   ]
 }

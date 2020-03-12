@@ -1,7 +1,4 @@
 import React from 'react';
-import ELCALogo from '../../components/elcaLogo';
-
-const pageName = 'giving';
 
 const GivingContent = () => (
 
@@ -31,7 +28,6 @@ const GivingContent = () => (
       <p>&nbsp;</p>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <ELCALogo pageName={pageName} />
       <p>&nbsp;</p>
     </div>
   </div>

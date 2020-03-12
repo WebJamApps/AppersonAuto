@@ -1,8 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ELCALogo from '../../components/elcaLogo';
-
-const pageName = 'news';
 
 const NewsContent = ({ books }) => (
   <div className="page-content">
@@ -72,7 +69,6 @@ const NewsContent = ({ books }) => (
     </div>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
-    <ELCALogo pageName={pageName} />
   </div>
 );
 

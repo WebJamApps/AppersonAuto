@@ -409,11 +409,6 @@ h6 {
 .home-sidebar {
   background-color: #c0c0c0;
 }
-// .home-header {
-//   background-color: #2a222a;
-//   /* margin: 0; */
-//   height          : 80px;
-// }
 
 .home-header-image {
   width: 85px;
@@ -725,8 +720,8 @@ a:not([href]):not([tabindex]):hover {
 a,
 label,
 p {
-  font-family: 'Trebuchet MS', 'ChivoBlack', Arial, Helvetica, sans-serif;
-  font-size  : 12pt;
+  font-family: 'Habibi', 'ChivoBlack', Arial, Helvetica, sans-serif;
+  font-size  : 18px;
 }
 
 a {
@@ -754,10 +749,11 @@ a:hover {
 }
 
 .nav-link {
-  padding-left: 0;
-  display     : block !important;
-  color       : #23527c;
-  outline     : none !important;
+  text-decoration: none;
+  padding-left   : 0;
+  display        : block !important;
+  color          : #23527c;
+  outline        : none !important;
 }
 
 button.nav-link {
@@ -772,8 +768,8 @@ button.nav-link:hover {
 }
 
 .nav-item {
-  color          : #23527c;
-  text-decoration: underline;
+  color          : rgb(69, 201, 255);
+  text-decoration: none;
   padding-right  : 0;
   margin-right   : 0;
 }
@@ -865,7 +861,7 @@ div.fof {
     left          : 0;
     right         : 0;
     overflow      : auto;
-    margin-top    : 91px;
+    margin-top    : 70px;
     margin-right  : inherit;
     display       : flex;
     flex-direction: column;
@@ -897,12 +893,11 @@ div.fof {
 
 .nav-list {
   position        : fixed;
-  top             : 91px;
   right           : 0;
   width           : 220px;
   height          : 100%;
   z-index         : 90000;
-  background-color: rgb(192, 192, 192);
+  background-color: #505050;
 }
 
 .navImage {
@@ -960,7 +955,7 @@ div.fof {
     display               : flex;
     flex-direction        : row;
     align-items           : center;
-    font-family           : 'Trebuchet MS', 'ChivoBlack', Arial, Helvetica, sans-serif;
+    font-family           : 'Habibi', 'ChivoBlack', Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size             : 16px;
     font-weight           : 400;
@@ -973,12 +968,13 @@ div.fof {
   }
 
   .nav-list {
-    position   : fixed;
-    top        : 0;
-    right      : 0;
-    width      : 220px;
-    margin     : auto;
-    padding-top: 1px;
+    position        : fixed;
+    top             : 0;
+    right           : 0;
+    width           : 220px;
+    margin          : auto;
+    padding-top     : 1px;
+    background-color: #505050;
   }
 
   span {
@@ -1147,10 +1143,6 @@ button.on {
   .flex-header {
     margin-top: -20px;
     width     : 100% !important;
-  }
-
-  img#elcaLogo {
-    width: 290px !important;
   }
 
   .subTitle {
