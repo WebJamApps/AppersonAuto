@@ -13,8 +13,12 @@ body {
   text-align : left;
 }
 
+a,
 p {
-  margin-top: 0;
+  font-family: 'Habibi';
+  font-size  : 18px;
+  padding-top: 4px;
+  margin-top : 0;
 }
 
 div.checkboxes-div {
@@ -199,10 +203,6 @@ h6 {
   font-weight  : 'bold';
   color        : 'black';
   font-style   : 'italic';
-}
-
-a {
-  font-family: 'habibi';
 }
 /* Slideshow container */
 #familySlideshow,
@@ -529,12 +529,12 @@ a {
 #mobilemenutoggle {
   cursor          : pointer;
   position        : fixed;
-  right           : 16px;
-  top             : 32px;
+  right           : 3px;
+  top             : 16px;
   z-index         : 95;
-  color           : #f4c00eff;
-  background-color: #244a8bff;
-  padding         : 6px;
+  color           : rgb(69, 201, 255);
+  background-color: #881204;
+  padding         : 4px 6px;
 }
 
 #mobilemenutoggle img {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ReactResizeDetector from 'react-resize-detector';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { connect } from 'react-redux';
 import authUtils from './authUtils';
 import mapStoreToProps from '../redux/mapStoreToProps';
@@ -22,44 +21,18 @@ export class AppTemplate extends Component {
     this.handleKeyMenu = this.handleKeyMenu.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     this.navLinks = this.navLinks.bind(this);
-    this.responseGoogleLogin = this.responseGoogleLogin.bind(this);
-    this.responseGoogleLogout = this.responseGoogleLogout.bind(this);
-    this.googleButtons = this.googleButtons.bind(this);
     this.authUtils = authUtils;
     this.parentRef = React.createRef();
     this.onResize = this.onResize.bind(this);
   }
 
-  // componentDidMount(){
-  //   this.setState
-  // }
-
   onResize(width) { this.setState({ width }); }
-
-  get currentStyles() {
-    let result = {};
-    this.style = 'wj';
-    result = {
-      headerImagePath: '../static/imgs/webjamicon7.png',
-      headerText1: 'Web Jam LLC',
-      headerClass: 'home-header',
-      headerImageClass: 'home-header-image',
-      sidebarClass: 'home-sidebar',
-      menuToggleClass: 'home-menu-toggle',
-    };
-    result.sidebarImagePath = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Lutherrose.svg/800px-Lutherrose.svg.png';
-    return result;
-  }
 
   toggleMobileMenu() {
     const { menuOpen } = this.state;
     const mO = !menuOpen;
     this.setState({ menuOpen: mO });
   }
-
-  responseGoogleLogin(response) { return this.authUtils.responseGoogleLogin(response, this); }
-
-  responseGoogleLogout(response) { const { dispatch } = this.props; return this.authUtils.responseGoogleLogout(response, dispatch); }
 
   close(e) {
     this.setState({ menuOpen: false });
@@ -75,28 +48,6 @@ export class AppTemplate extends Component {
   handleKeyMenu(e) {
     if (e.key === 'Enter') return this.toggleMobileMenu();
     return null;
-  }
-
-  googleButtons(type, index) {
-    const cId = process.env.GoogleClientId;
-    if (type === 'login') {
-      return (
-        <div key={index} className="menu-item googleLogin">
-          <GoogleLogin
-            responseType="code"
-            clientId={cId}
-            buttonText="Login"
-            onSuccess={this.responseGoogleLogin}
-            onFailure={this.authUtils.responseGoogleFailLogin}
-            cookiePolicy="single_host_origin"
-          />
-        </div>
-      );
-    } return (
-      <div key={index} className="menu-item googleLogout">
-        <GoogleLogout clientId={cId} buttonText="Logout" onLogoutSuccess={this.responseGoogleLogout} cookiePolicy="single_host_origin" />
-      </div>
-    );
   }
 
   makeMenuLink(menu, index) {
@@ -115,26 +66,13 @@ export class AppTemplate extends Component {
     return (
       <div className="nav-list">
         <p style={{ fontSize: '1px', marginBottom: '2px' }} />
-        <div className="menu-item" style={{ backgroundColor: '#244a8bff' }}>
+        <div className="menu-item" style={{ backgroundColor: 'black' }}>
           <p style={{ color: '#fff', marginBottom: '2px' }}>
-            <a href="http://bit.ly/CollegeLutheranDirections" className="menu-hover" style={{ color: '#88c1ff' }}>
-              <span>210 S. College Ave</span>
+            <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff' }}>
+              <span>1601 Apperson Drive</span>
             </a>
             <br />
             Salem, VA 24153
-          </p>
-        </div>
-        <div className="menu-item" style={{ backgroundColor: '#244a8bff' }}>
-          <p style={{ color: '#fff', marginBottom: '2px' }}>
-            <span>ph: </span>
-            <a href="tel:5403894963" className="menu-hover" style={{ color: '#88c1ff' }}>(540) 389-4963</a>
-            <br />
-            <span>fax: </span>
-            <a href="tel:5403894980" className="menu-hover" style={{ color: '#88c1ff' }}>(540) 389-4980</a>
-            <br />
-            <a style={{ color: '#88c1ff', wordWrap: 'break-word' }} href="mailto:office1@collegelutheran.org">
-              <span className="menu-hover">office1@collegelutheran.org</span>
-            </a>
           </p>
         </div>
         {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
@@ -142,9 +80,9 @@ export class AppTemplate extends Component {
     );
   }
 
-  headerSection(logoWidth, marginTop) {
+  headerSection(logoWidth, marginTop) { // eslint-disable-line class-methods-use-this
     return (
-      <div id="header" className={`material-header ${this.currentStyles.headerClass}`}>
+      <div id="header" className="material-header">
         <div className="headercontent" />
         <div>
           <div style={{ marginLeft: '5px', marginTop }}>
@@ -164,9 +102,8 @@ export class AppTemplate extends Component {
   render() {
     let logoWidth = '742px', marginTop = '-15px';
     const { menuOpen, width } = this.state;
-    console.log(width);
     if (width < 970) { logoWidth = '272px'; marginTop = '1px'; }
-    const style = `${this.currentStyles.sidebarClass} ${menuOpen ? 'open' : 'close'}`;
+    const style = `${menuOpen ? 'open' : 'close'}`;
     return (
       <div className="page-host">
         <div tabIndex={0} role="button" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
@@ -176,7 +113,7 @@ export class AppTemplate extends Component {
                 <h4
                   className="material-header-h4-call"
                   style={{
-                    textAlign: 'center', marginRight: '280px', paddingTop: '4px', paddingBottom: 0, width: '200px',
+                    textAlign: 'center', marginRight: '280px', paddingBottom: 0, width: '200px',
                   }}
                 >
                   Call
@@ -190,7 +127,7 @@ export class AppTemplate extends Component {
         </div>
         <div className="main-panel">
           <span onClick={this.toggleMobileMenu} onKeyPress={this.handleKeyMenu} id="mobilemenutoggle" tabIndex={0} role="button">
-            <i className="fas fa-bars" />
+            <i className="fas fa-bars fa-2x" />
           </span>
           <div className="mainPanel">
             <div className="swipe-area" />
@@ -206,18 +143,9 @@ export class AppTemplate extends Component {
     );
   }
 }
-/* istanbul ignore next */
-AppTemplate.defaultProps = {
-  dispatch: () => {}, auth: { isAuthenticated: false, user: { userType: '' } },
-};
 
 AppTemplate.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
-  auth: PropTypes.shape({
-    isAuthenticated: PropTypes.bool,
-    user: PropTypes.shape({ userType: PropTypes.string }),
-  }),
-  dispatch: PropTypes.func,
   children: PropTypes.element.isRequired,
 };
 export default withRouter(connect(mapStoreToProps, null)(AppTemplate));
