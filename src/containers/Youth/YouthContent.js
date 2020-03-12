@@ -21,7 +21,7 @@ const YouthContent = ({ youthPics }) => (
           </span>
         </p>
         <p>
-          Youth ministry (6th- 12th grades) at College Lutheran church focuses on God’s mysteries and serving Christ. We are deeply committed to
+          Youth ministry (6th- 12th grades) at Apperson Automotive focuses on God’s mysteries and serving Christ. We are deeply committed to
           helping students explore and live out their faith. Weekly Sunday school, worship, and youth group, as
           well as annual Virginia Synod youth events challenge our students to think deeply about their religious
           beliefs and build on the foundations of the Christian faith. These gatherings provide dynamic contexts for students to examine how
@@ -51,16 +51,6 @@ const YouthContent = ({ youthPics }) => (
         <section style={{ textAlign: 'left', marginTop: '0' }} />
       </div>
       {ReactHtmlParser(youthPics.comments)}
-      <div className="youthELCA">
-        <a href="http://www.elca.org/" target="_blank" rel="noopener noreferrer">
-          <img
-            id="elcaLogo"
-            alt="ELCA LOGO"
-            src="https://dl.dropboxusercontent.com/s/wkzubcmmm3pqst4/elca-logo.png?dl=0"
-            style={{ width: '350px', paddingTop: '30px', margin: 'auto' }}
-          />
-        </a>
-      </div>
       <p>&nbsp;</p>
     </div>
   </div>

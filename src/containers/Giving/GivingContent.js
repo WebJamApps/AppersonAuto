@@ -1,7 +1,4 @@
 import React from 'react';
-import ELCALogo from '../../components/elcaLogo';
-
-const pageName = 'giving';
 
 const GivingContent = () => (
 
@@ -11,7 +8,7 @@ const GivingContent = () => (
       <div className="material-content elevation3" style={{ maxWidth: '998px', paddingBottom: '-80px', margin: 'auto' }}>
         <h3 style={{ paddingTop: '22px', paddingBottom: '15px', fontWeight: '100' }}>Giving</h3>
         <p>
-          College Lutheran Church now accepts online gifts through GivePlus and Vanco Payment Services.
+          Apperson Automotive now accepts online gifts through GivePlus and Vanco Payment Services.
           Giving with your credit card is easy. Just complete the form below to support the ministries of CLC with your offering!
         </p>
       </div>
@@ -31,7 +28,6 @@ const GivingContent = () => (
       <p>&nbsp;</p>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <ELCALogo pageName={pageName} />
       <p>&nbsp;</p>
     </div>
   </div>

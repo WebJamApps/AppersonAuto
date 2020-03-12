@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactResizeDetector from 'react-resize-detector';
 import WideAbout from './Widescreen/WideAbout';
-import WideFacebookFeed from './Widescreen/WideFacebookFeed';
-import NarrowFacebookFeed from './Narrowscreen/NarrowFacebookFeed';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 
@@ -21,21 +19,10 @@ export class Homepage extends Component {
 
   onResize(width) { this.setState({ width }); }
 
-  elca() { // eslint-disable-line class-methods-use-this
+  coupon() { // eslint-disable-line class-methods-use-this
     return (
-      <div style={{
-        textAlign: 'center', margin: 'auto', paddingTop: 0, paddingBottom: 0,
-      }}
-      >
-        <a href="http://www.elca.org/" target="_blank" rel="noopener noreferrer">
-          <img
-            id="elcaLogo"
-            alt="ELCA LOGO"
-            src="https://dl.dropboxusercontent.com/s/wkzubcmmm3pqst4/elca-logo.png?dl=0"
-            style={{ width: '340px', margin: 'auto auto auto -2px', paddingTop: '30px' }}
-          />
-        </a>
-        <p>{' '}</p>
+      <div style={{ width: '295px', margin: 'auto' }}>
+        <img alt="graphic coupon" src="../static/imgs/banner5.png" />
       </div>
     );
   }
@@ -50,7 +37,6 @@ export class Homepage extends Component {
             <div className="page-content">
               <WideAbout homeContent={homeContent} width={width} />
               <hr />
-              <WideFacebookFeed width={width} />
               <p style={{ fontSize: '6pt', marginBottom: '0' }}>&nbsp;</p>
             </div>
           )
@@ -59,11 +45,10 @@ export class Homepage extends Component {
               <WideAbout homeContent={homeContent} width={width} />
               <hr />
               <p style={{ fontSize: '6pt', marginBottom: '0' }}>&nbsp;</p>
-              <NarrowFacebookFeed />
               <p style={{ fontSize: '6pt', marginBottom: '0' }}>&nbsp;</p>
             </div>
           )}
-        {this.elca()}
+        {this.coupon()}
         <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
       </div>
     );

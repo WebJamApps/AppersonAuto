@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { AppTemplate } from '../../src/App/AppTemplate';
-import authUtils from '../../src/App/authUtils';
 
 const dFunc = () => {};
 function setup() {
@@ -21,34 +20,6 @@ describe('AppTemplate', () => {
     wrapper.setState({ menuOpen: true });
     expect(wrapper.find('div.open').length).toBe(1);
   });
-  it('handles response from google login', () => new Promise((done) => {
-    authUtils.responseGoogleLogin = jest.fn(() => true);
-    const wrapper2 = shallow(<AppTemplate dispatch={dFunc} location={{ pathname: '/' }}><div /></AppTemplate>);
-    const result = wrapper2.instance().responseGoogleLogin({});
-    expect(result).toBe(true);
-    done();
-  }));
-  it('handles response from google logout', () => new Promise((done) => {
-    authUtils.responseGoogleLogout = jest.fn(() => true);
-    const wrapper2 = shallow(<AppTemplate dispatch={dFunc} location={{ pathname: '/' }}><div /></AppTemplate>);
-    const result = wrapper2.instance().responseGoogleLogout({});
-    expect(result).toBe(true);
-    done();
-  }));
-  it('renders the login button', () => new Promise((done) => {
-    const { wrapper } = setup();
-    const loginButton = wrapper.instance().googleButtons('login', 'login');
-    const rLogin = shallow(loginButton);
-    expect(rLogin.find('div.googleLogin').length).toBe(1);
-    done();
-  }));
-  it('renders the logout button', () => new Promise((done) => {
-    const { wrapper } = setup();
-    const logoutButton = wrapper.instance().googleButtons('logout', 'logout');
-    const rLogout = shallow(logoutButton);
-    expect(rLogout.find('div.googleLogout').length).toBe(1);
-    done();
-  }));
   it('closes the menu without navigating away from the react app', () => new Promise((done) => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });

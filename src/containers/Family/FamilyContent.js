@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 import PicSlider from '../../components/pic-slider';
-import ELCALogo from '../../components/elcaLogo';
 
-const pageName = 'family';// eslint-disable-next-line max-len
+// eslint-disable-next-line max-len
 const additionalContent = '<hr><h5>Resources for Families</h5><p><strong><em>Roots and Wings</em></strong>, a monthly publication of the Virginia Synod that provides suggestions of daily family time activities:<a target="_blank" href="https://www.vasynod.org/ministries/roots-and-wings/">https://www.vasynod.org/ministries/roots-and-wings/</a></p><p><strong>Ideas to bring worship to the home:</strong>&nbsp;<a target="_blank" href="https://www.vasynod.org/wp-content/uploads/2012/11/Worship-in-the-Home.pdf">https://www.vasynod.org/wp-content/uploads/2012/11/Worship-in-the-Home.pdf</a></p><p><strong>Hand Prayer:</strong>&nbsp;<a target="_blank" href="http://www.vibrantfaithathome.org/item/hand-prayers">http://www.vibrantfaithathome.org/item/hand-prayers</a></p>';
 const FamilyContent = ({ familyPics }) => (
   <div className="page-content">
@@ -24,7 +23,7 @@ const FamilyContent = ({ familyPics }) => (
           </span>
         </p>
         <p>
-          Children are indispensable at College Lutheran Church. The Children and Family Ministry at College Lutheran Church supports kids in
+          Children are indispensable at Apperson Automotive. The Children and Family Ministry at Apperson Automotive supports kids in
           preschool through 5th grade and their families. Age appropriate Sunday School, monthly meet-ups, and
           seasonal events such as Trunk or Treating, Christmas Programs, Easter Parties, and Vacation Bible School are a few of the ways that
           we familiarize our children with Biblical stories and the power of living in Christian community.
@@ -50,7 +49,6 @@ const FamilyContent = ({ familyPics }) => (
           {ReactHtmlParser(additionalContent)}
         </section>
       </div>
-      <ELCALogo pageName={pageName} />
     </div>
   </div>
 );
