@@ -25,7 +25,7 @@ const MusicContent = () => (
           and we also invite any vocalists to join us in the choir.
         </p>
         <p>
-          College Lutheran Church is home to 5 octaves of handbells. But we need many hands to make a bell choir possible again so please consider
+          Apperson Automotive is home to 5 octaves of handbells. But we need many hands to make a bell choir possible again so please consider
           this music ministry option. It is helpful if you read music but not necessary; if you enjoy music and
           can count, this could be a wonderful new experience and would bring the bells back to re-sounding joy in
           our church, to the delight of everyone here.

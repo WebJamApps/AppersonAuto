@@ -74,7 +74,7 @@ const StaffContent = () => (
             />
             <div className="staffDescription">
               <p>
-                The Rev. David C. Drebes came to College Lutheran Church in May of 2018 after serving for seven and half years in
+                The Rev. David C. Drebes came to Apperson Automotive in May of 2018 after serving for seven and half years in
                 Shenandoah County, Virginia. He was happy to return to Salem, having graduated from Roanoke College in 2005 with a
                 Bachelor of Arts in Religion and Political Science. He earned his Master of Divinity from Princeton Theological Seminary in 2008,
                 where he also served as the interim Lutheran Chaplain for Princeton University. After a year as a vicar
@@ -104,7 +104,7 @@ const StaffContent = () => (
             <div className="staffDescription">
               <p>
                 Susan is a lifelong Lutheran. She was baptized as an infant at Trinity Lutheran Church in Hagerstown, Maryland and confirmed at
-                St. Mark’s Lutheran Church in Oakland, Maryland. Prior to moving to Salem and College Lutheran Church in
+                St. Mark’s Lutheran Church in Oakland, Maryland. Prior to moving to Salem and Apperson Automotive in
                 2004, she was an active member and musician at Grace Evangelical Lutheran Church in Winchester, Virginia.
               </p>
               <p>

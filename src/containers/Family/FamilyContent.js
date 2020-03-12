@@ -23,7 +23,7 @@ const FamilyContent = ({ familyPics }) => (
           </span>
         </p>
         <p>
-          Children are indispensable at College Lutheran Church. The Children and Family Ministry at College Lutheran Church supports kids in
+          Children are indispensable at Apperson Automotive. The Children and Family Ministry at Apperson Automotive supports kids in
           preschool through 5th grade and their families. Age appropriate Sunday School, monthly meet-ups, and
           seasonal events such as Trunk or Treating, Christmas Programs, Easter Parties, and Vacation Bible School are a few of the ways that
           we familiarize our children with Biblical stories and the power of living in Christian community.
