@@ -68,11 +68,11 @@ h3.au-target.header-text.ohaf-header {
 }
 
 h4 {
-  font-size: 18pt;
+  font-size: 16pt;
 }
 
 h5 {
-  font-size: 16pt;
+  font-size: 14pt;
   margin-bottom: 20px;
   margin-top: 0;
 }
@@ -87,8 +87,8 @@ h6 {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: .5rem;
-  font-family: 'PT Sans Caption';
+  margin-bottom: 0;
+  font-family: 'habibi';
 }
 
 /* Forms Generic */
@@ -193,12 +193,6 @@ tbody.regformtbody td {
   background-color: #c0c0c0;
 }
 
-.home-header {
-  background-color: #2a222a;
-  /* margin: 0; */
-  height: 91px;
-}
-
 .home-header-image {
   width: 85px;
 }
@@ -221,7 +215,7 @@ tbody.regformtbody td {
   font-weight: bold;
   font-size: 16px;
   color: #999999;
-  font-family: 'Trebuchet MS', 'ChivoBlack', Arial, Helvetica, sans-serif;
+  font-family: 'Habibi', 'ChivoBlack', Arial, Helvetica, sans-serif;
 }
 
 /* splash is in the index.ejs file, used for the initial page load animation */
@@ -259,9 +253,16 @@ a:not([href]):not([tabindex]):hover {
   color: #0056b3;
 }
 
-p, a, label {
-  font-family: 'Trebuchet MS', 'ChivoBlack', Arial, Helvetica, sans-serif;
-  font-size: 12pt;
+a, label, p {
+  font-family: 'Habibi', 'ChivoBlack', Arial, Helvetica, sans-serif;
+  font-size  : 18px;
+}
+
+a, p {
+  font-family: 'Habibi';
+  font-size  : 18px;
+  padding-top: 4px;
+  margin-top : 0;
 }
 
 a {

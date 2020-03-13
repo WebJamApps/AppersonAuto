@@ -27,7 +27,7 @@
     left: 0;
     right: 0;
     overflow: auto;
-    margin-top: 91px;
+    margin-top: 70px;
     margin-right: inherit;
     display: flex;
     flex-direction: column;
@@ -68,10 +68,6 @@
   .flex-header {
     margin-top: -20px;
     width: 100% !important;
-  }
-
-  img#elcaLogo {
-    width: 290px !important;
   }
 
   .subTitle {
@@ -125,7 +121,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-family: 'Trebuchet MS', 'ChivoBlack', Arial, Helvetica, sans-serif;
+    font-family: 'Habibi', 'ChivoBlack', Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
     font-weight: 400;
@@ -143,6 +139,7 @@
     right: 0;
     margin: auto;
     padding-top: 1px;
+    background-color: #505050;
   }
 
   span {
@@ -215,11 +212,11 @@
 
 .nav-list {
   position: fixed;
-  top: 91px;
+  top: 88px;
   right: 0;
   height: 100%;
   z-index: 90000;
-  background-color: rgb(192, 192, 192);
+  background-color: #505050;
 }
 
 .navImage {

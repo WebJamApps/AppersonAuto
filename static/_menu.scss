@@ -1,4 +1,5 @@
 .nav-link {
+  text-decoration: none;
   padding-left: 0;
   display: block !important;
   color: #23527c;
@@ -20,8 +21,8 @@ button.nav-link:hover {
 }
 
 .nav-item {
-  color: #23527c;
-  text-decoration: underline;
+  color: rgb(69, 201, 255);
+  text-decoration: none;
   padding-right: 0;
   margin-right: 0;
 }
@@ -35,7 +36,7 @@ button.nav-link:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: 'Trebuchet MS', 'ChivoBlack', Arial, Helvetica, sans-serif;
+  font-family: 'Habibi', 'ChivoBlack', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-weight: 400;
@@ -55,12 +56,12 @@ button.nav-link:hover {
 #mobilemenutoggle {
   cursor: pointer;
   position: fixed;
-  right: 16px;
-  top: 32px;
+  right: 3px;
+  top: 16px;
   z-index: 95;
-  color: #f4c00eff;
-  background-color: #244a8bff;
-  padding: 0px 6px 2px 6px;
+  color: rgb(69, 201, 255);
+  background-color: #881204;
+  padding: 4px 6px;
 }
 
 #mobilemenutoggle img {
