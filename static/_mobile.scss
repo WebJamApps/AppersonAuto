@@ -47,6 +47,15 @@
     height: 610px;
     border: 1px solid #d3d3d3;
   }
+
+  .nav-list {
+    position        : fixed;
+    right           : 0;
+    width           : 220px;
+    height          : 100%;
+    z-index         : 90000;
+    background-color: #505050;
+  }
 }
 
 @media (max-width: 330px) {
@@ -134,11 +143,12 @@
   }
 
   .nav-list {
-    position: fixed;
-    top: 0 !important;
-    right: 0;
-    margin: auto;
-    padding-top: 1px;
+    position        : fixed;
+    top             : 0;
+    right           : 0;
+    width           : 220px;
+    margin          : auto;
+    padding-top     : 1px;
     background-color: #505050;
   }
 
@@ -208,15 +218,6 @@
   float: right;
   z-index: 100;
   width: 220px;
-}
-
-.nav-list {
-  position: fixed;
-  top: 88px;
-  right: 0;
-  height: 100%;
-  z-index: 90000;
-  background-color: #505050;
 }
 
 .navImage {
