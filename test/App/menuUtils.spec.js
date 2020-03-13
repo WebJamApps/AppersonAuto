@@ -11,11 +11,6 @@ describe('menuUtils', () => {
       dispatch: () => Promise.resolve(true),
     },
   };
-  // it('handles menuItem for Developer', () => {
-  //   r = menuUtils.menuItem({ link: '/staff', type: 'link', auth: true },
-  //     1, viewStub);
-  //   expect(r).toBe(null);
-  // });
   it('handles menuItem for login', () => {
     r = menuUtils.continueMenuItem({ link: '', type: 'googleLogin', auth: true },
       1, { pathname: '/staff' }, { isAuthenticated: false }, viewStub);
@@ -26,18 +21,4 @@ describe('menuUtils', () => {
       1, { pathname: '/staff' }, { isAuthenticated: true }, viewStub);
     expect(r).toBe(true);
   });
-  // it('hides staff menu item when on staff page', () => {
-  //   viewStub.props.location.pathname = '/staff';
-  //   r = menuUtils.menuItem({ link: '/staff', type: '', auth: true },
-  //     1, viewStub);
-  //   expect(r).toBe(null);
-  // });
-  // it('Prevents access to Admin Dashboard when auth user userType is incorrect', () => {
-  //   viewStub.props.auth = { isAuthenticated: true, user: { userType: 'booya' } };
-  //   r = menuUtils.menuItem({
-  //     name: 'Admin Dashboard', link: '/admin', type: '', auth: true,
-  //   },
-  //   1, viewStub);
-  //   expect(r).toBe(null);
-  // });
 });
