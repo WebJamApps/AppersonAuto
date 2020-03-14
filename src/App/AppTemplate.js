@@ -84,7 +84,7 @@ export class AppTemplate extends Component {
         </a>
         <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
           <p style={{ color: '#fff', marginBottom: '2px' }}>
-            <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff' }}>
+            <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff', textDecoration: 'none' }}>
               <span>1601 Apperson Drive</span>
             </a>
             <br />
@@ -102,7 +102,7 @@ export class AppTemplate extends Component {
       <div className="nav-list">
         <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
           <p style={{ color: '#fff', marginBottom: '2px' }}>
-            <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff' }}>
+            <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff', textDecoration: 'none' }}>
               <span>1601 Apperson Drive</span>
             </a>
             <br />
