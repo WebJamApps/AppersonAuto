@@ -62,6 +62,20 @@ export class AppTemplate extends Component {
     );
   }
 
+  addressBlock() { // eslint-disable-line class-methods-use-this
+    return (
+      <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
+        <p style={{ color: '#fff', marginBottom: '2px' }}>
+          <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff', textDecoration: 'none' }}>
+            <span>1601 Apperson Drive</span>
+          </a>
+          <br />
+          Salem, VA 24153
+        </p>
+      </div>
+    );
+  }
+
   mobileMenu() {
     return (
       <div className="nav-list">
@@ -82,15 +96,7 @@ export class AppTemplate extends Component {
             540-444-7337
           </h4>
         </a>
-        <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
-          <p style={{ color: '#fff', marginBottom: '2px' }}>
-            <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff' }}>
-              <span>1601 Apperson Drive</span>
-            </a>
-            <br />
-            Salem, VA 24153
-          </p>
-        </div>
+        {this.addressBlock()}
         {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
       </div>
     );
@@ -100,15 +106,7 @@ export class AppTemplate extends Component {
     if (width < 900) return this.mobileMenu();
     return (
       <div className="nav-list">
-        <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
-          <p style={{ color: '#fff', marginBottom: '2px' }}>
-            <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff' }}>
-              <span>1601 Apperson Drive</span>
-            </a>
-            <br />
-            Salem, VA 24153
-          </p>
-        </div>
+        {this.addressBlock()}
         {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
       </div>
     );
