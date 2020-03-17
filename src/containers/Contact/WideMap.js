@@ -2,7 +2,7 @@ import React from 'react';
 
 const WideMap = () => (
   <>
-    <div className="material-content" elevation="0">
+    <div>
       <h4 style={{
         margin: 'auto', paddingTop: '30px', fontWeight: 'bold', fontSize: '16pt',
       }}
