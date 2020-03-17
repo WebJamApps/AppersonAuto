@@ -41,7 +41,7 @@ const NarrowMap = () => (
         </p>
 
         <p>
-          <strong>We accept:</strong>
+          <span style={{ fontWeight: 'bold' }}>We accept:</span>
           <br />
           Cash and Personal Checks
           <br />
