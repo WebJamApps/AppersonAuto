@@ -1,28 +1,21 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
-// import { Youth } from '../../src/containers/Youth/index';
-// import DefaultYouthContent from '../../src/containers/Youth/YouthContent';
-// import PicSlider from '../../src/components/pic-slider';
+import React from 'react';
+import { shallow } from 'enzyme';
+import Contact from '../../src/containers/Contact/index';
+import DefaultWideMap from '../../src/containers/Contact/WideMap';
+import DefaultNarrowMap from '../../src/containers/Contact/NarrowMap';
 
-// function setup(data) {
-//   let wrapper;
-//   if (data !== null && data !== undefined) {
-//     wrapper = shallow(<Youth youthPics={data} />);
-//   } else wrapper = shallow(<Youth />);
-//   return { wrapper };
-// }
+const wrapper = shallow(<Contact />);
 
 describe('Contact', () => {
-  it('Renders the Contact', () => {
-    expect(true).toBe(true);
-    // const { wrapper } = setup();
-    // expect(wrapper.find(DefaultYouthContent).exists()).toBe(true);
-    // expect(wrapper.find(DefaultYouthContent).dive().find('div.page-content').exists()).toBe(true);
+  it('Renders the Contact page', () => {
+    wrapper.instance().setState({ width: 1009 });
+    wrapper.instance().forceUpdate();
+    expect(wrapper.find(DefaultWideMap).exists()).toBe(true);
+    expect(wrapper.find(DefaultWideMap).dive().find('div.wideMap').exists()).toBe(true);
   });
-  // it('renders with images', () => new Promise((done) => {
-  //   const data = [{}];
-  //   const wrapper2 = shallow(<DefaultYouthContent youthPics={data} />);
-  //   expect(wrapper2.find(PicSlider).exists()).toBe(true);
-  //   done();
-  // }));
+  it('Renders NarrowMap when less than 1004', () => {
+    const wrapper2 = shallow(<Contact width={100} />);
+    expect(wrapper2.find(DefaultNarrowMap).exists()).toBe(true);
+    expect(wrapper2.find(DefaultNarrowMap).dive().find('div.material-content').exists()).toBe(true);
+  });
 });
