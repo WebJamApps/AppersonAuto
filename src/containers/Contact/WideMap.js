@@ -2,7 +2,7 @@ import React from 'react';
 
 const WideMap = () => (
   <>
-    <div>
+    <div className="wideMap">
       <h4 style={{
         margin: 'auto', paddingTop: '30px', fontWeight: 'bold', fontSize: '16pt',
       }}
