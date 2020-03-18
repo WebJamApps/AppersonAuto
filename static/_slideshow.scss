@@ -1,25 +1,34 @@
 /* Slideshow container */
-#youthSlideshow, #youthSlideshow1, #familySlideshow, #familySlideshow1, #slideshowMusic, #slideshow1, #slideshow, #musicSlide2, #lSlide1, #lSlide2 {
+#familySlideshow,
+#familySlideshow1,
+#lSlide1,
+#lSlide2,
+#musicSlide2,
+#slideshow,
+#slideshow1,
+#slideshowMusic,
+#youthSlideshow,
+#youthSlideshow1 {
   max-width: 600px;
-  position: relative;
-  margin: auto;
+  position : relative;
+  margin   : auto;
 }
 
 .music-slideshow {
-  width: 100% !important;
-  height: 0 !important;
+  width         : 100% !important;
+  height        : 0 !important;
   padding-bottom: 38%;
 }
 
 .home-slideshow {
-  width: 100% !important;
-  height: 0 !important;
+  width         : 100% !important;
+  height        : 0 !important;
   padding-bottom: 50%;
-  margin-top: -15px;
+  margin-top    : -15px;
 }
 
 .slideshowimage {
-  width: 100%;
+  width : 100%;
   height: 0;
 }
 
@@ -28,7 +37,7 @@
 }
 
 .sidebar-image {
-  width: 180px;
+  width : 180px;
   border: 0;
 }
 
@@ -36,38 +45,50 @@ div.slider-caption {
   display: none;
 }
 
-
 #musicSlide1 {
   max-width: 998px !important;
-  margin: auto !important;
+  margin   : auto !important;
 }
 
-#familySlideshowWide, #youthSlideshowWide {
+#familySlideshowWide,
+#youthSlideshowWide {
   max-width: 600px;
-  margin: auto;
+  margin   : auto;
 }
 
-#slideshow1 img, #musicSlide1 img {
+#musicSlide1 img,
+#slideshow1 img {
   width: 100%;
 }
 
-#familySlideshow img, #familySlideshow1 img, #youthSlideshow img, #youthSlideshow1 img, #slideshowMusic img, #slideshow img, #musicSlide2 img, #lSlide1 img, #lSlide2 img {
+#familySlideshow img,
+#familySlideshow1 img,
+#lSlide1 img,
+#lSlide2 img,
+#musicSlide2 img,
+#slideshow img,
+#slideshowMusic img,
+#youthSlideshow img,
+#youthSlideshow1 img {
   /* width: 100%; */
-  margin: auto;
+  margin    : auto;
   max-height: 5in;
-  cursor: pointer;
+  cursor    : pointer;
   /* max-height: 5in; */
 }
 
-#familySlideshowWide img, #familySlideshow1 img, #youthSlideshowWide img, #youthSlideshowWide1 img {
-  margin: auto;
-  max-height: 5in;
-  padding-top: 1px
+#familySlideshow1 img,
+#familySlideshowWide img,
+#youthSlideshowWide img,
+#youthSlideshowWide1 img {
+  margin     : auto;
+  max-height : 5in;
+  padding-top: 1px;
 }
 
 .slide-show {
-  height: 400px;
-  width: 100%;
+  // height: 400px;
+  width     : 100%;
   object-fit: contain;
-  background-color: rgb(192, 192, 192);
+  // background-color: rgb(192, 192, 192);
 }
