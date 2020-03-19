@@ -5,6 +5,7 @@ import ReactResizeDetector from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
+import slidesArr from '../../lib/slides';
 
 export class Homepage extends Component {
   constructor(props) {
@@ -12,17 +13,7 @@ export class Homepage extends Component {
     this.commonUtils = commonUtils;
     this.parentRef = React.createRef();
     this.onResize = this.onResize.bind(this);
-    this.state = { width: 320 };
-    this.slides = [{ _id: '1', url: '../../static/imgs/photo1.png' },
-      { _id: '2', url: '../../static/imgs/photo2.png' },
-      { _id: '3', url: '../../static/imgs/photo3.png' },
-      { _id: '4', url: '../../static/imgs/photo4.png' },
-      { _id: '5', url: '../../static/imgs/photo5.png' },
-      { _id: '6', url: '../../static/imgs/photo6.png' },
-      { _id: '7', url: '../../static/imgs/photo7.png' },
-      { _id: '8', url: '../../static/imgs/photo8.png' },
-      { _id: '9', url: '../../static/imgs/photo9.png' },
-    ];
+    this.state = { width: 322 };
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll(''); }
@@ -70,6 +61,36 @@ export class Homepage extends Component {
     );
   }
 
+  mechanics() { // eslint-disable-line class-methods-use-this
+    return (
+      <div>
+        <p>
+          Are you looking for well qualified mechanics? Look no further!
+          <br />
+          We have more than
+          {' '}
+          <strong>150 years of combined experience</strong>
+          !
+        </p>
+        <p>
+          Take advantage of our
+          <br />
+          <strong>FREE high mileage / vacation vehicle check over</strong>
+          .
+        </p>
+        <p>
+          <br />
+          Receive
+          {' '}
+          <strong>5% OFF mechanical repairs</strong>
+          <br />
+          when you present the coupon from this site.
+        </p>
+        <p>Shuttle service is available to you.</p>
+      </div>
+    );
+  }
+
   homeText(marginLeft) { // eslint-disable-line class-methods-use-this
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
@@ -77,31 +98,7 @@ export class Homepage extends Component {
           Your one stop auto shop where honesty, quality work, and fair pricing are guaranteed
         </h4>
         <p>{' '}</p>
-        <div>
-          <p>
-            Are you looking for well qualified mechanics? Look no further!
-            <br />
-            We have more than
-            {' '}
-            <strong>150 years of combined experience</strong>
-            !
-          </p>
-          <p>
-            Take advantage of our
-            <br />
-            <strong>FREE high mileage / vacation vehicle check over</strong>
-            .
-          </p>
-          <p>
-            <br />
-            Receive
-            {' '}
-            <strong>5% OFF mechanical repairs</strong>
-            <br />
-            when you present the coupon from this site.
-          </p>
-          <p>Shuttle service is available to you.</p>
-        </div>
+        {this.mechanics()}
         <h4 style={{ marginTop: '40px' }}>Apperson Automotive - Salem, VA Auto Repair Service</h4>
         <p><strong>Quality service for your vehicle (not limited to):</strong></p>
         <ul>
@@ -116,35 +113,18 @@ export class Homepage extends Component {
     );
   }
 
-  render() {
-    const { width } = this.state;
-    const marginLeft = width < 900 ? '5px' : '15px';
+  mainPanel(marginLeft, width) {
     return (
-      <div className="container-fluid">
-        {width < 900
-          ? (
-            <div className="col" style={{ padding: '1px', paddingRight: '0' }}>
-              <div id="familySlideshowWide" style={{ display: 'flex', flexDirection: 'column' }}><PicSlider data={this.slides} /></div>
-            </div>
-          )
-          : null}
-        <div className="row">
-          {this.homeText(marginLeft)}
-          {width >= 900
-            ? (
-              <div className="col" style={{ padding: '1px', paddingRight: '0' }}>
-                <div id="familySlideshowWide" style={{ display: 'flex', flexDirection: 'column' }}><PicSlider data={this.slides} /></div>
-                <p style={{ height: '2.5in' }}>{' '}</p>
-                {this.coupon()}
-              </div>
-            )
-            : null}
-        </div>
-        {width < 900 ? this.coupon() : null}
-        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
-
+      <div className="row">
+        {this.homeText(marginLeft)}
+        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
+  }
+
+  render() {
+    const { width } = this.state;
+    return this.commonUtils.renderer(width, slidesArr, this, PicSlider, ReactResizeDetector);
   }
 }
 

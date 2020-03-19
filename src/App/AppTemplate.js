@@ -76,26 +76,32 @@ export class AppTemplate extends Component {
     );
   }
 
+  callText() { // eslint-disable-line class-methods-use-this
+    return (
+      <a
+        style={{
+          display: 'block', color: '#fff', textDecoration: 'none', backgroundColor: '#881204', height: '72px', paddingTop: '4px', marginTop: '-1px',
+        }}
+        href="tel:5404447337"
+      >
+        <h4
+          className="material-header-h4-call"
+          style={{
+            textAlign: 'center', marginRight: '280px', paddingBottom: 0, width: '200px',
+          }}
+        >
+          Call
+          <br />
+          540-444-7337
+        </h4>
+      </a>
+    );
+  }
+
   mobileMenu() {
     return (
       <div className="nav-list">
-        <a
-          style={{
-            display: 'block', color: '#fff', textDecoration: 'none', backgroundColor: '#881204', height: '72px', paddingTop: '4px', marginTop: '-1px',
-          }}
-          href="tel:5404447337"
-        >
-          <h4
-            className="material-header-h4-call"
-            style={{
-              textAlign: 'center', marginRight: '280px', paddingBottom: 0, width: '200px',
-            }}
-          >
-            Call
-            <br />
-            540-444-7337
-          </h4>
-        </a>
+        {this.callText()}
         {this.addressBlock()}
         {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
       </div>
@@ -134,18 +140,7 @@ export class AppTemplate extends Component {
   callUs() { // eslint-disable-line class-methods-use-this
     return (
       <div className="material-header x-scope paper-material-0 drawer" elevation="0" style={{ backgroundColor: '#881204' }}>
-        <a style={{ display: 'block', color: '#fff', textDecoration: 'none' }} href="tel:5404447337">
-          <h4
-            className="material-header-h4-call"
-            style={{
-              textAlign: 'center', marginRight: '280px', paddingBottom: 0, width: '200px',
-            }}
-          >
-            Call
-            <br />
-            540-444-7337
-          </h4>
-        </a>
+        {this.callText()}
       </div>
     );
   }
