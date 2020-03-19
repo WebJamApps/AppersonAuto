@@ -20,7 +20,7 @@ export class Major extends Component {
 
   onResize(width) {
     this.setState({ width });
-    this.commonUtils.setTitleAndScroll('Auto Maintenance', width);
+    this.commonUtils.setTitleAndScroll('Major Auto Repair', width);
   }
 
   coupon() { // eslint-disable-line class-methods-use-this
