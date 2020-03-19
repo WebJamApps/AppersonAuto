@@ -20,7 +20,7 @@ export class Homepage extends Component {
 
   onResize(width) {
     this.setState({ width });
-    this.commonUtils.setTitleAndScroll('Auto Maintenance', width);
+    this.commonUtils.setTitleAndScroll('', width);
   }
 
   getToKnow() { // eslint-disable-line class-methods-use-this
