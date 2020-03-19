@@ -29,39 +29,6 @@ export class AutoMaintenance extends Component {
 
   onResize(width) { this.setState({ width }); }
 
-  // getToKnow() { // eslint-disable-line class-methods-use-this
-  //   return (
-  //     <div>
-  //       <p><strong>Get to Know Apperson Automotive:</strong></p>
-  //       <ul>
-  //         <li>
-  //           <a href="/auto-maintenance" title="Apperson Automotive Auto Maintenance">Auto Maintenance</a>
-  //           {' '}
-  //           – Let us handle your oil change, coolant flushes, alignments, and more
-  //         </li>
-  //         <li>
-  //           <a href="/general-auto-repair" title="Apperson Automotive General Auto Repair">General Auto Repair</a>
-  //           {' '}
-  //           – General repairs for includes (not limited to) brake calipers, window motors, regulators, and starters
-  //         </li>
-  //         <li>
-  //           <a href="/major-auto-repair" title="Apperson Automotive Major Auto Repair">Major Auto Repair</a>
-  //           {' '}
-  //           – We’ll handle your steering rack issues, intake gasket repairs, heat and air system problems, and much more
-  //         </li>
-  //       </ul>
-  //       <p>We’ll repair any make or model vehicle you have.</p>
-  //       <p>
-  //         To schedule your FREE high mileage or vacation vehicle check over, call Apperson Automotive at
-  //         {' '}
-  //         <a href="tel:5404447337" style={{ textDecoration: 'none' }}>540-444-7337</a>
-  //         <br />
-  //         You can also stop by at 1601 Apperson Drive, Salem VA 24153.
-  //       </p>
-  //     </div>
-  //   );
-  // }
-
   coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>

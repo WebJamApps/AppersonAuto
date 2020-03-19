@@ -4,7 +4,7 @@ import 'regenerator-runtime/runtime';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import AutoMaintenance from '../containers/AutoMaintenance';
+import AutoMaint from '../containers/AutoMaintenance';
 import GeneralAutoRepair from '../containers/GeneralAutoRepair';
 import MajorAutoRepair from '../containers/MajorAutoRepair';
 import Contact from '../containers/Contact';
@@ -26,7 +26,7 @@ export class App extends Component {
           <AppTemplateDefault id="homepage">
             <Switch>
               <Route exact path="/" component={DefaultHome} />
-              <Route path="/auto-maintenance" component={AutoMaintenance} />
+              <Route path="/auto-maintenance" component={AutoMaint} />
               <Route path="/general-auto-repair" component={GeneralAutoRepair} />
               <Route path="/major-auto-repair" component={MajorAutoRepair} />
               <Route path="/contact" component={Contact} />
