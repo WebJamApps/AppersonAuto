@@ -16,9 +16,12 @@ export class Homepage extends Component {
     this.state = { width: 322 };
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll(''); }
+  componentDidMount() { this.commonUtils.setTitleAndScroll('', window.screen.width); }
 
-  onResize(width) { this.setState({ width }); }
+  onResize(width) {
+    this.setState({ width });
+    this.commonUtils.setTitleAndScroll('Auto Maintenance', width);
+  }
 
   getToKnow() { // eslint-disable-line class-methods-use-this
     return (

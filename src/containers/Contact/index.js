@@ -13,10 +13,11 @@ export default class Contact extends Component {
     this.commonUtils = commonUtils;
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('', window.screen.width); }
+  componentDidMount() { this.commonUtils.setTitleAndScroll('Contact', window.screen.width); }
 
   onResize(width) {
     this.setState({ width });
+    this.commonUtils.setTitleAndScroll('Contact', width);
   }
 
   render() {
