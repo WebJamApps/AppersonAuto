@@ -5,6 +5,7 @@ import ReactResizeDetector from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
+import slidesArr from '../../lib/slides';
 
 export class General extends Component {
   constructor(props) {
@@ -12,17 +13,7 @@ export class General extends Component {
     this.commonUtils = commonUtils;
     this.parentRef = React.createRef();
     this.onResize = this.onResize.bind(this);
-    this.state = { width: 320 };
-    this.slides = [{ _id: '1', url: '../../static/imgs/photo1.png' },
-      { _id: '2', url: '../../static/imgs/photo2.png' },
-      { _id: '3', url: '../../static/imgs/photo3.png' },
-      { _id: '4', url: '../../static/imgs/photo4.png' },
-      { _id: '5', url: '../../static/imgs/photo5.png' },
-      { _id: '6', url: '../../static/imgs/photo6.png' },
-      { _id: '7', url: '../../static/imgs/photo7.png' },
-      { _id: '8', url: '../../static/imgs/photo8.png' },
-      { _id: '9', url: '../../static/imgs/photo9.png' },
-    ];
+    this.state = { width: 323 };
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('General Auto Repair'); }
@@ -33,6 +24,39 @@ export class General extends Component {
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
         <img alt="graphic coupon" src="../static/imgs/banner5.png" />
+      </div>
+    );
+  }
+
+  love() { // eslint-disable-line class-methods-use-this
+    return (
+      <div>
+        <h4 style={{ marginTop: '30px' }}>Apperson Automotive - Salem, VA Vehicle Care</h4>
+        <p><strong>You’ll love our general auto repair at competitive prices:</strong></p>
+        <ul>
+          <li>Starter repair / replacement</li>
+          <li>Alternator repair / replacement</li>
+          <li>Balancing</li>
+          <li>Regulators service</li>
+          <li>And much more</li>
+        </ul>
+        <p style={{ marginTop: '30px' }}><strong>Receive 12-month 12,000-mile warranty on our services:</strong></p>
+        <ul>
+          <li>Brake calipers</li>
+          <li>Window motors</li>
+          <li>Regulators</li>
+          <li>Door locks</li>
+        </ul>
+        <p>We’ll provide you with our quality shuttle service, taking you to and from work.</p>
+        <p>
+          Quality general auto repair services including 12-month 12,000-mile warranty are available.
+          {' '}
+          To find out more about our services, call Apperson Automotive at
+          {' '}
+          <a style={{ textDecoration: 'none' }} href="tel:5404447337">540-444-7337</a>
+          <br />
+          You can also stop by at 1601 Apperson Drive, Salem VA 24153.
+        </p>
       </div>
     );
   }
@@ -61,77 +85,23 @@ export class General extends Component {
           </p>
         </div>
         <p>{' '}</p>
-        <div>
-          <h4 style={{ marginTop: '30px' }}>Apperson Automotive - Salem, VA Vehicle Care</h4>
-          <p><strong>You’ll love our general auto repair at competitive prices:</strong></p>
-          <ul>
-            <li>Starter repair / replacement</li>
-            <li>Alternator repair / replacement</li>
-            <li>Balancing</li>
-            <li>Regulators service</li>
-            <li>And much more</li>
-          </ul>
-          <p>{' '}</p>
-          <p><strong>Receive 12-month 12,000-mile warranty on our services:</strong></p>
-          <ul>
-            <li>
-              Brake calipers
-            </li>
-            <li>
-              Window motors
-            </li>
-            <li>
-              Regulators
-            </li>
-            <li>
-              Door locks
-            </li>
-          </ul>
-          <p>
-            We’ll provide you with our quality shuttle service, taking you to and from work.
-          </p>
-          <p>
-            Quality general auto repair services. 12-month 12,000-mile warranty is available.
-            <br />
-            To find out more about our services, call Apperson Automotive at
-            {' '}
-            <a style={{ textDecoration: 'none' }} href="tel:5404447337">540-444-7337</a>
-            <br />
-            You can also stop by at 1601 Apperson Drive, Salem VA 24153.
-          </p>
-        </div>
+        {this.love()}
+      </div>
+    );
+  }
+
+  mainPanel(marginLeft, width) {
+    return (
+      <div className="row">
+        {this.pageText(marginLeft)}
+        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
   }
 
   render() {
     const { width } = this.state;
-    const marginLeft = width < 900 ? '5px' : '15px';
-    return (
-      <div className="container-fluid">
-        {width < 900
-          ? (
-            <div className="col" style={{ padding: '1px', paddingRight: '0' }}>
-              <div id="familySlideshowWide" style={{ display: 'flex', flexDirection: 'column' }}><PicSlider data={this.slides} /></div>
-            </div>
-          )
-          : null}
-        <div className="row">
-          {this.pageText(marginLeft)}
-          {width >= 900
-            ? (
-              <div className="col" style={{ padding: '1px', paddingRight: '0' }}>
-                <div id="familySlideshowWide" style={{ display: 'flex', flexDirection: 'column' }}><PicSlider data={this.slides} /></div>
-                <p style={{ height: '2.16in' }}>{' '}</p>
-                {this.coupon()}
-              </div>
-            )
-            : null}
-        </div>
-        {width < 900 ? this.coupon() : null}
-        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
-      </div>
-    );
+    return this.commonUtils.renderer(width, slidesArr, this, PicSlider, ReactResizeDetector);
   }
 }
 
