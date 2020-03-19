@@ -16,9 +16,12 @@ export class Major extends Component {
     this.state = { width: 321 };
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('Major Auto Repair'); }
+  componentDidMount() { this.commonUtils.setTitleAndScroll('Major Auto Repair', window.screen.width); }
 
-  onResize(width) { this.setState({ width }); }
+  onResize(width) {
+    this.setState({ width });
+    this.commonUtils.setTitleAndScroll('Auto Maintenance', width);
+  }
 
   coupon() { // eslint-disable-line class-methods-use-this
     return (

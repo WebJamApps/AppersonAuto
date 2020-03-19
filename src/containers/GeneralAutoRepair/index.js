@@ -16,9 +16,12 @@ export class General extends Component {
     this.state = { width: 323 };
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('General Auto Repair'); }
+  componentDidMount() { this.commonUtils.setTitleAndScroll('General Auto Repair', window.screen.width); }
 
-  onResize(width) { this.setState({ width }); }
+  onResize(width) {
+    this.setState({ width });
+    this.commonUtils.setTitleAndScroll('Auto Maintenance', width);
+  }
 
   coupon() { // eslint-disable-line class-methods-use-this
     return (

@@ -16,9 +16,12 @@ export class AutoMaintenance extends Component {
     this.state = { width: 324 };
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('Auto Maintenance'); }
+  componentDidMount() { this.commonUtils.setTitleAndScroll('Auto Maintenance', window.screen.width); }
 
-  onResize(width) { this.setState({ width }); }
+  onResize(width) {
+    this.setState({ width });
+    this.commonUtils.setTitleAndScroll('Auto Maintenance', width);
+  }
 
   coupon() { // eslint-disable-line class-methods-use-this
     return (
