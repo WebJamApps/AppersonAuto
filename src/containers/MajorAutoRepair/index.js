@@ -29,39 +29,6 @@ export class Major extends Component {
 
   onResize(width) { this.setState({ width }); }
 
-  getToKnow() { // eslint-disable-line class-methods-use-this
-    return (
-      <div>
-        <p><strong>Get to Know Apperson Automotive:</strong></p>
-        <ul>
-          <li>
-            <a href="/auto-maintenance" title="Apperson Automotive Auto Maintenance">Auto Maintenance</a>
-            {' '}
-            – Let us handle your oil change, coolant flushes, alignments, and more
-          </li>
-          <li>
-            <a href="/general-auto-repair" title="Apperson Automotive General Auto Repair">General Auto Repair</a>
-            {' '}
-            – General repairs for includes (not limited to) brake calipers, window motors, regulators, and starters
-          </li>
-          <li>
-            <a href="/major-auto-repair" title="Apperson Automotive Major Auto Repair">Major Auto Repair</a>
-            {' '}
-            – We’ll handle your steering rack issues, intake gasket repairs, heat and air system problems, and much more
-          </li>
-        </ul>
-        <p>We’ll repair any make or model vehicle you have.</p>
-        <p>
-          To schedule your FREE high mileage or vacation vehicle check over, call Apperson Automotive at
-          {' '}
-          <a href="tel:5404447337" style={{ textDecoration: 'none' }}>540-444-7337</a>
-          <br />
-          You can also stop by at 1601 Apperson Drive, Salem VA 24153.
-        </p>
-      </div>
-    );
-  }
-
   coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
@@ -74,44 +41,52 @@ export class Major extends Component {
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4 style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}>
-          Your one stop auto shop where honesty, quality work, and fair pricing are guaranteed
+          Major Auto Repair
         </h4>
         <p>{' '}</p>
+        <p>
+          If you’re experiencing problems with your vehicle then bring it to us for our excellent diagnostic service.
+        </p>
+        <p>
+          Receive
+          {' '}
+          <b>5% OFF our mechanical repairs</b>
+          {' '}
+          when you present the coupon from this site.
+          <br />
+          <br />
+          You’ll receive a
+          {' '}
+          <b>12-month 12,000-mile warranty</b>
+          <br />
+          for all of our services.
+        </p>
         <div>
+          <p>{' '}</p>
+          <h4 style={{ marginTop: '40px' }}>Apperson Automotive - Salem, VA Serious Auto Repair</h4>
+          <p><strong>Service you can count on:</strong></p>
+          <ul>
+            <li>Starter repair / replacement</li>
+            <li>Transmission overhaul</li>
+            <li>Intake gasket repairs</li>
+            <li>4W drive system repairs</li>
+            <li>And much more</li>
+          </ul>
+          <p>{' '}</p>
+          <p style={{ marginTop: '40px' }}><strong>Receive 5% OFF mechanical repairs (must present coupon):</strong></p>
           <p>
-            Are you looking for well qualified mechanics? Look no further!
+            We’ll provide you with trustworthy service. We stand behind our work.
+          </p>
+          <p>
+            You’ll receive a 12-month 12,000-mile warranty on all repairs.
             <br />
-            We have more than
+            Competitive rates are available. Call Apperson Automotive at
+            <br />
+            <a style={{ textDecoration: 'none' }} href="tel:5404447337">540-444-7337</a>
             {' '}
-            <strong>150 years of combined experience</strong>
-            !
+            to set up your appointment.
           </p>
-          <p>
-            Take advantage of our
-            <br />
-            <strong>FREE high mileage / vacation vehicle check over</strong>
-            .
-          </p>
-          <p>
-            <br />
-            Receive
-            {' '}
-            <strong>5% OFF mechanical repairs</strong>
-            <br />
-            when you present the coupon from this site.
-          </p>
-          <p>Shuttle service is available to you.</p>
         </div>
-        <h4 style={{ marginTop: '40px' }}>Apperson Automotive - Salem, VA Auto Repair Service</h4>
-        <p><strong>Quality service for your vehicle (not limited to):</strong></p>
-        <ul>
-          <li>State inspections</li>
-          <li>Alignments</li>
-          <li>Tune ups</li>
-          <li>Oil changes</li>
-          <li>Coolant flush</li>
-        </ul>
-        {this.getToKnow()}
       </div>
     );
   }
@@ -134,7 +109,7 @@ export class Major extends Component {
             ? (
               <div className="col" style={{ padding: '1px', paddingRight: '0' }}>
                 <div id="familySlideshowWide" style={{ display: 'flex', flexDirection: 'column' }}><PicSlider data={this.slides} /></div>
-                <p style={{ height: '2.5in' }}>{' '}</p>
+                <p style={{ height: '1.2in' }}>{' '}</p>
                 {this.coupon()}
               </div>
             )
@@ -142,7 +117,6 @@ export class Major extends Component {
         </div>
         {width < 900 ? this.coupon() : null}
         <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
-
       </div>
     );
   }
