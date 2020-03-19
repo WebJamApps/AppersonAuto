@@ -1,15 +1,15 @@
 {
-  "name": "CollegeLutheran",
-  "version": "0.0.7",
-  "description": "collegelutheran.org",
+  "name": "AppersonAuto",
+  "version": "0.0.1",
+  "description": "appersonautomotive.com",
   "main": "dist/index.html",
   "repository": {
-    "url": "git+ssh://git@github.com/WebJamApps/CollegeLutheran.git",
+    "url": "git+ssh://git@github.com/WebJamApps/AppersonAuto.git",
     "type": "git"
   },
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
-    "node": ">=13.7.0"
+    "node": ">=13.10.0"
   },
   "files": [
     "webpack.config.js",

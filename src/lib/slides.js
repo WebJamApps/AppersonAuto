@@ -1,0 +1,10 @@
+export default [{ _id: '1', url: '../../static/imgs/photo1.png' },
+  { _id: '2', url: '../../static/imgs/photo2.png' },
+  { _id: '3', url: '../../static/imgs/photo3.png' },
+  { _id: '4', url: '../../static/imgs/photo4.png' },
+  { _id: '5', url: '../../static/imgs/photo5.png' },
+  { _id: '6', url: '../../static/imgs/photo6.png' },
+  { _id: '7', url: '../../static/imgs/photo7.png' },
+  { _id: '8', url: '../../static/imgs/photo8.png' },
+  { _id: '9', url: '../../static/imgs/photo9.png' },
+];

@@ -1,5 +1,5 @@
 const initialState = {
-  homeContent: {},
+  homeContent: { title: '', comments: '' },
 };
 
 const reducer = (state = initialState, action) => {

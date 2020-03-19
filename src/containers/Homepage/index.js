@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactResizeDetector from 'react-resize-detector';
-import WideAbout from './Widescreen/WideAbout';
-import WideFacebookFeed from './Widescreen/WideFacebookFeed';
-import NarrowFacebookFeed from './Narrowscreen/NarrowFacebookFeed';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
+import PicSlider from '../../components/pic-slider';
+import slidesArr from '../../lib/slides';
 
 export class Homepage extends Component {
   constructor(props) {
@@ -14,63 +13,122 @@ export class Homepage extends Component {
     this.commonUtils = commonUtils;
     this.parentRef = React.createRef();
     this.onResize = this.onResize.bind(this);
-    this.state = { width: 100 };
+    this.state = { width: 322 };
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll(''); }
 
   onResize(width) { this.setState({ width }); }
 
-  elca() { // eslint-disable-line class-methods-use-this
+  getToKnow() { // eslint-disable-line class-methods-use-this
     return (
-      <div style={{
-        textAlign: 'center', margin: 'auto', paddingTop: 0, paddingBottom: 0,
-      }}
-      >
-        <a href="http://www.elca.org/" target="_blank" rel="noopener noreferrer">
-          <img
-            id="elcaLogo"
-            alt="ELCA LOGO"
-            src="https://dl.dropboxusercontent.com/s/wkzubcmmm3pqst4/elca-logo.png?dl=0"
-            style={{ width: '340px', margin: 'auto auto auto -2px', paddingTop: '30px' }}
-          />
-        </a>
+      <div>
+        <p><strong>Get to Know Apperson Automotive:</strong></p>
+        <ul>
+          <li>
+            <a href="/auto-maintenance" title="Apperson Automotive Auto Maintenance">Auto Maintenance</a>
+            {' '}
+            – Let us handle your oil change, coolant flushes, alignments, and more
+          </li>
+          <li>
+            <a href="/general-auto-repair" title="Apperson Automotive General Auto Repair">General Auto Repair</a>
+            {' '}
+            – General repairs for includes (not limited to) brake calipers, window motors, regulators, and starters
+          </li>
+          <li>
+            <a href="/major-auto-repair" title="Apperson Automotive Major Auto Repair">Major Auto Repair</a>
+            {' '}
+            – We’ll handle your steering rack issues, intake gasket repairs, heat and air system problems, and much more
+          </li>
+        </ul>
+        <p>We’ll repair any make or model vehicle you have.</p>
+        <p>
+          To schedule your FREE high mileage or vacation vehicle check over, call Apperson Automotive at
+          {' '}
+          <a href="tel:5404447337" style={{ textDecoration: 'none' }}>540-444-7337</a>
+          <br />
+          You can also stop by at 1601 Apperson Drive, Salem VA 24153.
+        </p>
+      </div>
+    );
+  }
+
+  coupon() { // eslint-disable-line class-methods-use-this
+    return (
+      <div style={{ width: '295px', margin: 'auto' }}>
+        <img alt="graphic coupon" src="../static/imgs/banner5.png" />
+      </div>
+    );
+  }
+
+  mechanics() { // eslint-disable-line class-methods-use-this
+    return (
+      <div>
+        <p>
+          Are you looking for well qualified mechanics? Look no further!
+          <br />
+          We have more than
+          {' '}
+          <strong>150 years of combined experience</strong>
+          !
+        </p>
+        <p>
+          Take advantage of our
+          <br />
+          <strong>FREE high mileage / vacation vehicle check over</strong>
+          .
+        </p>
+        <p>
+          <br />
+          Receive
+          {' '}
+          <strong>5% OFF mechanical repairs</strong>
+          <br />
+          when you present the coupon from this site.
+        </p>
+        <p>Shuttle service is available to you.</p>
+      </div>
+    );
+  }
+
+  homeText(marginLeft) { // eslint-disable-line class-methods-use-this
+    return (
+      <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
+        <h4 style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}>
+          Your one stop auto shop where honesty, quality work, and fair pricing are guaranteed
+        </h4>
         <p>{' '}</p>
+        {this.mechanics()}
+        <h4 style={{ marginTop: '40px' }}>Apperson Automotive - Salem, VA Auto Repair Service</h4>
+        <p><strong>Quality service for your vehicle (not limited to):</strong></p>
+        <ul>
+          <li>State inspections</li>
+          <li>Alignments</li>
+          <li>Tune ups</li>
+          <li>Oil changes</li>
+          <li>Coolant flush</li>
+        </ul>
+        {this.getToKnow()}
+      </div>
+    );
+  }
+
+  mainPanel(marginLeft, width) {
+    return (
+      <div className="row">
+        {this.homeText(marginLeft)}
+        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
   }
 
   render() {
     const { width } = this.state;
-    const { homeContent } = this.props;
-    return (
-      <div>
-        {width >= 1004
-          ? (
-            <div className="page-content">
-              <WideAbout homeContent={homeContent} width={width} />
-              <hr />
-              <WideFacebookFeed width={width} />
-              <p style={{ fontSize: '6pt', marginBottom: '0' }}>&nbsp;</p>
-            </div>
-          )
-          : (
-            <div className="page-content">
-              <WideAbout homeContent={homeContent} width={width} />
-              <hr />
-              <p style={{ fontSize: '6pt', marginBottom: '0' }}>&nbsp;</p>
-              <NarrowFacebookFeed />
-              <p style={{ fontSize: '6pt', marginBottom: '0' }}>&nbsp;</p>
-            </div>
-          )}
-        {this.elca()}
-        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
-      </div>
-    );
+    return this.commonUtils.renderer(width, slidesArr, this, PicSlider, ReactResizeDetector);
   }
 }
 
-Homepage.defaultProps = { homeContent: {} };
+Homepage.defaultProps = { homeContent: { title: '', comments: '' } };
 Homepage.propTypes = {
   homeContent: PropTypes.shape({
     title: PropTypes.string,

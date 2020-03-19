@@ -13,7 +13,7 @@ const ensureArray = (config) => config && (Array.isArray(config) ? config : [con
 const when = (condition, config, negativeConfig) => (condition ? ensureArray(config) : ensureArray(negativeConfig));
 
 // primary config:
-const title = 'College Lutheran Church';
+const title = 'Apperson Automotive';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
@@ -151,7 +151,7 @@ module.exports = ({
     }),
     new CopyWebpackPlugin([
       { from: 'static/favicon.ico', to: 'favicon.ico' },
-      // { from: 'static/imgs', to: 'static/imgs' },
+      { from: 'static/imgs', to: 'static/imgs' },
     ]),
     new webpack.EnvironmentPlugin(['NODE_ENV',
       'AuthProductionBaseURL', 'PORT', 'BackendUrl', 'GoogleClientId', 'userRoles', 'HashString']),

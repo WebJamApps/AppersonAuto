@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import ReactResizeDetector from 'react-resize-detector';
 import { connect } from 'react-redux';
 import authUtils from './authUtils';
 import mapStoreToProps from '../redux/mapStoreToProps';
@@ -15,42 +15,24 @@ export class AppTemplate extends Component {
     this.menus = menuItems.menus;
     this.menuUtils = menuUtils;
     this.children = props.children;
-    this.state = { menuOpen: false };
+    this.state = { menuOpen: false, width: 320 };
     this.close = this.close.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleKeyMenu = this.handleKeyMenu.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     this.navLinks = this.navLinks.bind(this);
-    this.responseGoogleLogin = this.responseGoogleLogin.bind(this);
-    this.responseGoogleLogout = this.responseGoogleLogout.bind(this);
-    this.googleButtons = this.googleButtons.bind(this);
     this.authUtils = authUtils;
+    this.parentRef = React.createRef();
+    this.onResize = this.onResize.bind(this);
   }
 
-  get currentStyles() {
-    let result = {};
-    this.style = 'wj';
-    result = {
-      headerImagePath: '../static/imgs/webjamicon7.png',
-      headerText1: 'Web Jam LLC',
-      headerClass: 'home-header',
-      headerImageClass: 'home-header-image',
-      sidebarClass: 'home-sidebar',
-      menuToggleClass: 'home-menu-toggle',
-    };
-    result.sidebarImagePath = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Lutherrose.svg/800px-Lutherrose.svg.png';
-    return result;
-  }
+  onResize(width) { this.setState({ width }); }
 
   toggleMobileMenu() {
     const { menuOpen } = this.state;
     const mO = !menuOpen;
     this.setState({ menuOpen: mO });
   }
-
-  responseGoogleLogin(response) { return this.authUtils.responseGoogleLogin(response, this); }
-
-  responseGoogleLogout(response) { const { dispatch } = this.props; return this.authUtils.responseGoogleLogout(response, dispatch); }
 
   close(e) {
     this.setState({ menuOpen: false });
@@ -68,28 +50,6 @@ export class AppTemplate extends Component {
     return null;
   }
 
-  googleButtons(type, index) {
-    const cId = process.env.GoogleClientId;
-    if (type === 'login') {
-      return (
-        <div key={index} className="menu-item googleLogin">
-          <GoogleLogin
-            responseType="code"
-            clientId={cId}
-            buttonText="Login"
-            onSuccess={this.responseGoogleLogin}
-            onFailure={this.authUtils.responseGoogleFailLogin}
-            cookiePolicy="single_host_origin"
-          />
-        </div>
-      );
-    } return (
-      <div key={index} className="menu-item googleLogout">
-        <GoogleLogout clientId={cId} buttonText="Logout" onLogoutSuccess={this.responseGoogleLogout} cookiePolicy="single_host_origin" />
-      </div>
-    );
-  }
-
   makeMenuLink(menu, index) {
     return (
       <div key={index} className="menu-item">
@@ -102,99 +62,123 @@ export class AppTemplate extends Component {
     );
   }
 
-  navLinks() {
+  addressBlock() { // eslint-disable-line class-methods-use-this
+    return (
+      <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
+        <p style={{ color: '#fff', marginBottom: '2px' }}>
+          <a href="https://goo.gl/maps/5G47ib81DGj7o2gk9" className="menu-hover" style={{ color: '#45c9ff', textDecoration: 'none' }}>
+            <span>1601 Apperson Drive</span>
+          </a>
+          <br />
+          Salem, VA 24153
+        </p>
+      </div>
+    );
+  }
+
+  callText() { // eslint-disable-line class-methods-use-this
+    return (
+      <a
+        style={{
+          display: 'block', color: '#fff', textDecoration: 'none', backgroundColor: '#881204', height: '72px', paddingTop: '4px', marginTop: '-1px',
+        }}
+        href="tel:5404447337"
+      >
+        <h4
+          className="material-header-h4-call"
+          style={{
+            textAlign: 'center', marginRight: '280px', paddingBottom: 0, width: '200px',
+          }}
+        >
+          Call
+          <br />
+          540-444-7337
+        </h4>
+      </a>
+    );
+  }
+
+  mobileMenu() {
     return (
       <div className="nav-list">
-        <p style={{ fontSize: '1px', marginBottom: '2px' }} />
-        <div className="menu-item" style={{ backgroundColor: '#244a8bff' }}>
-          <p style={{ color: '#fff', marginBottom: '2px' }}>
-            <a href="http://bit.ly/CollegeLutheranDirections" className="menu-hover" style={{ color: '#88c1ff' }}>
-              <span>210 S. College Ave</span>
-            </a>
-            <br />
-            Salem, VA 24153
-          </p>
-        </div>
-        <div className="menu-item" style={{ backgroundColor: '#244a8bff' }}>
-          <p style={{ color: '#fff', marginBottom: '2px' }}>
-            <span>ph: </span>
-            <a href="tel:5403894963" className="menu-hover" style={{ color: '#88c1ff' }}>(540) 389-4963</a>
-            <br />
-            <span>fax: </span>
-            <a href="tel:5403894980" className="menu-hover" style={{ color: '#88c1ff' }}>(540) 389-4980</a>
-            <br />
-            <a style={{ color: '#88c1ff', wordWrap: 'break-word' }} href="mailto:office1@collegelutheran.org">
-              <span className="menu-hover">office1@collegelutheran.org</span>
-            </a>
-          </p>
-        </div>
+        {this.callText()}
+        {this.addressBlock()}
         {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
       </div>
     );
   }
 
-  headerSection() {
+  navLinks(width) {
+    if (width < 900) return this.mobileMenu();
     return (
-      <div id="header" className={`material-header ${this.currentStyles.headerClass}`}>
+      <div className="nav-list">
+        {this.addressBlock()}
+        {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
+      </div>
+    );
+  }
+
+  headerSection(logoWidth, marginTop) { // eslint-disable-line class-methods-use-this
+    return (
+      <div id="header" className="material-header">
         <div className="headercontent" />
         <div>
-          <div style={{ marginLeft: '5px', marginTop: '-18px' }}>
-            <div className="flex-header">
-              <h2 className="header-text" style={{ marginBottom: '0px', marginTop: '1px', fontSize: '34px' }}>
-                <a className="header-text" href="/" style={{ textAlign: 'left', textDecoration: 'none' }}>College Lutheran Church</a>
-              </h2>
-              <p className="subTitle" style={{ maxWidth: '100%' }}>
-                We celebrate God&apos;s grace and share His love in Christ!
-              </p>
-            </div>
+          <div style={{ marginLeft: '5px', marginTop }}>
+            <img
+              width={logoWidth}
+              id="ig"
+              className="style-scope iron-image"
+              alt="headerlogo"
+              src="https://dl.dropboxusercontent.com/s/qg69q7f5so4aqsb/appAutoLogo.png?dl=0"
+            />
           </div>
         </div>
       </div>
     );
   }
 
+  callUs() { // eslint-disable-line class-methods-use-this
+    return (
+      <div className="material-header x-scope paper-material-0 drawer" elevation="0" style={{ backgroundColor: '#881204' }}>
+        {this.callText()}
+      </div>
+    );
+  }
+
   render() {
-    const { menuOpen } = this.state;
-    const style = `${this.currentStyles.sidebarClass} ${menuOpen ? 'open' : 'close'}`;
+    let logoWidth = '742px', marginTop = '-15px';
+    const { menuOpen, width } = this.state;
+    if (width < 970) { logoWidth = '272px'; marginTop = '1px'; }
+    const style = `${menuOpen ? 'open' : 'close'}`;
     return (
       <div className="page-host">
         <div tabIndex={0} role="button" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
-          <div className="drawer" style={{ backgroundColor: '#c0c0c0' }}>
-            <div className="navImage">
-              <img alt="Luther Rose" id="webjamwidelogo" src={`${this.currentStyles.sidebarImagePath}`} style={{ marginRight: 0, width: '86px' }} />
-            </div>
-            { this.navLinks() }
+          <div className="drawer" style={{ backgroundColor: '#505050' }}>
+            {width > 899 ? this.callUs() : null}
+            { this.navLinks(width) }
           </div>
         </div>
         <div className="main-panel">
           <span onClick={this.toggleMobileMenu} onKeyPress={this.handleKeyMenu} id="mobilemenutoggle" tabIndex={0} role="button">
-            <i className="fas fa-bars" />
+            <i className="fas fa-bars fa-2x" />
           </span>
           <div className="mainPanel">
             <div className="swipe-area" />
-            {this.headerSection()}
+            {this.headerSection(logoWidth, marginTop)}
             <div style={{ width: 'auto' }} id="contentBlock" className="content-block">
               { this.children }
               <Footer />
             </div>
           </div>
         </div>
+        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
       </div>
     );
   }
 }
-/* istanbul ignore next */
-AppTemplate.defaultProps = {
-  dispatch: () => {}, auth: { isAuthenticated: false, user: { userType: '' } },
-};
 
 AppTemplate.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
-  auth: PropTypes.shape({
-    isAuthenticated: PropTypes.bool,
-    user: PropTypes.shape({ userType: PropTypes.string }),
-  }),
-  dispatch: PropTypes.func,
   children: PropTypes.element.isRequired,
 };
 export default withRouter(connect(mapStoreToProps, null)(AppTemplate));
