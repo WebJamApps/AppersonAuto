@@ -1,7 +1,7 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
-describe('Music', () => {
+describe('MajorAutoRepair', () => {
   it('has a page with title of Major Auto Repair | Apperson Automotive"', async () => {
     const page = await browser.newPage();
     await page.goto('http://localhost:8888/major-auto-repair', { waitUntil: 'load' });
