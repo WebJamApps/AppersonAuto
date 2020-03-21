@@ -23,7 +23,7 @@ export default class Contact extends Component {
   render() {
     const { width } = this.state;
     return (
-      <div>
+      <div style={{ flexGrow: 1 }}>
         {width >= 1004
           ? (
             <div className="page-content">
