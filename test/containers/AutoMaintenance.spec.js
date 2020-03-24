@@ -1,21 +1,19 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
-// import Beliefs from '../../src/containers/AutoMaintenance/index';
-// import DefaultBeliefsContent from '../../src/containers/Beliefs/BeliefsContent';
-
-// function setup() {
-//   const props = {};
-//   const wrapper = shallow(<Beliefs />);
-//   return { props, wrapper };
-// }
+import React from 'react';
+import { shallow } from 'enzyme';
+import { AutoMaintenance } from '../../src/containers/AutoMaintenance';
 
 describe('AutoMaintenance', () => {
-  it('Renders the AutoMaintenance component', () => {
-    // const { wrapper } = setup();
-    expect(true).toBe(true);
-  //   expect(wrapper.find(DefaultBeliefsContent)
-  //     .dive()
-  //     .find('div.page-content')
-  //     .exists()).toBe(true);
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<AutoMaintenance />);
+  });
+  it('Renders the Homepage', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('resizes', () => {
+    wrapper.instance().commonUtils.setTitleAndScroll = jest.fn();
+    wrapper.update();
+    wrapper.instance().onResize(320);
+    expect(wrapper.instance().commonUtils.setTitleAndScroll).toHaveBeenCalled();
   });
 });
