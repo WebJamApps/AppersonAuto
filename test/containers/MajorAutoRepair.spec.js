@@ -1,23 +1,19 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
-// import { Music } from '../../src/containers/Music';
-// import DefaultMusicContent from '../../src/containers/Music/MusicContent';
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Major } from '../../src/containers/MajorAutoRepair';
 
-// function setup(data) {
-//   let wrapper;
-//   if (data !== null && data !== undefined) {
-//     wrapper = shallow(<Music images={data} />);
-//   } else wrapper = shallow(<Music />);
-//   return { wrapper };
-// }
-
-describe('MajorAutoRepair', () => {
-  it('renders the MajorAutoRepair', () => {
-    expect(true).toBe(true);
-  //   const { wrapper } = setup();
-  //   expect(wrapper.find(DefaultMusicContent)
-  //     .dive()
-  //     .find('div.page-content')
-  //     .exists()).toBe(true);
+describe('Major Auto Repair', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<Major />);
+  });
+  it('Renders the Homepage', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('resizes', () => {
+    wrapper.instance().commonUtils.setTitleAndScroll = jest.fn();
+    wrapper.update();
+    wrapper.instance().onResize(320);
+    expect(wrapper.instance().commonUtils.setTitleAndScroll).toHaveBeenCalled();
   });
 });

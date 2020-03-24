@@ -6,14 +6,12 @@ import { connect } from 'react-redux';
 import authUtils from './authUtils';
 import mapStoreToProps from '../redux/mapStoreToProps';
 import Footer from './Footer';
-import menuUtils from './menuUtils';
 import menuItems from './menuItems.json';
 
 export class AppTemplate extends Component {
   constructor(props) {
     super(props);
     this.menus = menuItems.menus;
-    this.menuUtils = menuUtils;
     this.children = props.children;
     this.state = { menuOpen: false, width: 320 };
     this.close = this.close.bind(this);
@@ -103,7 +101,7 @@ export class AppTemplate extends Component {
       <div className="nav-list">
         {this.callText()}
         {this.addressBlock()}
-        {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
+        {this.menus.map((menu, index) => this.makeMenuLink(menu, index))}
       </div>
     );
   }
@@ -113,7 +111,7 @@ export class AppTemplate extends Component {
     return (
       <div className="nav-list">
         {this.addressBlock()}
-        {this.menus.map((menu, index) => (this.menuUtils.menuItem(menu, index, this)))}
+        {this.menus.map((menu, index) => this.makeMenuLink(menu, index))}
       </div>
     );
   }
