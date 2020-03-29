@@ -13,7 +13,14 @@ describe('Major Auto Repair', () => {
   it('resizes', () => {
     wrapper.instance().commonUtils.setTitleAndScroll = jest.fn();
     wrapper.update();
-    wrapper.instance().onResize(320);
+    wrapper.instance().onResize(1000);
     expect(wrapper.instance().commonUtils.setTitleAndScroll).toHaveBeenCalled();
   });
+  // it('renders the coupon', () => {
+  //   wrapper.instance().coupon = jest.fn();
+  //   wrapper.update();
+  //   wrapper.instance().coupon();
+  //   expect(wrapper.instance().coupon).toHaveBeenCalled();
+  //   expect(wrapper.find('img').exists()).toBe(true);
+  // });
 });
