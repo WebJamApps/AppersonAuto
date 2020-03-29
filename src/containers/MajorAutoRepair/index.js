@@ -93,9 +93,16 @@ export class Major extends Component {
 
   mainPanel(marginLeft, width) {
     return (
-      <div className="row">
-        {this.majorPageText(marginLeft)}
-        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
+      <div>
+        <div className="row">
+          {this.majorPageText(marginLeft)}
+          {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
+        </div>
+        {width < 900 ? (
+          <div>
+            {this.coupon()}
+          </div>
+        ) : null}
       </div>
     );
   }
