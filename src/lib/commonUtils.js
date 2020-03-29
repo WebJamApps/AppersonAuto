@@ -12,8 +12,15 @@ const setTitleAndScroll = (pageTitle, width) => {
 const cellPics = (width, slides, PicSlider) => {
   if (width < 900) {
     return (
-      <div className="col" style={{ padding: '1px', paddingRight: '0' }}>
-        <div id="familySlideshowWide" style={{ display: 'flex', flexDirection: 'column' }}><PicSlider data={slides} /></div>
+      <div className="col" style={{ padding: '0' }}>
+        <div
+          id="familySlideshowWide"
+          style={{
+            display: 'flex', flexDirection: 'column', maxWidth: '100%',
+          }}
+        >
+          <PicSlider data={slides} />
+        </div>
       </div>
     );
   }
@@ -36,11 +43,16 @@ const widePics = (width, slides, PicSlider, coupon, height) => {
 const renderer = (width, slidesArr, view, PicSlider, ReactResizeDetector) => {
   const marginLeft = width < 900 ? '5px' : '15px';
   return (
-    <div className="container-fluid">
-      {cellPics(width, slidesArr, PicSlider)}
-      {view.mainPanel(marginLeft, width)}
-      {width < 900 ? view.coupon() : null}
-      <ReactResizeDetector handleWidth handleHeight onResize={view.onResize} targetDomEl={view.parentRef.current} />
+    <div>
+      {width < 900 ? (
+        <div>
+          {cellPics(width, slidesArr, PicSlider)}
+        </div>
+      ) : null}
+      <div className="container-fluid">
+        {view.mainPanel(marginLeft, width)}
+        <ReactResizeDetector handleWidth handleHeight onResize={view.onResize} targetDomEl={view.parentRef.current} />
+      </div>
     </div>
   );
 };
