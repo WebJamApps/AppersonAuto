@@ -31,7 +31,9 @@ export class AutoMaintenance extends Component {
     );
   }
 
-  filters() { // eslint-disable-line class-methods-use-this
+  filters() {
+    const { width } = this.state;
+    const marginBottom = width < 900 ? '20px' : '40px';
     return (
       <div>
         <p><strong>We’ll replace your car’s filters:</strong></p>
@@ -41,7 +43,7 @@ export class AutoMaintenance extends Component {
           <li>Cabin air filter replacement</li>
         </ul>
         <p>Same day service may be available.</p>
-        <p>
+        <p style={{ marginBottom }}>
           FREE high mileage / vehicle check over service
           <br />
           Our rates are competitive.
@@ -52,7 +54,7 @@ export class AutoMaintenance extends Component {
           {' '}
           <a style={{ textDecoration: 'none' }} href="tel:5404447337">540-444-7337</a>
         </p>
-        <p>{' '}</p>
+        {width < 900 ? this.coupon() : null}
       </div>
     );
   }

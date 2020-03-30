@@ -31,7 +31,9 @@ export class Major extends Component {
     );
   }
 
-  service() { // eslint-disable-line class-methods-use-this
+  service() {
+    const { width } = this.state;
+    const marginBottom = width < 900 ? '20px' : '190px';
     return (
       <div>
         <p>{' '}</p>
@@ -49,7 +51,7 @@ export class Major extends Component {
         <p>
           We’ll provide you with trustworthy service. We stand behind our work.
         </p>
-        <p style={{ marginBottom: '190px' }}>
+        <p style={{ marginBottom }}>
           You’ll receive a 12-month 12,000-mile warranty on all repairs.
           <br />
           Competitive rates are available. Call Apperson Automotive at

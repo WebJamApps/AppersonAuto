@@ -31,7 +31,9 @@ export class General extends Component {
     );
   }
 
-  love() { // eslint-disable-line class-methods-use-this
+  love() {
+    const { width } = this.state;
+    const marginBottom = width < 900 ? '20px' : '90px';
     return (
       <div>
         <h4 style={{ marginTop: '30px' }}>Apperson Automotive - Salem, VA Vehicle Care</h4>
@@ -51,7 +53,7 @@ export class General extends Component {
           <li>Door locks</li>
         </ul>
         <p>We’ll provide you with our quality shuttle service, taking you to and from work.</p>
-        <p style={{ marginBottom: '90px' }}>
+        <p style={{ marginBottom }}>
           Quality general auto repair services including 12-month 12,000-mile warranty are available.
           {' '}
           To find out more about our services, call Apperson Automotive at
@@ -60,6 +62,7 @@ export class General extends Component {
           <br />
           You can also stop by at 1601 Apperson Drive, Salem VA 24153.
         </p>
+        {width < 900 ? this.coupon() : null}
       </div>
     );
   }
