@@ -18,4 +18,10 @@ describe('Contact', () => {
     expect(wrapper2.find(DefaultNarrowMap).exists()).toBe(true);
     expect(wrapper2.find(DefaultNarrowMap).dive().find('div.material-content').exists()).toBe(true);
   });
+  it('resizes', () => {
+    wrapper.instance().commonUtils.setTitleAndScroll = jest.fn();
+    wrapper.update();
+    wrapper.instance().onResize(320);
+    expect(wrapper.instance().commonUtils.setTitleAndScroll).toHaveBeenCalled();
+  });
 });

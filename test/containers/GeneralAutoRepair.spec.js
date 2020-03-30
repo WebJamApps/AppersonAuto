@@ -1,28 +1,29 @@
-// import React from 'react';
-// import { shallow } from 'enzyme';
-// import { Family } from '../../src/containers/Family/index';
-// import DefaultFamilyContent from '../../src/containers/Family/FamilyContent';
-// import PicSlider from '../../src/components/pic-slider';
-//
-// function setup(data) {
-//   let wrapper;
-//   if (data !== null && data !== undefined) {
-//     wrapper = shallow(<Family familyPics={data} />);
-//   } else wrapper = shallow(<Family />);
-//   return { wrapper };
-// }
+import React from 'react';
+import { shallow } from 'enzyme';
+import { General } from '../../src/containers/GeneralAutoRepair';
 
 describe('GeneralAutoRepair', () => {
-  it('Renders the GeneralAutoRepair', () => {
-    expect(true).toBe(true);
-    // const { wrapper } = setup();
-    // expect(wrapper.find(DefaultFamilyContent).exists()).toBe(true);
-    // expect(wrapper.find(DefaultFamilyContent).dive().find('div.page-content').exists()).toBe(true);
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<General />);
   });
-  // it('renders with images', () => new Promise((done) => {
-  //   const data = [{}];
-  //   const wrapper2 = shallow(<DefaultFamilyContent familyPics={data} />);
-  //   expect(wrapper2.find(PicSlider).exists()).toBe(true);
-  //   done();
-  // }));
+  it('Renders the GeneralAutoRepair', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+  it('resizes', () => {
+    wrapper.instance().commonUtils.setTitleAndScroll = jest.fn();
+    wrapper.update();
+    wrapper.instance().onResize(320);
+    expect(wrapper.instance().commonUtils.setTitleAndScroll).toHaveBeenCalled();
+  });
+  it('renders with cellphone width and has coupon', () => {
+    wrapper.setState({ width: 320 });
+    const i = wrapper.find('img#coupon');
+    expect(i).toBeDefined();
+  });
+  it('renders widescreen width and has coupon', () => {
+    wrapper.setState({ width: 1000 });
+    const i = wrapper.find('img#coupon');
+    expect(i).toBeDefined();
+  });
 });

@@ -16,9 +16,12 @@ export class Homepage extends Component {
     this.state = { width: 322 };
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll(''); }
+  componentDidMount() { this.commonUtils.setTitleAndScroll('', window.screen.width); }
 
-  onResize(width) { this.setState({ width }); }
+  onResize(width) {
+    this.setState({ width });
+    this.commonUtils.setTitleAndScroll('', width);
+  }
 
   getToKnow() { // eslint-disable-line class-methods-use-this
     return (
@@ -56,7 +59,7 @@ export class Homepage extends Component {
   coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
-        <img alt="graphic coupon" src="../static/imgs/banner5.png" />
+        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
       </div>
     );
   }
@@ -91,7 +94,8 @@ export class Homepage extends Component {
     );
   }
 
-  homeText(marginLeft) { // eslint-disable-line class-methods-use-this
+  homeText(marginLeft) {
+    const { width } = this.state;
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4 style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}>
@@ -109,6 +113,7 @@ export class Homepage extends Component {
           <li>Coolant flush</li>
         </ul>
         {this.getToKnow()}
+        {width < 900 ? this.coupon() : null}
       </div>
     );
   }

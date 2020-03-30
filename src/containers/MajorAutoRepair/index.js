@@ -16,19 +16,24 @@ export class Major extends Component {
     this.state = { width: 321 };
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('Major Auto Repair'); }
+  componentDidMount() { this.commonUtils.setTitleAndScroll('Major Auto Repair', window.screen.width); }
 
-  onResize(width) { this.setState({ width }); }
+  onResize(width) {
+    this.setState({ width });
+    this.commonUtils.setTitleAndScroll('Major Auto Repair', width);
+  }
 
   coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
-        <img alt="graphic coupon" src="../static/imgs/banner5.png" />
+        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
       </div>
     );
   }
 
-  service() { // eslint-disable-line class-methods-use-this
+  service() {
+    const { width } = this.state;
+    const marginBottom = width < 900 ? '20px' : '190px';
     return (
       <div>
         <p>{' '}</p>
@@ -46,7 +51,7 @@ export class Major extends Component {
         <p>
           We’ll provide you with trustworthy service. We stand behind our work.
         </p>
-        <p>
+        <p style={{ marginBottom }}>
           You’ll receive a 12-month 12,000-mile warranty on all repairs.
           <br />
           Competitive rates are available. Call Apperson Automotive at
@@ -90,9 +95,16 @@ export class Major extends Component {
 
   mainPanel(marginLeft, width) {
     return (
-      <div className="row">
-        {this.majorPageText(marginLeft)}
-        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
+      <div>
+        <div className="row">
+          {this.majorPageText(marginLeft)}
+          {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
+        </div>
+        {width < 900 ? (
+          <div>
+            {this.coupon()}
+          </div>
+        ) : null}
       </div>
     );
   }
