@@ -26,7 +26,7 @@ export class Major extends Component {
   coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
-        <img alt="graphic coupon" src="../static/imgs/banner5.png" />
+        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
       </div>
     );
   }

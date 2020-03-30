@@ -16,4 +16,14 @@ describe('Home', () => {
     wrapper.instance().onResize(320);
     expect(wrapper.instance().commonUtils.setTitleAndScroll).toHaveBeenCalled();
   });
+  it('renders with cellphone width and has coupon', () => {
+    wrapper.setState({ width: 320 });
+    const i = wrapper.find('img#coupon');
+    expect(i).toBeDefined();
+  });
+  it('renders widescreen width and has coupon', () => {
+    wrapper.setState({ width: 1000 });
+    const i = wrapper.find('img#coupon');
+    expect(i).toBeDefined();
+  });
 });
