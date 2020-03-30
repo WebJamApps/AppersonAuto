@@ -16,11 +16,14 @@ describe('Major Auto Repair', () => {
     wrapper.instance().onResize(1000);
     expect(wrapper.instance().commonUtils.setTitleAndScroll).toHaveBeenCalled();
   });
-  // it('renders the coupon', () => {
-  //   wrapper.instance().coupon = jest.fn();
-  //   wrapper.update();
-  //   wrapper.instance().coupon();
-  //   expect(wrapper.instance().coupon).toHaveBeenCalled();
-  //   expect(wrapper.find('img').exists()).toBe(true);
-  // });
+  it('renders with cellphone width and has coupon', () => {
+    wrapper.setState({ width: 320 });
+    const i = wrapper.find('img#coupon');
+    expect(i).toBeDefined();
+  });
+  it('renders widescreen width and has coupon', () => {
+    wrapper.setState({ width: 1000 });
+    const i = wrapper.find('img#coupon');
+    expect(i).toBeDefined();
+  });
 });

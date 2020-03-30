@@ -26,12 +26,14 @@ export class Major extends Component {
   coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
-        <img alt="graphic coupon" src="../static/imgs/banner5.png" />
+        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
       </div>
     );
   }
 
-  service() { // eslint-disable-line class-methods-use-this
+  service() {
+    const { width } = this.state;
+    const marginBottom = width < 900 ? '20px' : '190px';
     return (
       <div>
         <p>{' '}</p>
@@ -49,7 +51,7 @@ export class Major extends Component {
         <p>
           We’ll provide you with trustworthy service. We stand behind our work.
         </p>
-        <p>
+        <p style={{ marginBottom }}>
           You’ll receive a 12-month 12,000-mile warranty on all repairs.
           <br />
           Competitive rates are available. Call Apperson Automotive at
