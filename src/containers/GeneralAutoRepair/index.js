@@ -51,7 +51,7 @@ export class General extends Component {
           <li>Door locks</li>
         </ul>
         <p>We’ll provide you with our quality shuttle service, taking you to and from work.</p>
-        <p>
+        <p style={{ marginBottom: '90px' }}>
           Quality general auto repair services including 12-month 12,000-mile warranty are available.
           {' '}
           To find out more about our services, call Apperson Automotive at
