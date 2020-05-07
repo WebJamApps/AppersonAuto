@@ -1,6 +1,6 @@
 {
-  "name": "AppersonAuto",
-  "version": "0.0.1",
+  "name": "appersonautomotive.com",
+  "version": "0.0.2",
   "description": "appersonautomotive.com",
   "main": "dist/index.html",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
-    "node": ">=13.10.0"
+    "node": ">=13.14.0"
   },
   "files": [
     "webpack.config.js",
@@ -40,7 +40,8 @@
     "snyk-protect": "snyk protect",
     "eslint:fix": "./node_modules/eslint/bin/eslint.js --fix .",
     "postinstall": "yarn start build",
-    "test:stylelint": "stylelint \"static/**/*.scss\""
+    "test:stylelint": "stylelint \"static/**/*.scss\"",
+    "prepare": "yarn run snyk-protect"
   },
   "dependencies": {
     "@babel/core": "latest",
@@ -66,7 +67,7 @@
     "html-loader": "latest",
     "html-webpack-plugin": "latest",
     "jasmine-spec-reporter": "latest",
-    "jquery": "latest",
+    "jquery": "3.5.0",
     "jwt-simple": "latest",
     "mini-css-extract-plugin": "latest",
     "moment": "latest",
@@ -92,7 +93,7 @@
     "regenerator-runtime": "latest",
     "sass-loader": "latest",
     "slick-carousel": "latest",
-    "snyk": "^1.290.1",
+    "snyk": "^1.319.1",
     "socketcluster-client": "latest",
     "style-loader": "latest",
     "stylelint-config-recommended-scss": "latest",
