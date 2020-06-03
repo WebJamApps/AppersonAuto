@@ -55,7 +55,7 @@
     "babel-loader": "latest",
     "bluebird": "latest",
     "bootstrap": "latest",
-    "copy-webpack-plugin": "latest",
+    "copy-webpack-plugin": "6.0.0",
     "core-js": "latest",
     "css-loader": "latest",
     "dotenv": "latest",
