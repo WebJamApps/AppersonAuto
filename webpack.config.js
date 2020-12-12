@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ProvidePlugin } = require('webpack');
 const webpack = require('webpack');
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('webpack');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || []; // eslint-disable-line no-mixed-operators
@@ -19,8 +19,8 @@ const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 const baseUrl = '/';
 
-module.exports = ({
-  production, coverage, analyze,
+module.exports = (env) => ({
+  coverage, analyze,
 } = {
 }) => ({
   resolve: {
@@ -38,14 +38,14 @@ module.exports = ({
     vendor: ['jquery', 'bootstrap'],
   },
 
-  mode: production ? 'production' : 'development',
+  mode: env.production ? 'production' : 'development',
 
   output: {
     path: outDir,
     publicPath: baseUrl,
-    filename: production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
+    filename: env.production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
     // sourceMapFilename: production ? '[name].[chunkhash].bundle.map' : '[name].[hash].bundle.map',
-    chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js',
+    chunkFilename: env.production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js',
   },
 
   performance: { hints: false },
@@ -53,8 +53,7 @@ module.exports = ({
   devServer: {
     contentBase: outDir,
     hot: true,
-    // // serve index.html for all 404 (required for push-state)
-    historyApiFallback: {
+    historyApiFallback: { // serve index.html for all 404 (required for push-state)
       rewrites: [
         { from: /^\/$/, to: '/' },
         { from: /^\//, to: '/' },
@@ -64,10 +63,10 @@ module.exports = ({
     port: parseInt(process.env.PORT, 10),
   },
 
-  devtool: production ? 'nosources-source-map' : 'cheap-module-eval-source-map',
+  devtool: env.production ? 'nosources-source-map' : 'source-map',
 
   optimization: {
-    minimizer: production ? [
+    minimizer: env.production ? [
       new TerserPlugin({
         terserOptions: {
         // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
@@ -103,14 +102,15 @@ module.exports = ({
         loader: 'babel-loader',
         exclude: nodeModulesDir,
         options: coverage ? { sourceMap: 'inline', plugins: ['istanbul'] } : {},
-      }, // eslint-disable-next-line no-useless-escape
+      },
       {
+        // eslint-disable-next-line no-useless-escape
         test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/,
         loader: 'expose-loader',
         options: {
           exposes: {
             globalName: 'Promise',
-            override: true
+            override: true,
           },
         },
       },
@@ -132,7 +132,7 @@ module.exports = ({
     }),
     new HtmlWebpackPlugin({
       template: `${srcDir}/index.ejs`,
-      minify: production ? { removeComments: true, collapseWhitespace: true } : undefined,
+      minify: env.production ? { removeComments: true, collapseWhitespace: true } : undefined,
       metadata: { title, baseUrl },
     }),
     new MiniCssExtractPlugin({
