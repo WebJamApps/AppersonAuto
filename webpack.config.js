@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ProvidePlugin } = require('webpack');
 const webpack = require('webpack');
-const TerserPlugin = require('webpack');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || []; // eslint-disable-line no-mixed-operators
@@ -20,12 +19,8 @@ const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 const baseUrl = '/';
 
 module.exports = (env) => ({
-  coverage, analyze,
-} = {
-}) => ({
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [srcDir, 'node_modules'],
     fallback: { // needed for jsonwebtoken
       crypto: require.resolve('crypto-browserify'),
       stream: require.resolve('stream-browserify'),
@@ -65,20 +60,6 @@ module.exports = (env) => ({
 
   devtool: env.production ? 'nosources-source-map' : 'source-map',
 
-  optimization: {
-    minimizer: env.production ? [
-      new TerserPlugin({
-        terserOptions: {
-        // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-          compress: {
-            drop_console: true,
-          },
-        },
-        extractComments: 'all',
-      }),
-    ] : [],
-  },
-
   module: {
     rules: [
       // SCSS required in JS/TS files should use the style-loader that auto-injects it into the website
@@ -101,7 +82,7 @@ module.exports = (env) => ({
         test: /\.jsx?$/i,
         loader: 'babel-loader',
         exclude: nodeModulesDir,
-        options: coverage ? { sourceMap: 'inline', plugins: ['istanbul'] } : {},
+        options: env.coverage ? { sourceMap: 'inline', plugins: ['istanbul'] } : {},
       },
       {
         // eslint-disable-next-line no-useless-escape
@@ -146,6 +127,6 @@ module.exports = (env) => ({
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV',
       'AuthProductionBaseURL', 'PORT', 'BackendUrl', 'GoogleClientId', 'userRoles', 'HashString']),
-    ...when(analyze, new BundleAnalyzerPlugin()),
+    ...when(env.analyze, new BundleAnalyzerPlugin()),
   ],
 });
