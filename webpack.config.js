@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -39,7 +40,6 @@ module.exports = (env) => ({
     path: outDir,
     publicPath: baseUrl,
     filename: env.production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
-    // sourceMapFilename: production ? '[name].[chunkhash].bundle.map' : '[name].[hash].bundle.map',
     chunkFilename: env.production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js',
   },
 
@@ -60,6 +60,16 @@ module.exports = (env) => ({
 
   devtool: env.production ? 'nosources-source-map' : 'source-map',
 
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'styles', test: /\.css$/i, chunks: 'all', enforce: true,
+        },
+      },
+    },
+  },
+
   module: {
     rules: [
       // SCSS required in JS/TS files should use the style-loader that auto-injects it into the website
@@ -77,7 +87,6 @@ module.exports = (env) => ({
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
-      { test: /\.html$/i, loader: 'html-loader' },
       {
         test: /\.jsx?$/i,
         loader: 'babel-loader',
@@ -95,6 +104,7 @@ module.exports = (env) => ({
           },
         },
       },
+      { test: /\.html$/i, loader: 'html-loader' }, // eslint-disable-next-line no-useless-escape
       // embed small images and fonts as Data Urls and larger ones as files:
       { test: /\.(png|gif|jpg|cur)$/i, loader: 'url-loader', options: { limit: 8192 } },
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff2' } },
@@ -110,6 +120,7 @@ module.exports = (env) => ({
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
+      process: 'process/browser',
     }),
     new HtmlWebpackPlugin({
       template: `${srcDir}/index.ejs`,
