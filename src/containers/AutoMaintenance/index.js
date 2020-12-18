@@ -33,7 +33,7 @@ export class AutoMaintenance extends Component {
 
   filters() {
     const { width } = this.state;
-    const marginBottom = width < 900 ? '20px' : '40px';
+    const marginBottom = width < 1162 ? '20px' : '40px';
     return (
       <div>
         <p><strong>We’ll replace your car’s filters:</strong></p>
@@ -54,7 +54,7 @@ export class AutoMaintenance extends Component {
           {' '}
           <a style={{ textDecoration: 'none' }} href="tel:5404447337">540-444-7337</a>
         </p>
-        {width < 900 ? this.coupon() : null}
+        {width < 1162 ? this.coupon() : null}
       </div>
     );
   }

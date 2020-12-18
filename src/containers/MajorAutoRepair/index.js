@@ -33,7 +33,7 @@ export class Major extends Component {
 
   service() {
     const { width } = this.state;
-    const marginBottom = width < 900 ? '20px' : '190px';
+    const marginBottom = width < 1162 ? '20px' : '190px';
     return (
       <div>
         <p>{' '}</p>
@@ -67,8 +67,8 @@ export class Major extends Component {
   majorPageText(marginLeft) { // eslint-disable-line class-methods-use-this
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
-        <h4 
-          className="pagetitle" 
+        <h4
+          className="pagetitle"
           style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}
         >
           Major Auto Repair
@@ -103,7 +103,7 @@ export class Major extends Component {
           {this.majorPageText(marginLeft)}
           {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
         </div>
-        {width < 900 ? (
+        {width < 1162 ? (
           <div>
             {this.coupon()}
           </div>

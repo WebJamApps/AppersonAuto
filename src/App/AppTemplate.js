@@ -107,7 +107,7 @@ export class AppTemplate extends Component {
   }
 
   navLinks(width) {
-    if (width < 900) return this.mobileMenu();
+    if (width < 1162) return this.mobileMenu();
     return (
       <div className="nav-list">
         {this.addressBlock()}
@@ -146,13 +146,13 @@ export class AppTemplate extends Component {
   render() {
     let logoWidth = '742px', marginTop = '-15px';
     const { menuOpen, width } = this.state;
-    if (width < 970) { logoWidth = '272px'; marginTop = '1px'; }
+    if (width < 1232) { logoWidth = '272px'; marginTop = '1px'; }
     const style = `${menuOpen ? 'open' : 'close'}`;
     return (
       <div className="page-host">
         <div tabIndex={0} role="button" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
           <div className="drawer" style={{ backgroundColor: '#505050' }}>
-            {width > 899 ? this.callUs() : null}
+            {width > 1161 ? this.callUs() : null}
             { this.navLinks(width) }
           </div>
         </div>
