@@ -67,7 +67,10 @@ export class Major extends Component {
   majorPageText(marginLeft) { // eslint-disable-line class-methods-use-this
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
-        <h4 style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}>
+        <h4 
+          className="pagetitle" 
+          style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}
+        >
           Major Auto Repair
         </h4>
         <p>{' '}</p>

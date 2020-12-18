@@ -98,7 +98,10 @@ export class Homepage extends Component {
     const { width } = this.state;
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
-        <h4 style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}>
+        <h4 
+          className="pagetitle" 
+          style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}
+        >
           Your one stop auto shop where honesty, quality work, and fair pricing are guaranteed
         </h4>
         <p>{' '}</p>
