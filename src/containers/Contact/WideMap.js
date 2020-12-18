@@ -3,9 +3,11 @@ import React from 'react';
 const WideMap = () => (
   <>
     <div className="wideMap">
-      <h4 style={{
-        margin: 'auto', paddingTop: '30px', fontWeight: 'bold', fontSize: '16pt',
-      }}
+      <h4 
+        className="pagetitle" 
+        style={{
+          margin: 'auto', paddingTop: '30px', fontWeight: 'bold', fontSize: '16pt',
+        }}
       >
         Contact Apperson Automotive of Salem, VA
       </h4>
