@@ -135,8 +135,7 @@ module.exports = (env) => ({
         { from: 'static/imgs', to: 'static/imgs' },
       ],
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV',
-      'AuthProductionBaseURL', 'PORT', 'BackendUrl', 'GoogleClientId', 'userRoles', 'HashString']),
+    new webpack.EnvironmentPlugin(['NODE_ENV', 'userRoles']),
     ...when(env.analyze, new BundleAnalyzerPlugin()),
   ],
 });
