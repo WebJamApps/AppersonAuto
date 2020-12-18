@@ -1,7 +1,6 @@
 const {
   series, crossEnv, concurrent, rimraf,
 } = require('nps-utils');
-// const { config: { port: E2E_PORT } } = require('./test/protractor.conf');
 
 module.exports = {
   scripts: {
@@ -31,26 +30,6 @@ module.exports = {
         lint: 'nps test.lint',
       }),
     },
-    e2e: {
-      default: `${concurrent({
-        // webpack: `webpack-dev-server --inline --port=${E2E_PORT}`,
-        protractor: 'nps e2e.whenReady',
-      })} --kill-others --success first`,
-      protractor: {
-        install: 'webdriver-manager update',
-        default: series(
-          'nps e2e.protractor.install',
-          'protractor test/protractor.conf.js',
-        ),
-        debug: series(
-          'nps e2e.protractor.install',
-          'protractor test/protractor.conf.js --elementExplorer',
-        ),
-      },
-      whenReady: series(
-        'nps e2e.protractor',
-      ),
-    },
     build: 'nps webpack.build',
     webpack: {
       default: 'nps webpack.server',
@@ -60,7 +39,7 @@ module.exports = {
         development: {
           default: series(
             'nps webpack.build.before',
-            'webpack --progress -d',
+            'npx webpack --progress --env development',
           ),
           serve: series.nps(
             'webpack.build.development',
@@ -70,11 +49,11 @@ module.exports = {
         production: {
           inlineCss: series(
             'nps webpack.build.before',
-            crossEnv('NODE_ENV=production webpack --progress -p --env.production'),
+            crossEnv('npx webpack --env NODE_ENV=production --progress --env production'),
           ),
           default: series(
             'nps webpack.build.before',
-            crossEnv('NODE_ENV=production webpack --progress -p --env.production'),
+            crossEnv('npx webpack --env NODE_ENV=production --progress --env production'),
           ),
           serve: series.nps(
             'webpack.build.production',
@@ -83,10 +62,9 @@ module.exports = {
         },
       },
       server: {
-        default: 'webpack-dev-server -d --inline --env.server',
-        hmr: 'webpack-dev-server -d --inline --hot --env.server',
+        default: 'webpack serve --env development --inline',
+        hmr: 'webpack serve --env development --inline --hot',
       },
     },
-    serve: 'pushstate-server dist',
   },
 };

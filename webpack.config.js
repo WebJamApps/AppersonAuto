@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ProvidePlugin } = require('webpack');
 const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || []; // eslint-disable-line no-mixed-operators
@@ -18,15 +17,15 @@ const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 const baseUrl = '/';
-const scssRules = [{ loader: 'sass-loader' }];
 
-module.exports = ({
-  production, coverage, analyze,
-} = {
-}) => ({
+module.exports = (env) => ({
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [srcDir, 'node_modules'],
+    fallback: { // needed for jsonwebtoken
+      crypto: require.resolve('crypto-browserify'),
+      stream: require.resolve('stream-browserify'),
+      util: require.resolve('util/'),
+    },
   },
 
   entry: {
@@ -34,14 +33,13 @@ module.exports = ({
     vendor: ['jquery', 'bootstrap'],
   },
 
-  mode: production ? 'production' : 'development',
+  mode: env.production ? 'production' : 'development',
 
   output: {
     path: outDir,
     publicPath: baseUrl,
-    filename: production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
-    // sourceMapFilename: production ? '[name].[chunkhash].bundle.map' : '[name].[hash].bundle.map',
-    chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js',
+    filename: env.production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
+    chunkFilename: env.production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js',
   },
 
   performance: { hints: false },
@@ -49,8 +47,7 @@ module.exports = ({
   devServer: {
     contentBase: outDir,
     hot: true,
-    // // serve index.html for all 404 (required for push-state)
-    historyApiFallback: {
+    historyApiFallback: { // serve index.html for all 404 (required for push-state)
       rewrites: [
         { from: /^\/$/, to: '/' },
         { from: /^\//, to: '/' },
@@ -60,31 +57,13 @@ module.exports = ({
     port: parseInt(process.env.PORT, 10),
   },
 
-  devtool: production ? 'nosources-source-map' : 'cheap-module-eval-source-map',
+  devtool: env.production ? 'nosources-source-map' : 'source-map',
 
   optimization: {
-    minimizer: production ? [
-      new TerserPlugin({
-        extractComments: true,
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-        terserOptions: {
-        // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-          extractComments: 'all',
-          compress: {
-            drop_console: true,
-          },
-        },
-      }),
-    ] : [],
     splitChunks: {
       cacheGroups: {
         styles: {
-          name: 'styles',
-          test: /\.css$/i,
-          chunks: 'all',
-          enforce: true,
+          name: 'styles', test: /\.css$/i, chunks: 'all', enforce: true,
         },
       },
     },
@@ -96,7 +75,6 @@ module.exports = ({
       // only when the issuer is a .js/.ts file, so the loaders are not applied inside html templates
       {
         test: /\.scss$/,
-        issuer: [{ not: [{ test: /\.html$/i }] }],
         use: [
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader', // translates CSS into CommonJS
@@ -106,23 +84,26 @@ module.exports = ({
       // Still needed for some node modules that use CSS
       {
         test: /\.css$/i,
-        issuer: [{ not: [{ test: /\.html$/i }] }],
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
-      {
-        test: /\.scss$/i,
-        issuer: [{ test: /\.html$/i }],
-        // SCSS required in templates cannot be extracted safely
-        use: scssRules,
-      },
-      { test: /\.html$/i, loader: 'html-loader' },
       {
         test: /\.jsx?$/i,
         loader: 'babel-loader',
         exclude: nodeModulesDir,
-        options: coverage ? { sourceMap: 'inline', plugins: ['istanbul'] } : {},
-      }, // eslint-disable-next-line no-useless-escape
-      { test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/, loader: 'expose-loader?Promise' },
+        options: env.coverage ? { sourceMap: 'inline', plugins: ['istanbul'] } : {},
+      },
+      {
+        // eslint-disable-next-line no-useless-escape
+        test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/,
+        loader: 'expose-loader',
+        options: {
+          exposes: {
+            globalName: 'Promise',
+            override: true,
+          },
+        },
+      },
+      { test: /\.html$/i, loader: 'html-loader' }, // eslint-disable-next-line no-useless-escape
       // embed small images and fonts as Data Urls and larger ones as files:
       { test: /\.(png|gif|jpg|cur)$/i, loader: 'url-loader', options: { limit: 8192 } },
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff2' } },
@@ -138,16 +119,15 @@ module.exports = ({
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
+      process: 'process/browser',
     }),
     new HtmlWebpackPlugin({
       template: `${srcDir}/index.ejs`,
-      minify: production ? { removeComments: true, collapseWhitespace: true } : undefined,
+      minify: env.production ? { removeComments: true, collapseWhitespace: true } : undefined,
       metadata: { title, baseUrl },
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
-      allChunks: true,
-      metadata: { title, baseUrl },
     }),
     new CopyPlugin({
       patterns: [
@@ -157,6 +137,6 @@ module.exports = ({
     }),
     new webpack.EnvironmentPlugin(['NODE_ENV',
       'AuthProductionBaseURL', 'PORT', 'BackendUrl', 'GoogleClientId', 'userRoles', 'HashString']),
-    ...when(analyze, new BundleAnalyzerPlugin()),
+    ...when(env.analyze, new BundleAnalyzerPlugin()),
   ],
 });

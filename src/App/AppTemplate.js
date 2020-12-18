@@ -24,6 +24,16 @@ export class AppTemplate extends Component {
     this.onResize = this.onResize.bind(this);
   }
 
+  handleKeyPress(e) {
+    if (e.key === 'Escape') return this.setState({ menuOpen: false });
+    return null;
+  }
+
+  handleKeyMenu(e) {
+    if (e.key === 'Enter') return this.toggleMobileMenu();
+    return null;
+  }
+
   onResize(width) { this.setState({ width }); }
 
   toggleMobileMenu() {
@@ -36,16 +46,6 @@ export class AppTemplate extends Component {
     this.setState({ menuOpen: false });
     if (e.target.classList.contains('loginGoogle')) return this.loginGoogle();
     return true;
-  }
-
-  handleKeyPress(e) {
-    if (e.key === 'Escape') return this.setState({ menuOpen: false });
-    return null;
-  }
-
-  handleKeyMenu(e) {
-    if (e.key === 'Enter') return this.toggleMobileMenu();
-    return null;
   }
 
   makeMenuLink(menu, index) {
