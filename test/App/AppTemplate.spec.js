@@ -87,7 +87,7 @@ describe('AppTemplate', () => {
     const { wrapper } = setup();
     wrapper.instance().callUs = jest.fn();
     wrapper.update();
-    wrapper.instance().setState({ width: 1000 });
+    wrapper.instance().setState({ width: 1300 });
     expect(wrapper.instance().callUs).toHaveBeenCalled();
   });
   it('makes a call us text link', () => {
