@@ -8,7 +8,7 @@ const wrapper = shallow(<Contact />);
 
 describe('Contact', () => {
   it('Renders the Contact page', () => {
-    wrapper.instance().setState({ width: 1009 });
+    wrapper.instance().setState({ width: 1270 });
     wrapper.instance().forceUpdate();
     expect(wrapper.find(DefaultWideMap).exists()).toBe(true);
     expect(wrapper.find(DefaultWideMap).dive().find('div.wideMap').exists()).toBe(true);
