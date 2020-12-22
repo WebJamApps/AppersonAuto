@@ -24,7 +24,7 @@ export default class Contact extends Component {
     const { width } = this.state;
     return (
       <div style={{ flexGrow: 1 }}>
-        {width >= 1004
+        {width >= 1266
           ? (
             <div className="page-content">
               <DefaultWideMap />

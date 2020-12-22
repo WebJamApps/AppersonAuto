@@ -98,8 +98,8 @@ export class Homepage extends Component {
     const { width } = this.state;
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
-        <h4 
-          className="pagetitle" 
+        <h4
+          className="pagetitle"
           style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}
         >
           Your one stop auto shop where honesty, quality work, and fair pricing are guaranteed
@@ -116,7 +116,7 @@ export class Homepage extends Component {
           <li>Coolant flush</li>
         </ul>
         {this.getToKnow()}
-        {width < 900 ? this.coupon() : null}
+        {width < 1162 ? this.coupon() : null}
       </div>
     );
   }

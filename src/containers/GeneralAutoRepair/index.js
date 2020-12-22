@@ -54,7 +54,7 @@ export class General extends Component {
 
   love() {
     const { width } = this.state;
-    const marginBottom = width < 900 ? '20px' : '90px';
+    const marginBottom = width < 1162 ? '20px' : '90px';
     return (
       <div>
         <h4 style={{ marginTop: '30px' }}>Apperson Automotive - Salem, VA Vehicle Care</h4>
@@ -70,7 +70,7 @@ export class General extends Component {
           <br />
           You can also stop by at 1601 Apperson Drive, Salem VA 24153.
         </p>
-        {width < 900 ? this.coupon() : null}
+        {width < 1162 ? this.coupon() : null}
       </div>
     );
   }
@@ -79,7 +79,7 @@ export class General extends Component {
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4
-          className="pagetitle" 
+          className="pagetitle"
           style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}
         >
           General Auto Repair
