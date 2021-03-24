@@ -93,7 +93,7 @@
     "regenerator-runtime": "latest",
     "sass-loader": "latest",
     "slick-carousel": "latest",
-    "snyk": "^1.425.4",
+    "snyk": "^1.465.0",
     "socketcluster-client": "latest",
     "stream-browserify": "^3.0.0",
     "style-loader": "latest",
