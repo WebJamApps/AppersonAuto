@@ -126,6 +126,7 @@
     "puppeteer": "latest",
     "react-hot-loader": "latest",
     "redux-mock-store": "latest",
+    "resize-observer-polyfill": "latest",
     "stylelint": "latest",
     "stylelint-config-standard": "latest",
     "stylelint-scss": "latest",
