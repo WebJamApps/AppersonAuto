@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const {
   series, crossEnv, concurrent, rimraf,
 } = require('nps-utils');
