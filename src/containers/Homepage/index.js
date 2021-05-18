@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReactResizeDetector from 'react-resize-detector';
+import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
@@ -11,17 +11,9 @@ export class Homepage extends Component {
   constructor(props) {
     super(props);
     this.commonUtils = commonUtils;
-    this.parentRef = React.createRef();
-    this.onResize = this.onResize.bind(this);
-    this.state = { width: 322 };
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('', window.screen.width); }
-
-  onResize(width) {
-    this.setState({ width });
-    this.commonUtils.setTitleAndScroll('', width);
-  }
 
   getToKnow() { // eslint-disable-line class-methods-use-this
     return (
@@ -95,7 +87,7 @@ export class Homepage extends Component {
   }
 
   homeText(marginLeft) {
-    const { width } = this.state;
+    const { width } = this.props;
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4
@@ -116,12 +108,13 @@ export class Homepage extends Component {
           <li>Coolant flush</li>
         </ul>
         {this.getToKnow()}
-        {width < 1162 ? this.coupon() : null}
+        {width < 1162 ? this.coupon(targetRef) : null}
       </div>
     );
   }
 
-  mainPanel(marginLeft, width) {
+  mainPanel(marginLeft) {
+    const { width } = this.props;
     return (
       <div className="row">
         {this.homeText(marginLeft)}
@@ -131,8 +124,7 @@ export class Homepage extends Component {
   }
 
   render() {
-    const { width } = this.state;
-    return this.commonUtils.renderer(width, slidesArr, this, PicSlider, ReactResizeDetector);
+    return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
@@ -144,4 +136,4 @@ Homepage.propTypes = {
   }),
 };
 
-export default connect(mapStoreToProps, null)(Homepage);
+export default withResizeDetector(connect(mapStoreToProps, null)(Homepage));

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReactResizeDetector from 'react-resize-detector';
+import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
@@ -11,17 +11,10 @@ export class AutoMaintenance extends Component {
   constructor(props) {
     super(props);
     this.commonUtils = commonUtils;
-    this.parentRef = React.createRef();
-    this.onResize = this.onResize.bind(this);
-    this.state = { width: 324 };
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('Auto Maintenance', window.screen.width); }
 
-  onResize(width) {
-    this.setState({ width });
-    this.commonUtils.setTitleAndScroll('Auto Maintenance', width);
-  }
 
   coupon() { // eslint-disable-line class-methods-use-this
     return (
@@ -32,10 +25,10 @@ export class AutoMaintenance extends Component {
   }
 
   filters() {
-    const { width } = this.state;
+    const { targetRef, width } = this.props;
     const marginBottom = width < 1162 ? '20px' : '40px';
     return (
-      <div>
+      <div ref={targetRef}>
         <p><strong>We’ll replace your car’s filters:</strong></p>
         <ul>
           <li>Air filters replacement</li>
@@ -112,7 +105,8 @@ export class AutoMaintenance extends Component {
     );
   }
 
-  mainPanel(marginLeft, width) {
+  mainPanel(marginLeft) {
+    const { width } = this.props;
     return (
       <div className="row">
         {this.pageText(marginLeft)}
@@ -122,8 +116,7 @@ export class AutoMaintenance extends Component {
   }
 
   render() {
-    const { width } = this.state;
-    return this.commonUtils.renderer(width, slidesArr, this, PicSlider, ReactResizeDetector);
+    return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
@@ -135,4 +128,4 @@ AutoMaintenance.propTypes = {
   }),
 };
 
-export default connect(mapStoreToProps, null)(AutoMaintenance);
+export default withResizeDetector(connect(mapStoreToProps, null)(AutoMaintenance));

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReactResizeDetector from 'react-resize-detector';
+import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
@@ -20,7 +20,7 @@ export class Major extends Component {
 
   onResize(width) {
     this.setState({ width });
-    this.commonUtils.setTitleAndScroll('Major Auto Repair', width);
+    this.commonUtils.setTitleAndScroll('Major Auto Repair');
   }
 
   coupon() { // eslint-disable-line class-methods-use-this
@@ -32,10 +32,10 @@ export class Major extends Component {
   }
 
   service() {
-    const { width } = this.state;
+    const { targetRef, width } = this.props;
     const marginBottom = width < 1162 ? '20px' : '190px';
     return (
-      <div>
+      <div ref={targetRef}>
         <p>{' '}</p>
         <h4 style={{ marginTop: '40px' }}>Apperson Automotive - Salem, VA Serious Auto Repair</h4>
         <p><strong>Service you can count on:</strong></p>
@@ -96,9 +96,10 @@ export class Major extends Component {
     );
   }
 
-  mainPanel(marginLeft, width) {
+  mainPanel(marginLeft) {
+    const { targetRef, width } = this.props;
     return (
-      <div>
+      <div ref={targetRef}>
         <div className="row">
           {this.majorPageText(marginLeft)}
           {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
@@ -113,8 +114,7 @@ export class Major extends Component {
   }
 
   render() {
-    const { width } = this.state;
-    return this.commonUtils.renderer(width, slidesArr, this, PicSlider, ReactResizeDetector);
+    return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
@@ -126,4 +126,4 @@ Major.propTypes = {
   }),
 };
 
-export default connect(mapStoreToProps, null)(Major);
+export default withResizeDetector(connect(mapStoreToProps, null)(Major));

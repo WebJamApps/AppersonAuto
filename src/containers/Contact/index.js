@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
-import ReactResizeDetector from 'react-resize-detector';
+import { withResizeDetector } from 'react-resize-detector';
 import DefaultWideMap from './WideMap';
 import DefaultNarrowMap from './NarrowMap';
 import commonUtils from '../../lib/commonUtils';
 
-export default class Contact extends Component {
+export class Contact extends Component {
   constructor(props) {
     super(props);
-    this.parentRef = React.createRef();
-    this.onResize = this.onResize.bind(this);
-    this.state = { width: 320 };
     this.commonUtils = commonUtils;
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('Contact', window.screen.width); }
 
-  onResize(width) {
-    this.setState({ width });
-    this.commonUtils.setTitleAndScroll('Contact', width);
-  }
-
   render() {
-    const { width } = this.state;
+    const { targetRef, width } = this.props;
     return (
-      <div style={{ flexGrow: 1 }}>
+      <div ref={targetRef} style={{ flexGrow: 1 }}>
         {width >= 1266
           ? (
             <div className="page-content">
@@ -32,12 +24,14 @@ export default class Contact extends Component {
             </div>
           )
           : (
+            console.log(width),
             <div className="page-content">
               <DefaultNarrowMap />
             </div>
           )}
-        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
       </div>
     );
   }
 }
+
+export default withResizeDetector(Contact);
