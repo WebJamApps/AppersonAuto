@@ -4,7 +4,7 @@ import { AppTemplate } from '../../src/App/AppTemplate';
 
 const dFunc = () => {};
 function setup() {
-  const props = { children: '<div></div>' };
+  const props = { children: '<div></div>', width: '300' };
   document.body.innerHTML = '<div class="page-content"></div>';
   const wrapper = shallow(<AppTemplate dispatch={dFunc} location={{ pathname: '/' }}><div /></AppTemplate>);
   return { wrapper, props };
@@ -83,23 +83,18 @@ describe('AppTemplate', () => {
     expect(result).toBe(null);
     done();
   }));
-  it('renders as widescreen', () => {
-    const { wrapper } = setup();
-    wrapper.instance().callUs = jest.fn();
-    wrapper.update();
-    wrapper.instance().setState({ width: 1300 });
-    expect(wrapper.instance().callUs).toHaveBeenCalled();
-  });
+  // it('renders as widescreen', () => {
+  //   const { wrapper } = setup();
+  //   wrapper.instance().callUs = jest.fn();
+  //   wrapper.update();
+  //   wrapper.instance().setState({ width: 1300 });
+  //   expect(wrapper.instance().callUs).toHaveBeenCalled();
+  // });
   it('makes a call us text link', () => {
     const { wrapper } = setup();
     wrapper.instance().callText = jest.fn();
     wrapper.update();
     wrapper.instance().callUs();
     expect(wrapper.instance().callText).toHaveBeenCalled();
-  });
-  it('handles onResize', () => {
-    const { wrapper } = setup();
-    wrapper.instance().onResize(999);
-    expect(wrapper.state('width')).toBe(999);
   });
 });
