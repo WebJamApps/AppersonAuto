@@ -11,17 +11,9 @@ export class Major extends Component {
   constructor(props) {
     super(props);
     this.commonUtils = commonUtils;
-    this.parentRef = React.createRef();
-    this.onResize = this.onResize.bind(this);
-    this.state = { width: 321 };
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('Major Auto Repair', window.screen.width); }
-
-  onResize(width) {
-    this.setState({ width });
-    this.commonUtils.setTitleAndScroll('Major Auto Repair');
-  }
 
   coupon() { // eslint-disable-line class-methods-use-this
     return (
@@ -126,4 +118,4 @@ Major.propTypes = {
   }),
 };
 
-export default withResizeDetector(connect(mapStoreToProps, null)(Major));
+export default connect(mapStoreToProps, null)(withResizeDetector(Major));

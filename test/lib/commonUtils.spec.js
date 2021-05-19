@@ -19,7 +19,7 @@ describe('commonUtils', () => {
     expect(r.type).toBe('div');
   });
   // it('sets the page content for widescreen rendering', () => {
-  //   r = commonUtils.renderer(1162, [], { coupons: () => null, mainPanel: () => null }, PicSlider);
+  //   r = commonUtils.renderer(1162, targetRef, { coupons: () => null, mainPanel: () => null }, PicSlider);
   //   expect(r.type).toBe('div');
   // });
 });

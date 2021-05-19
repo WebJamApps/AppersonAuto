@@ -128,4 +128,4 @@ AutoMaintenance.propTypes = {
   }),
 };
 
-export default withResizeDetector(connect(mapStoreToProps, null)(AutoMaintenance));
+export default connect(mapStoreToProps, null)(withResizeDetector(AutoMaintenance));

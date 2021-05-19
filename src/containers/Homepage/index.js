@@ -136,4 +136,4 @@ Homepage.propTypes = {
   }),
 };
 
-export default withResizeDetector(connect(mapStoreToProps, null)(Homepage));
+export default connect(mapStoreToProps, null)(withResizeDetector(Homepage));

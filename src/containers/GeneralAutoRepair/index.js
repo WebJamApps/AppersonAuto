@@ -122,4 +122,4 @@ General.propTypes = {
   }),
 };
 
-export default withResizeDetector(connect(mapStoreToProps, null)(General));
+export default connect(mapStoreToProps, null)(withResizeDetector(General));
