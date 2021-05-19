@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import AutoMaint from '../containers/AutoMaintenance';
 import GeneralAutoRepair from '../containers/GeneralAutoRepair';
 import MajorAutoRepair from '../containers/MajorAutoRepair';
-import Contact from '../containers/Contact';
+import DefaultContact from '../containers/Contact';
 import AppFourOhFour from './404';
 import AppTemplateDefault from './AppTemplate';
 import DefaultHome from '../containers/Homepage';
@@ -16,7 +16,6 @@ import mapStoreToProps from '../redux/mapStoreToProps';
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
@@ -29,7 +28,7 @@ export class App extends Component {
               <Route path="/auto-maintenance" component={AutoMaint} />
               <Route path="/general-auto-repair" component={GeneralAutoRepair} />
               <Route path="/major-auto-repair" component={MajorAutoRepair} />
-              <Route path="/contact" component={Contact} />
+              <Route path="/contact" component={DefaultContact} />
               <Route component={AppFourOhFour} />
             </Switch>
           </AppTemplateDefault>

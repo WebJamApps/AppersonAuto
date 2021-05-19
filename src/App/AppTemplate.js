@@ -8,7 +8,6 @@ import mapStoreToProps from '../redux/mapStoreToProps';
 import Footer from './Footer';
 import menuItems from './menuItems.json';
 
-
 // interface AppTemplateProps {
 //   targetRef: RefObject<HTMLDivElement>;
 //   width: number;
@@ -20,7 +19,7 @@ export class AppTemplate extends Component {
     super(props);
     this.menus = menuItems.menus;
     this.children = props.children;
-    this.state = { menuOpen: false, width: 320 };
+    this.state = { menuOpen: false };
     this.close = this.close.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleKeyMenu = this.handleKeyMenu.bind(this);
@@ -181,5 +180,7 @@ export class AppTemplate extends Component {
 AppTemplate.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
   children: PropTypes.element.isRequired,
+  width: PropTypes.number,
+  targetRef: PropTypes.RefObject
 };
 export default withResizeDetector(withRouter(connect(mapStoreToProps, null)(AppTemplate)));

@@ -24,14 +24,18 @@ export class Contact extends Component {
             </div>
           )
           : (
-            console.log(width),
-            <div className="page-content">
-              <DefaultNarrowMap />
-            </div>
+          <div className="page-content">
+            <DefaultNarrowMap />
+          </div>
           )}
       </div>
     );
   }
 }
+
+Contact.propTypes = {
+  width: PropTypes.number,
+  targetRef: PropTypes.RefObject
+};
 
 export default withResizeDetector(Contact);

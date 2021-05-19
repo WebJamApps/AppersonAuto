@@ -120,6 +120,8 @@ General.propTypes = {
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
+  width: PropTypes.number,
+  targetRef: PropTypes.RefObject
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(General));

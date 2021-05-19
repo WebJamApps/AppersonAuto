@@ -15,7 +15,6 @@ export class AutoMaintenance extends Component {
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('Auto Maintenance', window.screen.width); }
 
-
   coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
@@ -126,6 +125,8 @@ AutoMaintenance.propTypes = {
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
+  width: PropTypes.number,
+  targetRef: PropTypes.RefObject
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(AutoMaintenance));
