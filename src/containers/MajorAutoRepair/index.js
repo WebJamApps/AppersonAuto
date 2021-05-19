@@ -116,8 +116,8 @@ Major.propTypes = {
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
-  width: PropTypes.number,
-  targetRef: PropTypes.RefObject
+  width: PropTypes.number.isRequired,
+  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(Major));

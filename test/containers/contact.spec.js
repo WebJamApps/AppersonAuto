@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import DefaultContact from '../../src/containers/Contact/index';
-import DefaultWideMap from '../../src/containers/Contact/WideMap';
-import DefaultNarrowMap from '../../src/containers/Contact/NarrowMap';
+// import DefaultWideMap from '../../src/containers/Contact/WideMap';
+// import DefaultNarrowMap from '../../src/containers/Contact/NarrowMap';
 
 describe('Contact', () => {
   let wrapper;

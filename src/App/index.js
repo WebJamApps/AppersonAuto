@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AutoMaint from '../containers/AutoMaintenance';
@@ -13,11 +12,7 @@ import AppTemplateDefault from './AppTemplate';
 import DefaultHome from '../containers/Homepage';
 import mapStoreToProps from '../redux/mapStoreToProps';
 
-export class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+export class App extends PureComponent {
   render() {
     return (
       <div id="App" className="App">
@@ -38,9 +33,5 @@ export class App extends Component {
     );
   }
 }
-App.propTypes = {
-  auth: PropTypes.shape({ user: PropTypes.shape({ userType: PropTypes.string }), isAuthenticated: PropTypes.bool }),
-};
-App.defaultProps = { auth: { isAuthenticated: false, user: { userType: '' } } };
 
 export default connect(mapStoreToProps, null)(App);

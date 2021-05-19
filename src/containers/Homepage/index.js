@@ -87,9 +87,9 @@ export class Homepage extends Component {
   }
 
   homeText(marginLeft) {
-    const { width } = this.props;
+    const { targetRef, width } = this.props;
     return (
-      <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
+      <div ref={targetRef} className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4
           className="pagetitle"
           style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}
@@ -114,9 +114,9 @@ export class Homepage extends Component {
   }
 
   mainPanel(marginLeft) {
-    const { width } = this.props;
+    const { targetRef, width } = this.props;
     return (
-      <div className="row">
+      <div ref={targetRef} className="row">
         {this.homeText(marginLeft)}
         {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
@@ -134,8 +134,8 @@ Homepage.propTypes = {
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
-  width: PropTypes.number,
-  targetRef: PropTypes.RefObject
+  width: PropTypes.number.isRequired,
+  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(Homepage));

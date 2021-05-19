@@ -180,7 +180,7 @@ export class AppTemplate extends Component {
 AppTemplate.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
   children: PropTypes.element.isRequired,
-  width: PropTypes.number,
-  targetRef: PropTypes.RefObject
+  width: PropTypes.number.isRequired,
+  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
 export default withResizeDetector(withRouter(connect(mapStoreToProps, null)(AppTemplate)));

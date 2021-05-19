@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { withResizeDetector } from 'react-resize-detector';
+import { withResizeDetector } from 
+  'react-resize-detector';
+import PropTypes from 'prop-types';
 import DefaultWideMap from './WideMap';
 import DefaultNarrowMap from './NarrowMap';
 import commonUtils from '../../lib/commonUtils';
@@ -24,9 +26,9 @@ export class Contact extends Component {
             </div>
           )
           : (
-          <div className="page-content">
-            <DefaultNarrowMap />
-          </div>
+            <div className="page-content">
+              <DefaultNarrowMap />
+            </div>
           )}
       </div>
     );
@@ -34,8 +36,8 @@ export class Contact extends Component {
 }
 
 Contact.propTypes = {
-  width: PropTypes.number,
-  targetRef: PropTypes.RefObject
+  width: PropTypes.number.isRequired,
+  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
 
 export default withResizeDetector(Contact);
