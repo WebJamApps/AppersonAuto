@@ -18,8 +18,4 @@ describe('commonUtils', () => {
     r = commonUtils.widePics(1162, [], PicSlider, () => null, '10px');
     expect(r.type).toBe('div');
   });
-  // it('sets the page content for widescreen rendering', () => {
-  //   r = commonUtils.renderer(1162, targetRef, { coupons: () => null, mainPanel: () => null }, PicSlider);
-  //   expect(r.type).toBe('div');
-  // });
 });

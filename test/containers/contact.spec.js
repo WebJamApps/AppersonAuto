@@ -7,8 +7,8 @@ import DefaultNarrowMap from '../../src/containers/Contact/NarrowMap';
 describe('Contact', () => {
   let wrapper;
   beforeEach(() => {
-    const targetRef={};
-    const width=1300;
+    const targetRef = {};
+    const width = 1300;
     wrapper = shallow(<Contact targetRef={targetRef} width={width} />);
   });
 
@@ -17,8 +17,8 @@ describe('Contact', () => {
     expect(wrapper.find(DefaultWideMap).dive().find('div.wideMap').exists()).toBe(true);
   });
   it('Renders NarrowMap when less than 1004', () => {
-    const width=300;
-    const targetRef={};
+    const width = 300;
+    const targetRef = {};
     const wrapper2 = shallow(<Contact targetRef={targetRef} width={width} />);
     wrapper2.update();
     expect(wrapper2.find(DefaultNarrowMap).exists()).toBe(true);

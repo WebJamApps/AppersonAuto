@@ -84,13 +84,6 @@ describe('AppTemplate', () => {
     expect(result).toBe(null);
     done();
   }));
-  // it('renders as widescreen', () => {
-  //   const { wrapper } = setup();
-  //   wrapper.instance().callUs = jest.fn();
-  //   wrapper.update();
-  //   wrapper.instance().setState({ width: 1300 });
-  //   expect(wrapper.instance().callUs).toHaveBeenCalled();
-  // });
   it('makes a call us text link', () => {
     const { wrapper } = setup();
     wrapper.instance().callText = jest.fn();
