@@ -128,13 +128,13 @@ export class Homepage extends Component {
   }
 }
 
-Homepage.defaultProps = { homeContent: { title: '', comments: '' } };
+Homepage.defaultProps = { homeContent: { title: '', comments: '' }, width: 320 };
 Homepage.propTypes = {
   homeContent: PropTypes.shape({
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
-  width: PropTypes.number.isRequired,
+  width: PropTypes.number,
   targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
 

@@ -177,10 +177,15 @@ export class AppTemplate extends Component {
   }
 }
 
+AppTemplate.defaultProps = {
+  width: 320,
+};
+
 AppTemplate.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
   children: PropTypes.element.isRequired,
-  width: PropTypes.number.isRequired,
+  width: PropTypes.number,
   targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
-export default withResizeDetector(withRouter(connect(mapStoreToProps, null)(AppTemplate)));
+
+export default withRouter(connect(mapStoreToProps, null)(withResizeDetector(AppTemplate)));
