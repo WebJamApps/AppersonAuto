@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReactResizeDetector from 'react-resize-detector';
+import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
@@ -11,17 +11,9 @@ export class Homepage extends Component {
   constructor(props) {
     super(props);
     this.commonUtils = commonUtils;
-    this.parentRef = React.createRef();
-    this.onResize = this.onResize.bind(this);
-    this.state = { width: 322 };
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('', window.screen.width); }
-
-  onResize(width) {
-    this.setState({ width });
-    this.commonUtils.setTitleAndScroll('', width);
-  }
 
   getToKnow() { // eslint-disable-line class-methods-use-this
     return (
@@ -95,9 +87,9 @@ export class Homepage extends Component {
   }
 
   homeText(marginLeft) {
-    const { width } = this.state;
+    const { targetRef, width } = this.props;
     return (
-      <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
+      <div ref={targetRef} className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4
           className="pagetitle"
           style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}
@@ -116,14 +108,15 @@ export class Homepage extends Component {
           <li>Coolant flush</li>
         </ul>
         {this.getToKnow()}
-        {width < 1162 ? this.coupon() : null}
+        {width < 1162 ? this.coupon(targetRef) : null}
       </div>
     );
   }
 
-  mainPanel(marginLeft, width) {
+  mainPanel(marginLeft) {
+    const { targetRef, width } = this.props;
     return (
-      <div className="row">
+      <div ref={targetRef} className="row">
         {this.homeText(marginLeft)}
         {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
@@ -131,17 +124,18 @@ export class Homepage extends Component {
   }
 
   render() {
-    const { width } = this.state;
-    return this.commonUtils.renderer(width, slidesArr, this, PicSlider, ReactResizeDetector);
+    return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
-Homepage.defaultProps = { homeContent: { title: '', comments: '' } };
+Homepage.defaultProps = { homeContent: { title: '', comments: '' }, width: 320 };
 Homepage.propTypes = {
   homeContent: PropTypes.shape({
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
+  width: PropTypes.number,
+  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
 
-export default connect(mapStoreToProps, null)(Homepage);
+export default connect(mapStoreToProps, null)(withResizeDetector(Homepage));

@@ -3,6 +3,8 @@ import Adapter from 'enzyme-adapter-react-16';
 
 require('dotenv').config();
 
+global.ResizeObserver = require('resize-observer-polyfill');
+
 window.matchMedia = window.matchMedia || function match() {
   return {
     matches: false,

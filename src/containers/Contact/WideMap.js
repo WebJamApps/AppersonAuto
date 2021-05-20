@@ -1,17 +1,15 @@
 import React from 'react';
 
 const WideMap = () => (
-  <>
-    <div className="wideMap">
-      <h4 
-        className="pagetitle" 
-        style={{
-          margin: 'auto', paddingTop: '30px', fontWeight: 'bold', fontSize: '16pt',
-        }}
-      >
-        Contact Apperson Automotive of Salem, VA
-      </h4>
-    </div>
+  <div className="wideMap">
+    <h4 
+      className="pagetitle" 
+      style={{
+        margin: 'auto', paddingTop: '30px', fontWeight: 'bold', fontSize: '16pt',
+      }}
+    >
+      Contact Apperson Automotive of Salem, VA
+    </h4>
 
     <div style={{ marginTop: '28px' }}>
       <div style={{ width: '600px', float: 'right', margin: 'auto' }}>
@@ -35,13 +33,11 @@ const WideMap = () => (
           />
         </div>
       </div>
-      <p>
-        Jim Hosey - Owner
-        {' '}
+      <p className="contact-info">
+        Jim Hosey - Owner &nbsp;
         <a href="mailto:jhaminal@aol.com">jhaminal@aol.com</a>
         <br />
-        Mitchell Sylveste - Owner
-        {' '}
+        Mitchell Sylveste - Owner &nbsp;
         <a href="mailto:z24racer1@aol.com">z24racer1@aol.com</a>
       </p>
 
@@ -51,7 +47,6 @@ const WideMap = () => (
         Salem,  VA  24153
         <br />
         <br />
-
         phone: 540-444-7337
         <br />
         fax: 540-444-7338
@@ -82,7 +77,7 @@ const WideMap = () => (
         <br />
       </p>
     </div>
-  </>
+  </div>
 );
 
 export default WideMap;

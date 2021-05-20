@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReactResizeDetector from 'react-resize-detector';
+import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
@@ -11,17 +11,9 @@ export class General extends Component {
   constructor(props) {
     super(props);
     this.commonUtils = commonUtils;
-    this.parentRef = React.createRef();
-    this.onResize = this.onResize.bind(this);
-    this.state = { width: 323 };
   }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('General Auto Repair', window.screen.width); }
-
-  onResize(width) {
-    this.setState({ width });
-    this.commonUtils.setTitleAndScroll('General Auto Repair', width);
-  }
 
   coupon() { // eslint-disable-line class-methods-use-this
     return (
@@ -53,7 +45,7 @@ export class General extends Component {
   }
 
   love() {
-    const { width } = this.state;
+    const { width } = this.props;
     const marginBottom = width < 1162 ? '20px' : '90px';
     return (
       <div>
@@ -107,7 +99,8 @@ export class General extends Component {
     );
   }
 
-  mainPanel(marginLeft, width) {
+  mainPanel(marginLeft) {
+    const { width } = this.props;
     return (
       <div className="row">
         {this.pageText(marginLeft)}
@@ -117,8 +110,7 @@ export class General extends Component {
   }
 
   render() {
-    const { width } = this.state;
-    return this.commonUtils.renderer(width, slidesArr, this, PicSlider, ReactResizeDetector);
+    return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
@@ -128,6 +120,8 @@ General.propTypes = {
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
+  width: PropTypes.number.isRequired,
+  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
 
-export default connect(mapStoreToProps, null)(General);
+export default connect(mapStoreToProps, null)(withResizeDetector(General));
