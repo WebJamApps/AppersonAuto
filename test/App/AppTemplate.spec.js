@@ -4,9 +4,10 @@ import { AppTemplate } from '../../src/App/AppTemplate';
 
 const dFunc = () => {};
 function setup() {
-  const props = { children: '<div></div>' };
+  const targetRef = {};
+  const props = { children: '<div></div>', width: '300' };
   document.body.innerHTML = '<div class="page-content"></div>';
-  const wrapper = shallow(<AppTemplate dispatch={dFunc} location={{ pathname: '/' }}><div /></AppTemplate>);
+  const wrapper = shallow(<AppTemplate dispatch={dFunc} width={1300} targetRef={targetRef} location={{ pathname: '/' }}><div /></AppTemplate>);
   return { wrapper, props };
 }
 
@@ -22,7 +23,7 @@ describe('AppTemplate', () => {
   });
   it('closes the menu without navigating away from the react app', () => new Promise((done) => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
-    const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
     aT.setState = () => {};
     const result = aT.close({ target: { classList: { contains() { return false; } } } });
     expect(result).toBe(true);
@@ -30,7 +31,7 @@ describe('AppTemplate', () => {
   }));
   it('closes the menu and logs in to google', () => new Promise((done) => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
-    const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
     aT.setState = () => {};
     aT.changeNav = () => false;
     aT.loginGoogle = () => true;
@@ -57,7 +58,7 @@ describe('AppTemplate', () => {
     aT.toggleMobileMenu();
   }));
   it('closes the mobile menu on clicking escape key', () => new Promise((done) => {
-    const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
     aT.setState = jest.fn(() => true);
     const result = aT.handleKeyPress({ key: 'Escape' });
     expect(result).toBe(true);
@@ -83,23 +84,11 @@ describe('AppTemplate', () => {
     expect(result).toBe(null);
     done();
   }));
-  it('renders as widescreen', () => {
-    const { wrapper } = setup();
-    wrapper.instance().callUs = jest.fn();
-    wrapper.update();
-    wrapper.instance().setState({ width: 1300 });
-    expect(wrapper.instance().callUs).toHaveBeenCalled();
-  });
   it('makes a call us text link', () => {
     const { wrapper } = setup();
     wrapper.instance().callText = jest.fn();
     wrapper.update();
     wrapper.instance().callUs();
     expect(wrapper.instance().callText).toHaveBeenCalled();
-  });
-  it('handles onResize', () => {
-    const { wrapper } = setup();
-    wrapper.instance().onResize(999);
-    expect(wrapper.state('width')).toBe(999);
   });
 });

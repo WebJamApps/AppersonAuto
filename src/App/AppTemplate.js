@@ -1,27 +1,31 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ReactResizeDetector from 'react-resize-detector';
+import { withResizeDetector } from 'react-resize-detector';
 import { connect } from 'react-redux';
 import authUtils from './authUtils';
 import mapStoreToProps from '../redux/mapStoreToProps';
 import Footer from './Footer';
 import menuItems from './menuItems.json';
 
+// interface AppTemplateProps {
+//   targetRef: RefObject<HTMLDivElement>;
+//   width: number;
+//   height: number;
+// }
+
 export class AppTemplate extends Component {
   constructor(props) {
     super(props);
     this.menus = menuItems.menus;
     this.children = props.children;
-    this.state = { menuOpen: false, width: 320 };
+    this.state = { menuOpen: false };
     this.close = this.close.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleKeyMenu = this.handleKeyMenu.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     this.navLinks = this.navLinks.bind(this);
     this.authUtils = authUtils;
-    this.parentRef = React.createRef();
-    this.onResize = this.onResize.bind(this);
   }
 
   handleKeyPress(e) {
@@ -33,8 +37,6 @@ export class AppTemplate extends Component {
     if (e.key === 'Enter') return this.toggleMobileMenu();
     return null;
   }
-
-  onResize(width) { this.setState({ width }); }
 
   toggleMobileMenu() {
     const { menuOpen } = this.state;
@@ -145,11 +147,12 @@ export class AppTemplate extends Component {
 
   render() {
     let logoWidth = '742px', marginTop = '-15px';
-    const { menuOpen, width } = this.state;
+    const { menuOpen } = this.state;
+    const { targetRef, width } = this.props;
     if (width < 1232) { logoWidth = '272px'; marginTop = '1px'; }
     const style = `${menuOpen ? 'open' : 'close'}`;
     return (
-      <div className="page-host">
+      <div ref={targetRef} className="page-host">
         <div tabIndex={0} role="button" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
           <div className="drawer" style={{ backgroundColor: '#505050' }}>
             {width > 1161 ? this.callUs() : null}
@@ -169,14 +172,20 @@ export class AppTemplate extends Component {
             </div>
           </div>
         </div>
-        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize} targetDomEl={this.parentRef.current} />
       </div>
     );
   }
 }
 
+AppTemplate.defaultProps = {
+  width: 320,
+};
+
 AppTemplate.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
   children: PropTypes.element.isRequired,
+  width: PropTypes.number,
+  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
-export default withRouter(connect(mapStoreToProps, null)(AppTemplate));
+
+export default withRouter(connect(mapStoreToProps, null)(withResizeDetector(AppTemplate)));

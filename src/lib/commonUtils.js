@@ -40,10 +40,11 @@ const widePics = (width, slides, PicSlider, coupon, height) => {
   return null;
 };
 
-const renderer = (width, slidesArr, view, PicSlider, ReactResizeDetector) => {
+const renderer = (slidesArr, view, PicSlider) => {
+  const { targetRef, width } = view.props;
   const marginLeft = width < 1162 ? '5px' : '15px';
   return (
-    <div>
+    <div ref={targetRef}>
       {width < 1162 ? (
         <div>
           {cellPics(width, slidesArr, PicSlider)}
@@ -51,7 +52,6 @@ const renderer = (width, slidesArr, view, PicSlider, ReactResizeDetector) => {
       ) : null}
       <div className="container-fluid">
         {view.mainPanel(marginLeft, width)}
-        <ReactResizeDetector handleWidth handleHeight onResize={view.onResize} targetDomEl={view.parentRef.current} />
       </div>
     </div>
   );
