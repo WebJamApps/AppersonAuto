@@ -9,7 +9,7 @@
   },
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
-    "node": ">=15.3.0"
+    "node": ">=16.1.0"
   },
   "files": [
     "webpack.config.js",
@@ -72,6 +72,7 @@
     "mini-css-extract-plugin": "latest",
     "moment": "latest",
     "mui-datatables": "latest",
+    "node-notifier": "^10.0.0",
     "node-sass": "latest",
     "nps": "latest",
     "nps-utils": "latest",
