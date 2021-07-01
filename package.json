@@ -73,7 +73,7 @@
     "moment": "latest",
     "mui-datatables": "latest",
     "node-notifier": "^10.0.0",
-    "node-sass": "latest",
+    "node-sass": "6.0.1",
     "nps": "latest",
     "nps-utils": "latest",
     "popper.js": "latest",
