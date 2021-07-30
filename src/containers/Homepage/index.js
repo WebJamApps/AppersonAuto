@@ -10,10 +10,11 @@ import slidesArr from '../../lib/slides';
 export class Homepage extends Component {
   constructor(props) {
     super(props);
+    this.width = window.screen.width;
     this.commonUtils = commonUtils;
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('', window.screen.width); }
+  componentDidMount(width) { this.commonUtils.setTitleAndScroll('', width); }
 
   getToKnow() { // eslint-disable-line class-methods-use-this
     return (
@@ -135,7 +136,7 @@ Homepage.propTypes = {
     comments: PropTypes.string,
   }),
   width: PropTypes.number.isRequired,
-  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
+  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired, 
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(Homepage));

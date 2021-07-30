@@ -126,7 +126,7 @@ AutoMaintenance.propTypes = {
     comments: PropTypes.string,
   }),
   width: PropTypes.number.isRequired,
-  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
+  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(AutoMaintenance));

@@ -121,7 +121,6 @@ General.propTypes = {
     comments: PropTypes.string,
   }),
   width: PropTypes.number.isRequired,
-  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(General));
