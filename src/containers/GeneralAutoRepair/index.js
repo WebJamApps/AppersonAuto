@@ -114,13 +114,13 @@ export class General extends Component {
   }
 }
 
-General.defaultProps = { homeContent: { title: '', comments: '' } };
+General.defaultProps = { homeContent: { title: '', comments: '' }, width: window.screen.width };
 General.propTypes = {
   homeContent: PropTypes.shape({
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
-  width: PropTypes.number.isRequired,
+  width: PropTypes.number,
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(General));

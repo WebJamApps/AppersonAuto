@@ -35,8 +35,12 @@ export class Contact extends Component {
   }
 }
 
+Contact.defaultProps = {
+  width: 320,
+};
+
 Contact.propTypes = {
-  width: PropTypes.number.isRequired,
+  width: PropTypes.number,
   targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
 };
 
