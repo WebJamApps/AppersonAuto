@@ -35,9 +35,13 @@ export class Contact extends Component {
   }
 }
 
+Contact.defaultProps = {
+  width: 320,
+};
+
 Contact.propTypes = {
-  width: PropTypes.number.isRequired,
-  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
+  width: PropTypes.number,
+  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
 };
 
 export default withResizeDetector(Contact);
