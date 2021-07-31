@@ -62,7 +62,6 @@
     "file-loader": "latest",
     "hammerjs": "latest",
     "html-loader": "latest",
-    "html-react-parser": "^1.2.7",
     "html-webpack-plugin": "latest",
     "jasmine-spec-reporter": "latest",
     "jquery": "3.5.0",
