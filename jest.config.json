@@ -6,7 +6,6 @@
   "setupFiles": [
     "core-js/stable",
     "regenerator-runtime/runtime",
-    "enzyme-react-16-adapter-setup",
     "<rootDir>/test/jest-pretest.js"
   ],
   "moduleNameMapper": {
