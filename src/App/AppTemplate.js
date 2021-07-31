@@ -185,7 +185,7 @@ AppTemplate.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
   children: PropTypes.element.isRequired,
   width: PropTypes.number,
-  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
+  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
 };
 
 export default withRouter(connect(mapStoreToProps, null)(withResizeDetector(AppTemplate)));

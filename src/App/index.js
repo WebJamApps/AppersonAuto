@@ -15,21 +15,22 @@ import mapStoreToProps from '../redux/mapStoreToProps';
 export class App extends PureComponent {
   render() {
     return (
-      <div id="App" className="App">
-        <Router>
-          <AppTemplateDefault id="homepage">
-            <Switch>
-              <Route exact path="/" component={DefaultHome} />
-              <Route path="/auto-maintenance" component={AutoMaint} />
-              <Route path="/general-auto-repair" component={GeneralAutoRepair} />
-              <Route path="/major-auto-repair" component={MajorAutoRepair} />
-              <Route path="/contact" component={DefaultContact} />
-              <Route component={AppFourOhFour} />
-            </Switch>
-          </AppTemplateDefault>
-        </Router>
-      </div>
-
+      <React.StrictMode>
+        <div id="App" className="App">
+          <Router>
+            <AppTemplateDefault id="homepage">
+              <Switch>
+                <Route exact path="/" component={DefaultHome} />
+                <Route path="/auto-maintenance" component={AutoMaint} />
+                <Route path="/general-auto-repair" component={GeneralAutoRepair} />
+                <Route path="/major-auto-repair" component={MajorAutoRepair} />
+                <Route path="/contact" component={DefaultContact} />
+                <Route component={AppFourOhFour} />
+              </Switch>
+            </AppTemplateDefault>
+          </Router>
+        </div>
+      </React.StrictMode>
     );
   }
 }

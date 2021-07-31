@@ -119,14 +119,14 @@ export class AutoMaintenance extends Component {
   }
 }
 
-AutoMaintenance.defaultProps = { homeContent: { title: '', comments: '' } };
+AutoMaintenance.defaultProps = { homeContent: { title: '', comments: '' }, width: window.screen.width };
 AutoMaintenance.propTypes = {
   homeContent: PropTypes.shape({
     title: PropTypes.string,
     comments: PropTypes.string,
   }),
-  width: PropTypes.number.isRequired,
-  targetRef: PropTypes.shape({ current: PropTypes.element }).isRequired,
+  width: PropTypes.number,
+  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
 };
 
 export default connect(mapStoreToProps, null)(withResizeDetector(AutoMaintenance));
