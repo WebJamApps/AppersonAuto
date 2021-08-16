@@ -1,11 +1,19 @@
 {
-  "plugins": ["node", "security", "react", "jest"],
-  "extends": ["airbnb", "plugin:security/recommended", "plugin:node/recommended", "plugin:jest/recommended"],
+  "plugins": ["node", "security", "react", "jest", "@typescript-eslint", "json"],
+  "extends": ["airbnb-typescript", "airbnb/hooks", "plugin:security/recommended", "plugin:json/recommended",
+    "plugin:node/recommended", "plugin:jest/recommended", "plugin:@typescript-eslint/recommended"
+  ],
   "rules": {
+    "jest/no-conditional-expect": 0,
     "react/jsx-filename-extension": [1, {
-      "extensions": [".js"]
+      "extensions": ["tsx"]
     }],
+    "react/static-property-placement": 0,
+    "react/prop-types": 0,
     "node/no-unsupported-features/es-syntax": 0,
+    "node/no-missing-import": ["error", {
+      "tryExtensions": [".js", ".json", ".tsx", ".ts"]
+    }],
     "no-multiple-empty-lines": [
       "error",
       {
@@ -13,9 +21,6 @@
         "maxEOF": 1
       }
     ],
-    "no-trailing-spaces": [0, {
-      "skipBlankLines": true
-    }],
     "no-underscore-dangle": 0,
     "one-var-declaration-per-line": [0, "never"],
     "one-var": [2, {
@@ -37,9 +42,13 @@
     "page": true,
     "browser": true,
     "context": true,
-    "jestPuppeteer": true
+    "jestPuppeteer": true,
+    "google": true
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "sourceType": "module"
+    "ecmaVersion": 11,
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
   }
 }

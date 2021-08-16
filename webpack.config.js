@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config();
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -12,15 +13,17 @@ const ensureArray = (config) => config && (Array.isArray(config) ? config : [con
 const when = (condition, config, negativeConfig) => (condition ? ensureArray(config) : ensureArray(negativeConfig));
 
 // primary config:
+const nodeEnv = process.env.NODE_ENV || 'development';
 const title = 'Apperson Automotive';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
-const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 const baseUrl = '/';
+const envVars = ['NODE_ENV', 'userRoles'];
+if (nodeEnv === 'development')envVars.push('PORT');
 
 module.exports = (env) => ({
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     fallback: { // needed for jsonwebtoken
       crypto: require.resolve('crypto-browserify'),
       stream: require.resolve('stream-browserify'),
@@ -29,13 +32,8 @@ module.exports = (env) => ({
   },
 
   entry: {
-    app: [`${srcDir}/main.js`],
+    app: [`${srcDir}/main.tsx`],
     vendor: ['jquery', 'bootstrap'],
-  },
-
-  stats: {
-    children: true,
-    errorDetails: true,
   },
 
   mode: env.production ? 'production' : 'development',
@@ -43,8 +41,8 @@ module.exports = (env) => ({
   output: {
     path: outDir,
     publicPath: baseUrl,
-    filename: env.production ? '[name].[chunkhash].bundle.js' : '[name].[fullhash].bundle.js',
-    chunkFilename: env.production ? '[name].[chunkhash].chunk.js' : '[name].[fullhash].chunk.js',
+    filename: env.production ? '[name].[chunkhash].bundle.js' : '[name].[hash].bundle.js',
+    chunkFilename: env.production ? '[name].[chunkhash].chunk.js' : '[name].[hash].chunk.js',
   },
 
   performance: { hints: false },
@@ -76,6 +74,16 @@ module.exports = (env) => ({
 
   module: {
     rules: [
+      {
+        test: /\.(t|j)sx?$/,
+        use: { loader: 'ts-loader' },
+        exclude: [/node_modules/],
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
+      },
       // SCSS required in JS/TS files should use the style-loader that auto-injects it into the website
       // only when the issuer is a .js/.ts file, so the loaders are not applied inside html templates
       {
@@ -83,30 +91,13 @@ module.exports = (env) => ({
         use: [
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader', // translates CSS into CommonJS
-          'sass-loader', // compiles Sass to CSS, using dart-sass by default
+          'sass-loader', // compiles Sass to CSS, using dart sass
         ],
       },
       // Still needed for some node modules that use CSS
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.jsx?$/i,
-        loader: 'babel-loader',
-        exclude: nodeModulesDir,
-        options: env.coverage ? { sourceMap: 'inline', plugins: ['istanbul'] } : {},
-      },
-      {
-        // eslint-disable-next-line no-useless-escape
-        test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/,
-        loader: 'expose-loader',
-        options: {
-          exposes: {
-            globalName: 'Promise',
-            override: true,
-          },
-        },
       },
       { test: /\.html$/i, loader: 'html-loader' }, // eslint-disable-next-line no-useless-escape
       // embed small images and fonts as Data Urls and larger ones as files:
@@ -140,7 +131,7 @@ module.exports = (env) => ({
         { from: 'static/imgs', to: 'static/imgs' },
       ],
     }),
-    new webpack.EnvironmentPlugin(['NODE_ENV', 'userRoles']),
+    new webpack.EnvironmentPlugin(envVars),
     ...when(env.analyze, new BundleAnalyzerPlugin()),
   ],
 });
