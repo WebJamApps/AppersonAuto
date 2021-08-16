@@ -40,16 +40,19 @@
     "test:stylelint": "stylelint \"static/**/*.scss\""
   },
   "dependencies": {
+    "@popperjs/core": "^2.9.2",
     "@types/copy-webpack-plugin": "latest",
     "@types/core-js": "^2.5.4",
     "@types/domutils": "^1.7.2",
     "@types/ejs": "^3.0.1",
     "@types/enzyme": "^3.10.5",
+    "@types/faker": "^4.1.12",
     "@types/html-webpack-plugin": "latest",
-    "@types/jest": "latest",
+    "@types/jest": "^25.1.4",
     "@types/materialize-css": "^1.0.8",
     "@types/mini-css-extract-plugin": "latest",
     "@types/node": "latest",
+    "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.2",
     "@types/react-html-parser": "^2.0.1",
     "@types/react-redux": "^7.1.7",
@@ -62,8 +65,6 @@
     "@types/terser-webpack-plugin": "latest",
     "@types/webpack-bundle-analyzer": "latest",
     "@types/webpack-env": "latest",
-    "@popperjs/core": "^2.9.2",
-    "@types/react": "latest",
     "bootstrap": "latest",
     "copy-webpack-plugin": "^9.0.0",
     "core-js": "latest",
@@ -114,9 +115,9 @@
     "url-loader": "latest",
     "url-search-params-polyfill": "latest",
     "util": "^0.12.3",
-    "webpack": "latest",
+    "webpack": "^5.7.0",
     "webpack-bundle-analyzer": "latest",
-    "webpack-cli": "latest"
+    "webpack-cli": "^4.7.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "latest",

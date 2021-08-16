@@ -1,3 +1,4 @@
+// @ts-nocheck
 export default [{ _id: '1', url: '../../static/imgs/photo1.png' },
   { _id: '2', url: '../../static/imgs/photo2.png' },
   { _id: '3', url: '../../static/imgs/photo3.png' },

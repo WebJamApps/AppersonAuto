@@ -1,3 +1,4 @@
+// @ts-nocheck
 import request from 'superagent';
 
 export const gotToken = (doc) => ({

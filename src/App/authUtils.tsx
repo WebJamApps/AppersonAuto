@@ -1,5 +1,6 @@
+// @ts-nocheck
 import request from 'superagent';
-import jwt from 'jwt-simple';
+import jwt from 'jsonwebtoken';
 import authenticate, { logout } from './authActions';
 
 const setUser = async (controller) => {

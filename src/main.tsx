@@ -16,5 +16,6 @@ render(
     </Provider>
   </React.StrictMode>, document.getElementById('root'),
 );
-/* istanbul ignore if */
-if (process.env.NODE_ENV === 'development') module.hot.accept();
+
+/* istanbul ignore next */
+if (process.env.NODE_ENV === 'development' && module.hot) module.hot.accept();

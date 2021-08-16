@@ -1,9 +1,10 @@
+// @ts-nocheck
 import React from 'react';
 
 const NarrowMap = () => (
   <div className="material-content" elevation="0">
     <h4
-      className="pagetitle" 
+      className="pagetitle"
       style={{
         margin: 'auto', paddingTop: '30px', fontWeight: '700', fontSize: '16pt',
       }}
