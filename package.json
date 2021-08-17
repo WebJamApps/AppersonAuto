@@ -99,6 +99,7 @@
     "redux-logger": "latest",
     "redux-persist": "latest",
     "redux-thunk": "latest",
+    "resize-observer-polyfill": "latest",
     "regenerator-runtime": "latest",
     "sass": "latest",
     "sass-loader": "^7.3.1",

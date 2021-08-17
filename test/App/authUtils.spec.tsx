@@ -1,4 +1,4 @@
-import jwt from 'jwt-simple';
+import jwt from 'jsonwebtoken';
 import request from 'superagent';
 import authUtils from '../../src/App/authUtils';
 
