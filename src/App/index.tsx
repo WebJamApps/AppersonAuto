@@ -1,4 +1,3 @@
-// @ts-nocheck
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React, { PureComponent } from 'react';
@@ -14,12 +13,12 @@ import DefaultHome from '../containers/Homepage';
 import mapStoreToProps from '../redux/mapStoreToProps';
 
 export class App extends PureComponent {
-  render() {
+  render(): JSX.Element {
     return (
       <React.StrictMode>
         <div id="App" className="App">
           <Router>
-            <AppTemplateDefault id="homepage">
+            <AppTemplateDefault>
               <Switch>
                 <Route exact path="/" component={DefaultHome} />
                 <Route path="/auto-maintenance" component={AutoMaint} />

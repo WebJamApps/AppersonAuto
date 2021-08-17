@@ -7,18 +7,18 @@ import { connect } from 'react-redux';
 import authUtils from './authUtils';
 import mapStoreToProps from '../redux/mapStoreToProps';
 import Footer from './Footer';
-import menuItems from './menuItems.json';
+import MenuItems, { ImenuItem } from './menuItems';
 
-// interface AppTemplateProps {
-//   targetRef: RefObject<HTMLDivElement>;
-//   width: number;
-//   height: number;
-// }
+interface AppTemplateProps {
+  targetRef: RefObject<HTMLDivElement>;
+  width: number;
+  height: number;
+}
 
-export class AppTemplate extends Component {
-  constructor(props) {
+export class AppTemplate extends Component<AppTemplateProps> {
+  constructor(props: AppTemplateProps) {
     super(props);
-    this.menus = menuItems.menus;
+    this.menus = MenuItems.menus;
     this.children = props.children;
     this.state = { menuOpen: false };
     this.close = this.close.bind(this);
@@ -29,29 +29,28 @@ export class AppTemplate extends Component {
     this.authUtils = authUtils;
   }
 
-  handleKeyPress(e) {
+  handleKeyPress(e: { key: string; }): (void | null) {
     if (e.key === 'Escape') return this.setState({ menuOpen: false });
     return null;
   }
 
-  handleKeyMenu(e) {
+  handleKeyMenu(e: { key: string; }): (void | null) {
     if (e.key === 'Enter') return this.toggleMobileMenu();
     return null;
   }
 
-  toggleMobileMenu() {
+  toggleMobileMenu(): void {
     const { menuOpen } = this.state;
     const mO = !menuOpen;
     this.setState({ menuOpen: mO });
   }
 
-  close(e) {
+  close(): boolean {
     this.setState({ menuOpen: false });
-    if (e.target.classList.contains('loginGoogle')) return this.loginGoogle();
     return true;
   }
 
-  makeMenuLink(menu, index) {
+  makeMenuLink(menu: ImenuItem, index: number): JSX.Element {
     return (
       <div key={index} className="menu-item">
         <Link to={menu.link} className="nav-link" onClick={this.close}>
@@ -63,7 +62,7 @@ export class AppTemplate extends Component {
     );
   }
 
-  addressBlock() { // eslint-disable-line class-methods-use-this
+  addressBlock(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
         <p style={{ color: '#fff', marginBottom: '2px' }}>
@@ -77,7 +76,7 @@ export class AppTemplate extends Component {
     );
   }
 
-  callText() { // eslint-disable-line class-methods-use-this
+  callText(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <a
         style={{
@@ -99,7 +98,7 @@ export class AppTemplate extends Component {
     );
   }
 
-  mobileMenu() {
+  mobileMenu(): JSX.Element {
     return (
       <div className="nav-list">
         {this.callText()}
@@ -109,7 +108,7 @@ export class AppTemplate extends Component {
     );
   }
 
-  navLinks(width) {
+  navLinks(width: number): JSX.Element {
     if (width < 1162) return this.mobileMenu();
     return (
       <div className="nav-list">
@@ -119,7 +118,7 @@ export class AppTemplate extends Component {
     );
   }
 
-  headerSection(logoWidth, marginTop) { // eslint-disable-line class-methods-use-this
+  headerSection(logoWidth: string, marginTop: string): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div id="header" className="material-header">
         <div className="headercontent" />
@@ -138,7 +137,7 @@ export class AppTemplate extends Component {
     );
   }
 
-  callUs() { // eslint-disable-line class-methods-use-this
+  callUs(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div className="material-header x-scope paper-material-0 drawer" elevation="0" style={{ backgroundColor: '#881204' }}>
         {this.callText()}
@@ -146,7 +145,7 @@ export class AppTemplate extends Component {
     );
   }
 
-  render() {
+  render(): JSX.Element {
     let logoWidth = '742px', marginTop = '-15px';
     const { menuOpen } = this.state;
     const { targetRef, width } = this.props;
