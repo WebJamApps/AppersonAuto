@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { shallow } from 'enzyme';
 import { AutoMaintenance } from '../../src/containers/AutoMaintenance';

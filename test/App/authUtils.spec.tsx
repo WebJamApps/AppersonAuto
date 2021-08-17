@@ -1,3 +1,4 @@
+// @ts-nocheck
 import jwt from 'jsonwebtoken';
 import request from 'superagent';
 import authUtils from '../../src/App/authUtils';
@@ -6,7 +7,7 @@ describe('authUtils', () => {
   const controllerStub = {
     props: { auth: { token: 'token' }, dispatch: () => Promise.resolve(true) },
   };
-  it('handles failed login', () => new Promise((done) => {
+  it('handles failed login', () => new Promise<void>((done) => {
     const result = authUtils.responseGoogleFailLogin('no way');
     expect(result).toBe(false);
     done();

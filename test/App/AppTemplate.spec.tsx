@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { shallow } from 'enzyme';
 import { AppTemplate } from '../../src/App/AppTemplate';
@@ -21,7 +22,7 @@ describe('AppTemplate', () => {
     wrapper.setState({ menuOpen: true });
     expect(wrapper.find('div.open').length).toBe(1);
   });
-  it('closes the menu without navigating away from the react app', () => new Promise((done) => {
+  it('closes the menu without navigating away from the react app', () => new Promise<void>((done) => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
     aT.setState = () => {};
@@ -29,7 +30,7 @@ describe('AppTemplate', () => {
     expect(result).toBe(true);
     done();
   }));
-  it('closes the menu and logs in to google', () => new Promise((done) => {
+  it('closes the menu and logs in to google', () => new Promise<void>((done) => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
     aT.setState = () => {};
@@ -48,7 +49,7 @@ describe('AppTemplate', () => {
     expect(result).toBe(true);
     done();
   }));
-  it('toggles the mobile menu', () => new Promise((done) => {
+  it('toggles the mobile menu', () => new Promise<void>((done) => {
     const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
     aT.state.menuOpen = false;
     aT.setState = (obj) => {
@@ -57,27 +58,27 @@ describe('AppTemplate', () => {
     };
     aT.toggleMobileMenu();
   }));
-  it('closes the mobile menu on clicking escape key', () => new Promise((done) => {
+  it('closes the mobile menu on clicking escape key', () => new Promise<void>((done) => {
     const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
     aT.setState = jest.fn(() => true);
     const result = aT.handleKeyPress({ key: 'Escape' });
     expect(result).toBe(true);
     done();
   }));
-  it('does not closes the mobile menu on clicking Enter key', () => new Promise((done) => {
+  it('does not closes the mobile menu on clicking Enter key', () => new Promise<void>((done) => {
     const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
     const result = aT.handleKeyPress({ key: 'Enter' });
     expect(result).toBe(null);
     done();
   }));
-  it('toggles the mobile menu on clicking Enter key', () => new Promise((done) => {
+  it('toggles the mobile menu on clicking Enter key', () => new Promise<void>((done) => {
     const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Enter' });
     expect(result).toBe(true);
     done();
   }));
-  it('does not toggle the mobile menu on clicking Escape key', () => new Promise((done) => {
+  it('does not toggle the mobile menu on clicking Escape key', () => new Promise<void>((done) => {
     const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Escape' });

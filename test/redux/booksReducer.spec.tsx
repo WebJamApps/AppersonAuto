@@ -1,3 +1,4 @@
+// @ts-nocheck
 import reducer from '../../src/redux/reducers/booksReducer';
 
 describe('fetch reducer', () => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import commonUtils from '../../src/lib/commonUtils';
 import PicSlider from '../../src/components/pic-slider';
 
