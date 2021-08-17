@@ -9,7 +9,7 @@ import mapStoreToProps from '../redux/mapStoreToProps';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 
-interface AppTemplateProps {
+export interface AppTemplateProps {
   targetRef: RefObject<HTMLDivElement>;
   width: number;
   height: number;
