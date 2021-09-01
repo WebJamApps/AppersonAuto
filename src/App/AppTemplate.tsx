@@ -1,7 +1,6 @@
 // @ts-nocheck
-import React, { Component } from 'react';
+import React, { Component, RefObject } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { withResizeDetector } from 'react-resize-detector';
 import { connect } from 'react-redux';
 import authUtils from './authUtils';
@@ -10,15 +9,29 @@ import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 
 export interface AppTemplateProps {
+  children: any;
   targetRef: RefObject<HTMLDivElement>;
   width: number;
   height: number;
   auth: any;
   dispatch: any;
+  location: { pathname: string };
 }
 
-export class AppTemplate extends Component<AppTemplateProps> {
+interface AppTemplateState {
+  menuOpen: boolean;
+}
+
+export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
   authenticate: any;
+
+  menus: { classname: string; type: string; iconClass: string; link: string; name: string; }[];
+
+  children: any;
+
+  authUtils: any;
+
+  static defaultProps: { width: number; };
 
   constructor(props: AppTemplateProps) {
     super(props);
@@ -143,7 +156,7 @@ export class AppTemplate extends Component<AppTemplateProps> {
 
   callUs(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
-      <div className="material-header x-scope paper-material-0 drawer" elevation="0" style={{ backgroundColor: '#881204' }}>
+      <div className="material-header x-scope paper-material-0 drawer" style={{ backgroundColor: '#881204' }}>
         {this.callText()}
       </div>
     );
@@ -180,16 +193,5 @@ export class AppTemplate extends Component<AppTemplateProps> {
     );
   }
 }
-
-AppTemplate.defaultProps = {
-  width: 320,
-};
-
-AppTemplate.propTypes = {
-  location: PropTypes.shape({ pathname: PropTypes.string }).isRequired,
-  children: PropTypes.element.isRequired,
-  width: PropTypes.number,
-  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
-};
 
 export default withRouter(connect(mapStoreToProps, null)(withResizeDetector(AppTemplate)));
