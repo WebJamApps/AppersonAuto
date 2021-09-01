@@ -13,9 +13,13 @@ export interface AppTemplateProps {
   targetRef: RefObject<HTMLDivElement>;
   width: number;
   height: number;
+  auth: any;
+  dispatch: any;
 }
 
 export class AppTemplate extends Component<AppTemplateProps> {
+  authenticate: any;
+
   constructor(props: AppTemplateProps) {
     super(props);
     this.menus = MenuItems.menus;

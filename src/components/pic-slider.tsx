@@ -1,14 +1,30 @@
-// @ts-nocheck
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { Component } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
-import PropTypes from 'prop-types';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import type { Iimage } from '../redux/mapStoreToProps';
 import Caption from './PicSlider/caption';
 
-class PicSlider extends Component {
-  constructor(props) {
+export interface PicSliderProps {
+  data?: Iimage[];
+}
+
+class PicSlider extends React.Component<PicSliderProps> {
+  static defaultProps: { data: [{ url: ''; title: ''; _id: 0 }]; };
+
+  settings: {
+    autoplay: boolean;
+    autoplaySpeed: number;
+    infinite: boolean;
+    speed: number;
+    slidesToShow: number;
+    slidesToScroll: number;
+    arrows: boolean;
+    fade: boolean;
+  };
+
+  constructor(props: PicSliderProps) {
     super(props);
     this.settings = {
       autoplay: true,
@@ -22,32 +38,26 @@ class PicSlider extends Component {
     };
   }
 
-  render() {
+  render(): JSX.Element {
     const { data } = this.props;
     return (
       <div>
         <Slider {...this.settings}>
           {
-            data.map((d) => (
+            Array.isArray(data) ? data.map((d) => (
               <div key={d._id}>
                 {' '}
-                <img className="slide-show" src={d.url} alt={d.title} />
+                <img className="slide-images" src={d.url} alt={d.title} />
                 {' '}
-                <Caption caption={d.title} />
+                {d.comments === 'showCaption' ? <Caption caption={d.title} /> : null }
               </div>
             ))
+              : null
           }
         </Slider>
       </div>
     );
   }
 }
-PicSlider.defaultProps = {
-  data: [{ url: '', title: '', _id: 0 }],
-};
-
-PicSlider.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape),
-};
 
 export default PicSlider;

@@ -1,22 +1,29 @@
-// @ts-nocheck
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
 
-export class AutoMaintenance extends Component {
-  constructor(props) {
+interface AutoMaintenanceProps {
+  width: number;
+  targetRef: { current: any; };
+}
+
+export class AutoMaintenance extends Component<AutoMaintenanceProps> {
+  commonUtils: typeof commonUtils;
+
+  static defaultProps: { homeContent: { title: string; comments: string; }; width: number; };
+
+  constructor(props: AutoMaintenanceProps) {
     super(props);
     this.commonUtils = commonUtils;
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('Auto Maintenance', window.screen.width); }
+  componentDidMount(): void { this.commonUtils.setTitleAndScroll('Auto Maintenance', window.screen.width); }
 
-  coupon() { // eslint-disable-line class-methods-use-this
+  coupon(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
         <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
@@ -24,7 +31,7 @@ export class AutoMaintenance extends Component {
     );
   }
 
-  filters() {
+  filters(): JSX.Element {
     const { targetRef, width } = this.props;
     const marginBottom = width < 1162 ? '20px' : '40px';
     return (
@@ -52,7 +59,7 @@ export class AutoMaintenance extends Component {
     );
   }
 
-  quality() { // eslint-disable-line class-methods-use-this
+  quality(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div>
         <h4 style={{ marginTop: '20px' }}>Apperson Automotive - Salem, VA Vehicle Care</h4>
@@ -76,7 +83,7 @@ export class AutoMaintenance extends Component {
     );
   }
 
-  pageText(marginLeft) { // eslint-disable-line class-methods-use-this
+  pageText(marginLeft: string): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4 className="pagetitle" style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}>
@@ -105,7 +112,7 @@ export class AutoMaintenance extends Component {
     );
   }
 
-  mainPanel(marginLeft) {
+  mainPanel(marginLeft: string): JSX.Element {
     const { width } = this.props;
     return (
       <div className="row">
@@ -115,19 +122,9 @@ export class AutoMaintenance extends Component {
     );
   }
 
-  render() {
+  render(): JSX.Element {
     return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
-
-AutoMaintenance.defaultProps = { homeContent: { title: '', comments: '' }, width: window.screen.width };
-AutoMaintenance.propTypes = {
-  homeContent: PropTypes.shape({
-    title: PropTypes.string,
-    comments: PropTypes.string,
-  }),
-  width: PropTypes.number,
-  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
-};
 
 export default connect(mapStoreToProps, null)(withResizeDetector(AutoMaintenance));

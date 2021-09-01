@@ -1,22 +1,33 @@
-// @ts-nocheck
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
 
-export class General extends Component {
-  constructor(props) {
+interface GeneralAutoRepairProps {
+  homeContent: {
+    title: string,
+    comments: string,
+  };
+
+  width: number;
+}
+
+export class General extends Component<GeneralAutoRepairProps> {
+  commonUtils: typeof commonUtils;
+
+  static defaultProps: { homeContent: { title: string; comments: string; }; width: number; };
+
+  constructor(props: GeneralAutoRepairProps) {
     super(props);
     this.commonUtils = commonUtils;
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('General Auto Repair', window.screen.width); }
+  componentDidMount(): void { this.commonUtils.setTitleAndScroll('General Auto Repair', window.screen.width); }
 
-  coupon() { // eslint-disable-line class-methods-use-this
+  coupon(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
         <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
@@ -24,7 +35,7 @@ export class General extends Component {
     );
   }
 
-  uLists() { // eslint-disable-line class-methods-use-this
+  uLists(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div>
         <ul>
@@ -45,7 +56,7 @@ export class General extends Component {
     );
   }
 
-  love() {
+  love(): JSX.Element {
     const { width } = this.props;
     const marginBottom = width < 1162 ? '20px' : '90px';
     return (
@@ -68,7 +79,7 @@ export class General extends Component {
     );
   }
 
-  pageText(marginLeft) { // eslint-disable-line class-methods-use-this
+  pageText(marginLeft: string): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4
@@ -100,7 +111,7 @@ export class General extends Component {
     );
   }
 
-  mainPanel(marginLeft) {
+  mainPanel(marginLeft: string): JSX.Element {
     const { width } = this.props;
     return (
       <div className="row">
@@ -110,18 +121,9 @@ export class General extends Component {
     );
   }
 
-  render() {
+  render(): JSX.Element {
     return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
-
-General.defaultProps = { homeContent: { title: '', comments: '' }, width: window.screen.width };
-General.propTypes = {
-  homeContent: PropTypes.shape({
-    title: PropTypes.string,
-    comments: PropTypes.string,
-  }),
-  width: PropTypes.number,
-};
 
 export default connect(mapStoreToProps, null)(withResizeDetector(General));

@@ -1,12 +1,11 @@
-// @ts-nocheck
 import React from 'react';
 
-const NarrowMap = () => (
-  <div className="material-content" elevation="0">
+const NarrowMap = (): JSX.Element => (
+  <div className="material-content">
     <h4
       className="pagetitle"
       style={{
-        margin: 'auto', paddingTop: '30px', fontWeight: '700', fontSize: '16pt',
+        margin: 'auto', paddingTop: '30px', fontSize: '16pt',
       }}
     >
       Contact Apperson Automotive of Salem, VA
@@ -68,7 +67,7 @@ const NarrowMap = () => (
           Get Directions
         </a>
       </div>
-      <div elevation="0">
+      <div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.9940378426986!2d-80.
             03729418469676!3d37.271568479854174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.

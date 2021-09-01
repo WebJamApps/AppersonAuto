@@ -1,10 +1,9 @@
-// @ts-nocheck
 import React from 'react';
 
-const WideMap = () => (
+const WideMap = (): JSX.Element => (
   <div className="wideMap">
-    <h4 
-      className="pagetitle" 
+    <h4
+      className="pagetitle"
       style={{
         margin: 'auto', paddingTop: '30px', fontWeight: 'bold', fontSize: '16pt',
       }}
@@ -20,7 +19,7 @@ const WideMap = () => (
         >
           Get directions to our Salem, VA auto repair location
         </a>
-        <div elevation="0">
+        <div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.9940378426986!2d-80.03729418469676!3d37.
           271568479854174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884d0bbccbb8c4af%3A0x268cabd0f3897cb4!2s1601+Apperson

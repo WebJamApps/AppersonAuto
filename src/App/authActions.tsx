@@ -1,4 +1,3 @@
-// @ts-nocheck
 import superagent from 'superagent';
 import type { GoogleBody } from './AppTypes';
 import type { AppTemplateProps } from './AppTemplate';

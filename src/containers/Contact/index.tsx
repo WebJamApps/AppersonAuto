@@ -1,21 +1,28 @@
-// @ts-nocheck
 import React, { Component } from 'react';
-import { withResizeDetector } from 
+import { withResizeDetector } from
   'react-resize-detector';
-import PropTypes from 'prop-types';
 import DefaultWideMap from './WideMap';
 import DefaultNarrowMap from './NarrowMap';
 import commonUtils from '../../lib/commonUtils';
 
-export class Contact extends Component {
-  constructor(props) {
+interface ContactProps {
+  width: number;
+  targetRef: { current: any; };
+}
+
+export class Contact extends Component<ContactProps> {
+  commonUtils: typeof commonUtils;
+
+  static defaultProps: { width: number; };
+
+  constructor(props: ContactProps) {
     super(props);
     this.commonUtils = commonUtils;
   }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('Contact', window.screen.width); }
+  componentDidMount(): void { this.commonUtils.setTitleAndScroll('Contact', window.screen.width); }
 
-  render() {
+  render(): JSX.Element {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef} style={{ flexGrow: 1 }}>
@@ -35,14 +42,5 @@ export class Contact extends Component {
     );
   }
 }
-
-Contact.defaultProps = {
-  width: 320,
-};
-
-Contact.propTypes = {
-  width: PropTypes.number,
-  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
-};
 
 export default withResizeDetector(Contact);

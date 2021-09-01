@@ -1,4 +1,3 @@
-// @ts-nocheck
 import superagent from 'superagent';
 import jwt from 'jsonwebtoken';
 import type { Dispatch } from 'react';

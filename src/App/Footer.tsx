@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from 'react';
 
 const footerLinks = () => (
@@ -33,7 +32,7 @@ const footerLinks = () => (
   </>
 );
 
-const Footer = () => (
+const Footer = (): JSX.Element => (
   <div
     id="wjfooter"
     className="footer"
