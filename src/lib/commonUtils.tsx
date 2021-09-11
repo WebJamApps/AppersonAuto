@@ -2,7 +2,7 @@ import React from 'react';
 
 const setTitleAndScroll = (pageTitle: string, width: number): void => {
   if (pageTitle !== '') pageTitle += ' | ';// eslint-disable-line no-param-reassign
-  document.title = `${pageTitle}Web Jam LLC`;
+  document.title = `${pageTitle}Apperson Automotive`;
   let getClass = 'page-content';
   if (width !== undefined && width < 1004) getClass = 'headercontent';
   const top = document.getElementsByClassName(getClass)[0];
