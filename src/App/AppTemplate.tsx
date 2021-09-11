@@ -14,7 +14,6 @@ export interface AppTemplateProps {
   width: number;
   height: number;
   auth: any;
-  dispatch: any;
   location: { pathname: string };
 }
 
@@ -33,9 +32,9 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
 
   static defaultProps: { width: number; };
 
-  changeNav: () => boolean;
+  changeNav: (() => boolean) | undefined;
 
-  loginGoogle: () => boolean;
+  loginGoogle: (() => boolean) | undefined;
 
   constructor(props: AppTemplateProps) {
     super(props);
