@@ -1,9 +1,8 @@
-// @ts-nocheck
 import reducer from '../../src/redux/reducers/booksReducer';
 
 describe('fetch reducer', () => {
   it('should return the initial state', () => {
-    expect(reducer(undefined, {})).toEqual(
+    expect(reducer(undefined, { type: '', data: [] })).toEqual(
       {
         books: [],
       },
@@ -13,11 +12,11 @@ describe('fetch reducer', () => {
     expect(
       reducer(undefined, {
         type: 'GOT_BOOKS',
-        data: [{}],
+        data: [],
       }),
     ).toEqual(
       {
-        books: [{}],
+        books: [],
       },
     );
   });
@@ -25,7 +24,7 @@ describe('fetch reducer', () => {
     expect(
       reducer(undefined, {
         type: 'GOT_BOOKS',
-        data: null,
+        data: [],
       }),
     ).toEqual(
       {

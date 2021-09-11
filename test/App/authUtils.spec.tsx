@@ -1,73 +1,74 @@
-// @ts-nocheck
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import jwt from 'jsonwebtoken';
-import request from 'superagent';
+import superagent from 'superagent';
 import authUtils from '../../src/App/authUtils';
 
 describe('authUtils', () => {
-  const controllerStub = {
+  const vStub: any = {
+    authenticate: jest.fn(),
     props: { auth: { token: 'token' }, dispatch: () => Promise.resolve(true) },
   };
-  it('handles failed login', () => new Promise<void>((done) => {
+  it('handles failed login', () => {
     const result = authUtils.responseGoogleFailLogin('no way');
-    expect(result).toBe(false);
-    done();
-  }));
-  it('handles google login with bad token', async () => {
-    await expect(authUtils.responseGoogleLogin({}, controllerStub)).rejects.toThrow('Not enough or too many segments');
+    expect(result).toBe('no way');
   });
-  it('handles google login with authenticate error', async () => {
-    controllerStub.props.dispatch = () => Promise.reject(new Error('bad'));
-    await expect(authUtils.responseGoogleLogin({}, controllerStub)).rejects.toThrow('bad');
+  it('handles google login with bad token', async () => {
+    const res = await authUtils.responseGoogleLogin({ code: '' }, vStub);
+    expect(res).toBe('jwt malformed');
+  });
+  it('handles failure to authenticate', async () => {
+    vStub.authenticate = jest.fn(() => Promise.reject(new Error('bad')));
+    const res = await authUtils.responseGoogleLogin({ code: '' }, vStub);
+    expect(res).toBe('bad');
   });
   it('sets the user', async () => {
-    jwt.decode = jest.fn(() => ({ sub: '123' }));
-    jwt.encode = jest.fn(() => 'token');
-    request.get = () => ({ set: () => ({ set: () => Promise.resolve({ body: {} }) }) });
-    delete window.location;
-    window.location = {
-      href: '/',
-      assign: jest.fn(),
-      reload: jest.fn(),
+    const cStub2: any = {
+      props: { auth: { token: 'token' }, dispatch: (obj: any) => { expect(obj.type).toBeDefined(); } },
     };
-    controllerStub.props.dispatch = (obj) => { expect(obj.type).toBeDefined(); };
-    const result = await authUtils.setUser(controllerStub);
-    expect(result).toBe(true);
+    jwt.verify = jest.fn(() => ('123'));
+    const sa: any = superagent;
+    sa.get = jest.fn(() => ({ set: () => ({ set: () => Promise.resolve({ body: {} }) }) }));
+    Object.defineProperty(window, 'location', { value: { assign: () => { }, reload: () => { } }, writable: true });
+    window.location.reload = jest.fn();
+    const result = await authUtils.setUser(cStub2);
+    expect(result).toBe('set user');
   });
-  it('catches fetch user error when sets the user', async () => {
-    jwt.decode = jest.fn(() => ({ sub: '123' }));
-    request.get = jest.fn(() => ({ set: () => ({ set: () => Promise.reject(new Error('bad')) }) }));
-    await expect(authUtils.setUser(controllerStub)).rejects.toThrow('bad');
+  it('cathes fetch user error when sets the user', async () => {
+    jwt.verify = jest.fn(() => ('123'));
+    const sa: any = superagent;
+    sa.get = jest.fn(() => ({ set: () => ({ set: () => Promise.reject(new Error('bad')) }) }));
+    const res = await authUtils.setUser(vStub);
+    expect(res).toBe('bad');
   });
   it('sets the user to the already decoded user', async () => {
-    jwt.decode = jest.fn(() => ({ sub: '123', user: {} }));
-    delete window.location;
-    window.location = {
-      href: '/',
-      assign: jest.fn(),
-      reload: jest.fn(),
+    const verify = jwt.verify as jest.MockedFunction<
+    (
+      token: string,
+      secretOrPublicKey: jwt.Secret,
+      options?: jwt.VerifyOptions,
+    ) => Record<string, unknown> | string>;
+    verify.mockReturnValue({ sub: '123', user: {} });
+    Object.defineProperty(window, 'location', { value: { assign: () => { }, reload: () => { } }, writable: true });
+    window.location.reload = jest.fn();
+    const cStub3: any = {
+      props: { auth: { token: 'token' }, dispatch: (obj: any) => { expect(obj.type).toBe('SET_USER'); } },
     };
-    controllerStub.props.dispatch = (obj) => { expect(obj.type).toBe('SET_USER'); };
-    const result = await authUtils.setUser(controllerStub);
+    const result = await authUtils.setUser(cStub3);
+    expect(result).toBe('set user');
+  });
+  it('fails to set user when token is bad', async () => {
+    jwt.verify = jest.fn(() => { throw new Error('bad'); });
+    const res = await authUtils.setUser(vStub);
+    expect(res).toBe('bad');
+  });
+  it('logs out when not /dashboard', () => {
+    Object.defineProperty(window, 'location', { value: { href: '/booya', assign: () => { }, reload: () => { } }, writable: true });
+    const result = authUtils.responseGoogleLogout(() => { });
     expect(result).toBe(true);
   });
-  it('logs out when not /dashboard', async () => {
-    delete window.location;
-    window.location = {
-      href: '/',
-      assign: jest.fn(),
-      reload: jest.fn(),
-    };
-    const result = await authUtils.responseGoogleLogout('howdy', () => {});
-    expect(result).toBe('howdy');
-  });
-  it('logs out when /admin', async () => {
-    delete window.location;
-    window.location = {
-      href: '/admin',
-      assign: jest.fn(),
-      reload: jest.fn(),
-    };
-    const result = await authUtils.responseGoogleLogout('howdy', () => {});
-    expect(result).toBe('howdy');
+  it('logs out when /dashboard', () => {
+    Object.defineProperty(window, 'location', { value: { assign: () => { }, reload: () => { } }, writable: true });
+    const result = authUtils.responseGoogleLogout(() => { });
+    expect(result).toBe(true);
   });
 });

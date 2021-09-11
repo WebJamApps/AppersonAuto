@@ -2,7 +2,7 @@ const initialState = {
   books: [],
 };
 
-const reducer = (state = initialState, action: { type: any; data: any[]; }): Record<string, unknown> => {
+const reducer = (state = initialState, action: { type: string; data: []; }): Record<string, unknown> => {
   switch (action.type) {
     case 'GOT_BOOKS':
       return {

@@ -1,7 +1,8 @@
-let mockDelay,
-  mockError,
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+let mockError: string,
   mockResponse = {
-    status: () => 200,
+    status: (): number => 200,
     ok: true,
     get: jest.fn(),
     toError: jest.fn(),
@@ -11,8 +12,8 @@ let mockDelay,
 const Request = {
   text: JSON.stringify(mockResponse),
   body: mockResponse,
-
-  post: jest.fn().mockReturnThis({ set: () => {} }),
+  delete: jest.fn().mockReturnThis(),
+  post: jest.fn().mockReturnThis(),
   get: jest.fn().mockReturnThis(),
   send: jest.fn().mockReturnThis(),
   query: jest.fn().mockReturnThis(),
@@ -22,10 +23,6 @@ const Request = {
   accept: jest.fn().mockReturnThis(),
   timeout: jest.fn().mockReturnThis(),
   end: jest.fn().mockImplementation((callback) => {
-    if (mockDelay) {
-      this.delayTimer = setTimeout(callback, 0, mockError, mockResponse);
-      return;
-    }
     callback(mockError, mockResponse);
   }),
   then: jest.fn().mockImplementation((callback) => new Promise((resolve, reject) => {
@@ -34,17 +31,13 @@ const Request = {
     }
     return resolve(callback(mockResponse));
   })),
-
-  __setMockDelay: (boolValue) => {
-    mockDelay = boolValue;
-  },
-  setMockResponse: (mockRes) => {
+  setMockResponse: (mockRes: { status: () => number; ok: boolean; get: jest.Mock<any, any>; toError: jest.Mock<any, any>; body: any; }): any => {
     mockResponse = mockRes;
   },
-  setMockError: (mockErr) => {
+  setMockError: (mockErr: string): void => {
     mockError = mockErr;
   },
-  __setMockResponseBody: (body) => {
+  __setMockResponseBody: (body: any): void => {
     mockResponse.body = body;
   },
 };

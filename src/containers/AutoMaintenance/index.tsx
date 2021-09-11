@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, RefObject } from 'react';
 import { connect } from 'react-redux';
 import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -8,7 +8,7 @@ import slidesArr from '../../lib/slides';
 
 interface AutoMaintenanceProps {
   width: number;
-  targetRef: { current: any; };
+  targetRef: RefObject<HTMLDivElement>;
 }
 
 export class AutoMaintenance extends Component<AutoMaintenanceProps> {

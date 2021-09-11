@@ -33,6 +33,10 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
 
   static defaultProps: { width: number; };
 
+  changeNav: () => boolean;
+
+  loginGoogle: () => boolean;
+
   constructor(props: AppTemplateProps) {
     super(props);
     this.menus = MenuItems.menus;

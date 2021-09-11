@@ -1,14 +1,23 @@
-// @ts-nocheck
 import React from 'react';
 import { shallow } from 'enzyme';
 import { AppTemplate } from '../../src/App/AppTemplate';
 
-const dFunc = () => {};
 function setup() {
-  const targetRef = {};
+  const targetRef: any = {};
+  const wrapper = shallow<AppTemplate>(
+    <AppTemplate
+      targetRef={targetRef}
+      width={1200}
+      height={1800}
+      location={{ pathname: '/' }}
+      auth={undefined}
+      dispatch={undefined}
+    >
+      <div />
+    </AppTemplate>,
+  );
   const props = { children: '<div></div>', width: '300' };
   document.body.innerHTML = '<div class="page-content"></div>';
-  const wrapper = shallow(<AppTemplate dispatch={dFunc} width={1300} targetRef={targetRef} location={{ pathname: '/' }}><div /></AppTemplate>);
   return { wrapper, props };
 }
 
@@ -24,62 +33,56 @@ describe('AppTemplate', () => {
   });
   it('closes the menu without navigating away from the react app', () => new Promise<void>((done) => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
-    const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({
+      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+    });
     aT.setState = () => {};
-    const result = aT.close({ target: { classList: { contains() { return false; } } } });
+    const result = aT.close();
     expect(result).toBe(true);
     done();
   }));
   it('closes the menu and logs in to google', () => new Promise<void>((done) => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
-    const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({
+      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+    });
     aT.setState = () => {};
     aT.changeNav = () => false;
     aT.loginGoogle = () => true;
-    const result = aT.close({
-      target: {
-        classList: {
-          contains(name) {
-            if (name === 'loginGoogle') return true;
-            return false;
-          },
-        },
-      },
-    });
+    const result = aT.close();
     expect(result).toBe(true);
     done();
   }));
-  it('toggles the mobile menu', () => new Promise<void>((done) => {
-    const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
-    aT.state.menuOpen = false;
-    aT.setState = (obj) => {
-      expect(obj.menuOpen).toBe(true);
-      done();
-    };
-    aT.toggleMobileMenu();
-  }));
   it('closes the mobile menu on clicking escape key', () => new Promise<void>((done) => {
-    const aT = new AppTemplate({ width: 1300, dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({
+      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+    });
     aT.setState = jest.fn(() => true);
     const result = aT.handleKeyPress({ key: 'Escape' });
     expect(result).toBe(true);
     done();
   }));
   it('does not closes the mobile menu on clicking Enter key', () => new Promise<void>((done) => {
-    const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({
+      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+    });
     const result = aT.handleKeyPress({ key: 'Enter' });
     expect(result).toBe(null);
     done();
   }));
   it('toggles the mobile menu on clicking Enter key', () => new Promise<void>((done) => {
-    const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({
+      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+    });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Enter' });
     expect(result).toBe(true);
     done();
   }));
   it('does not toggle the mobile menu on clicking Escape key', () => new Promise<void>((done) => {
-    const aT = new AppTemplate({ dispatch: () => Promise.resolve(true) });
+    const aT = new AppTemplate({
+      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+    });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Escape' });
     expect(result).toBe(null);

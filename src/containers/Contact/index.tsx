@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, RefObject } from 'react';
 import { withResizeDetector } from
   'react-resize-detector';
 import DefaultWideMap from './WideMap';
@@ -7,7 +7,7 @@ import commonUtils from '../../lib/commonUtils';
 
 interface ContactProps {
   width: number;
-  targetRef: { current: any; };
+  targetRef: RefObject<HTMLDivElement>;
 }
 
 export class Contact extends Component<ContactProps> {
