@@ -9,6 +9,7 @@ import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 
 export interface AppTemplateProps {
+  dispatch: any;
   children: any;
   targetRef: RefObject<HTMLDivElement>;
   width: number;
