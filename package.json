@@ -1,6 +1,6 @@
 {
   "name": "appersonautomotive.com",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "appersonautomotive.com",
   "main": "dist/index.html",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
-    "node": ">=16.9.0"
+    "node": ">=16.8.0"
   },
   "files": [
     "webpack.config.js",
