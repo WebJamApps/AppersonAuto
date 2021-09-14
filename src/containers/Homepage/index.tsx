@@ -1,23 +1,23 @@
-// @ts-nocheck
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { RefObject } from 'react';
 import { withResizeDetector } from 'react-resize-detector';
-import mapStoreToProps from '../../redux/mapStoreToProps';
-import commonUtils from '../../lib/commonUtils';
+import CommonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
 
-export class Homepage extends Component {
-  constructor(props) {
-    super(props);
-    this.width = window.screen.width;
-    this.commonUtils = commonUtils;
-  }
+interface HomepageProps {
+  targetRef: RefObject<HTMLDivElement>;
+  width: number;
+  height: number;
+}
+export class Homepage extends React.Component<HomepageProps, unknown> {
+  commonUtils = CommonUtils;
 
-  componentDidMount(width) { this.commonUtils.setTitleAndScroll('', width); }
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+  constructor(props:HomepageProps) { super(props); }
 
-  getToKnow() { // eslint-disable-line class-methods-use-this
+  componentDidMount():void { this.commonUtils.setTitleAndScroll('', window.screen.width); }
+
+  getToKnow():JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div>
         <p><strong>Get to Know Apperson Automotive:</strong></p>
@@ -50,7 +50,7 @@ export class Homepage extends Component {
     );
   }
 
-  coupon() { // eslint-disable-line class-methods-use-this
+  coupon():JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
         <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
@@ -58,7 +58,7 @@ export class Homepage extends Component {
     );
   }
 
-  mechanics() { // eslint-disable-line class-methods-use-this
+  mechanics():JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div>
         <p>
@@ -88,7 +88,7 @@ export class Homepage extends Component {
     );
   }
 
-  homeText(marginLeft) {
+  homeText(marginLeft: string):JSX.Element {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef} className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
@@ -110,12 +110,12 @@ export class Homepage extends Component {
           <li>Coolant flush</li>
         </ul>
         {this.getToKnow()}
-        {width < 1162 ? this.coupon(targetRef) : null}
+        {width < 1162 ? this.coupon() : null}
       </div>
     );
   }
 
-  mainPanel(marginLeft) {
+  mainPanel(marginLeft:string):JSX.Element {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef} className="row">
@@ -125,19 +125,9 @@ export class Homepage extends Component {
     );
   }
 
-  render() {
+  render():JSX.Element {
     return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
-Homepage.defaultProps = { homeContent: { title: '', comments: '' }, width: window.screen.width };
-Homepage.propTypes = {
-  homeContent: PropTypes.shape({
-    title: PropTypes.string,
-    comments: PropTypes.string,
-  }),
-  width: PropTypes.number,
-  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
-};
-
-export default connect(mapStoreToProps, null)(withResizeDetector(Homepage));
+export default withResizeDetector(Homepage);

@@ -1,6 +1,6 @@
 {
   "name": "appersonautomotive.com",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "appersonautomotive.com",
   "main": "dist/index.html",
   "repository": {
@@ -9,7 +9,7 @@
   },
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
-    "node": ">=16.5.0"
+    "node": ">=16.8.0"
   },
   "files": [
     "webpack.config.js",
@@ -84,7 +84,7 @@
     "moment": "latest",
     "node-notifier": "^10.0.0",
     "nps": "latest",
-    "nps-utils": "latest",
+    "nps-utils": "^1.0.2",
     "popper.js": "latest",
     "prop-types": "latest",
     "react": "^17.0.2",
@@ -99,8 +99,8 @@
     "redux-logger": "latest",
     "redux-persist": "latest",
     "redux-thunk": "latest",
-    "resize-observer-polyfill": "latest",
     "regenerator-runtime": "latest",
+    "resize-observer-polyfill": "latest",
     "sass": "latest",
     "sass-loader": "^7.3.1",
     "slick-carousel": "latest",
@@ -156,7 +156,7 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "latest",
     "ts-jest": "latest",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.2.1"
   },
   "snyk": true
 }
