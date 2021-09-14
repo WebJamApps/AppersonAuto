@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Major } from '../../src/containers/MajorAutoRepair';
@@ -6,7 +5,7 @@ import { Major } from '../../src/containers/MajorAutoRepair';
 describe('Major Auto Repair', () => {
   let wrapper;
   beforeEach(() => {
-    const targetRef = {};
+    const targetRef:any = {};
     const width = 1300;
     wrapper = shallow(<Major targetRef={targetRef} width={width} />);
   });
@@ -15,7 +14,7 @@ describe('Major Auto Repair', () => {
   });
   it('renders with cellphone width and has coupon', () => {
     const width = 300;
-    const targetRef = {};
+    const targetRef:any = {};
     const wrapper2 = shallow(<Major targetRef={targetRef} width={width} />);
     wrapper2.update();
     const i = wrapper2.find('img#coupon');

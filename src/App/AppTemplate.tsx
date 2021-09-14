@@ -1,28 +1,24 @@
-// @ts-nocheck
-import React, { Component, RefObject } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React, { Dispatch, RefObject } from 'react';
 import { withResizeDetector } from 'react-resize-detector';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import authUtils from './authUtils';
-import mapStoreToProps from '../redux/mapStoreToProps';
+import mapStoreToProps, { Auth } from '../redux/mapStoreToProps';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 
-export interface AppTemplateProps {
-  dispatch: any;
-  children: any;
+export interface AppTemplateProps extends RouteComponentProps{
+  dispatch: Dispatch<unknown>;
+  children: React.ReactNode;
   targetRef: RefObject<HTMLDivElement>;
-  width: number;
-  height: number;
-  auth: any;
-  location: { pathname: string };
+  auth: Auth;
+  width:number;
 }
-
 interface AppTemplateState {
   menuOpen: boolean;
 }
 
-export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
+export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateState> {
   authenticate: any;
 
   menus: { classname: string; type: string; iconClass: string; link: string; name: string; }[];
@@ -167,9 +163,9 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
   }
 
   render(): JSX.Element {
+    const { width, targetRef } = this.props;
     let logoWidth = '742px', marginTop = '-15px';
     const { menuOpen } = this.state;
-    const { targetRef, width } = this.props;
     if (width < 1232) { logoWidth = '272px'; marginTop = '1px'; }
     const style = `${menuOpen ? 'open' : 'close'}`;
     return (

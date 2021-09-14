@@ -1,18 +1,21 @@
-// @ts-nocheck
-import React, { Component } from 'react';
+import React, { RefObject } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { withResizeDetector } from 'react-resize-detector';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import commonUtils from '../../lib/commonUtils';
+import CommonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
 
-export class Major extends Component {
-  constructor(props) {
-    super(props);
-    this.commonUtils = commonUtils;
-  }
+interface MajorAutoProps {
+  targetRef: RefObject<HTMLDivElement>;
+  width: number;
+  height: number;
+}
+export class Major extends React.Component<MajorAutoProps, unknown> {
+  commonUtils = CommonUtils;
+
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+  constructor(props:MajorAutoProps) { super(props); }
 
   componentDidMount() { this.commonUtils.setTitleAndScroll('Major Auto Repair', window.screen.width); }
 
@@ -57,7 +60,7 @@ export class Major extends Component {
     );
   }
 
-  majorPageText(marginLeft) { // eslint-disable-line class-methods-use-this
+  majorPageText(marginLeft:string):JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4
@@ -89,7 +92,7 @@ export class Major extends Component {
     );
   }
 
-  mainPanel(marginLeft) {
+  mainPanel(marginLeft:string):JSX.Element {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef}>
@@ -106,19 +109,9 @@ export class Major extends Component {
     );
   }
 
-  render() {
+  render():JSX.Element {
     return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
-
-Major.defaultProps = { homeContent: { title: '', comments: '' }, width: window.screen.width };
-Major.propTypes = {
-  homeContent: PropTypes.shape({
-    title: PropTypes.string,
-    comments: PropTypes.string,
-  }),
-  width: PropTypes.number,
-  targetRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired, 
-};
 
 export default connect(mapStoreToProps, null)(withResizeDetector(Major));
