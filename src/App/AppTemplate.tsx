@@ -6,6 +6,7 @@ import authUtils from './authUtils';
 import mapStoreToProps, { Auth } from '../redux/mapStoreToProps';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
+import commonUtils from '../lib/commonUtils';
 
 export interface AppTemplateProps extends RouteComponentProps{
   dispatch: Dispatch<unknown>;
@@ -27,7 +28,7 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
 
   authUtils: any;
 
-  static defaultProps: { width: number; };
+  commonUtils: any;
 
   changeNav: (() => boolean) | undefined;
 
@@ -44,7 +45,10 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     this.navLinks = this.navLinks.bind(this);
     this.authUtils = authUtils;
+    this.commonUtils = commonUtils;
   }
+
+  componentDidMount(): void { this.commonUtils.setTitleAndScroll('', window.screen.width); }
 
   handleKeyPress(e: { key: string; }): (void | null) {
     if (e.key === 'Escape') return this.setState({ menuOpen: false });

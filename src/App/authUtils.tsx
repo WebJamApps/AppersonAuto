@@ -17,13 +17,13 @@ const setUser = async (view: AppTemplate): Promise<string> => {
   let decoded: any, user;
   try {
     decoded = jwt.verify(auth.token, process.env.HashString || /* istanbul ignore next */'');
-  } catch (e) { return `${e.message}`; }
+  } catch (e: any) { return `${e.message}`; }
   if (decoded.user) dispatch({ type: 'SET_USER', data: decoded.user });
   else {
     try {
       user = await superagent.get(`${process.env.BackendUrl}/user/${decoded.sub}`)
         .set('Accept', 'application/json').set('Authorization', `Bearer ${auth.token}`);
-    } catch (e) { return `${e.message}`; }
+    } catch (e: any) { return `${e.message}`; }
     dispatch({ type: 'SET_USER', data: user.body });
     // decoded.user = user.body;
     // const newToken = jwt.encode(decoded, process.env.HashString || /* istanbul ignore next */'');
@@ -46,7 +46,7 @@ const responseGoogleLogin = async (response: GoogleLoginResponseOffline | Google
       return encodeURIComponent(rand);
     },
   };
-  try { await view.authenticate(body, view.props); } catch (e) {
+  try { await view.authenticate(body, view.props); } catch (e: any) {
     return `${e.message}`;
   }
   return setUser(view);

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const footerLinks = () => (
+const footerLinks = (): JSX.Element => (
   <>
-    <div style={{ textAlign: 'center', padding: '6px' }}>
+    <div style={{ textAlign: 'center', padding: '6px' }} className="footerLinks">
       <a href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422">
         <i style={{ color: '#45c9ff' }} className="fab fa-facebook-square fa-2x" aria-hidden="true" />
       </a>
