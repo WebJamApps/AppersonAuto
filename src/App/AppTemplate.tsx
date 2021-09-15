@@ -9,10 +9,10 @@ import MenuItems, { ImenuItem } from './menuItems';
 
 export interface AppTemplateProps extends RouteComponentProps{
   dispatch: Dispatch<unknown>;
-  children: React.ReactNode;
   targetRef: RefObject<HTMLDivElement>;
   auth: Auth;
-  width:number;
+  width: number;
+  children?: React.ReactNode;
 }
 interface AppTemplateState {
   menuOpen: boolean;

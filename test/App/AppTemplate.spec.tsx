@@ -4,14 +4,25 @@ import { AppTemplate } from '../../src/App/AppTemplate';
 
 function setup() {
   const targetRef: any = {};
+  const anyProp: any = {};
+  const dFunc = () => { };
   const wrapper = shallow<AppTemplate>(
     <AppTemplate
       targetRef={targetRef}
       width={1200}
-      height={1800}
-      location={{ pathname: '/' }}
-      auth={undefined}
-      dispatch={undefined}
+      location={{
+        pathname: '/', search: '', state: '', hash: '',
+      }}
+      auth={{
+        isAuthenticated: true,
+        email: '',
+        error: '',
+        token: '',
+        user: { userType: '' },
+      }}
+      dispatch={dFunc}
+      history={anyProp}
+      match={anyProp}
     >
       <div />
     </AppTemplate>,
@@ -32,9 +43,27 @@ describe('AppTemplate', () => {
     expect(wrapper.find('div.open').length).toBe(1);
   });
   it('closes the menu without navigating away from the react app', () => new Promise<void>((done) => {
+    const targetRef: any = {};
+    const anyProp: any = {};
+    const dFunc = () => { };
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({
-      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+      width: 1300,
+      children: {},
+      targetRef: { current: targetRef },
+      dispatch: dFunc,
+      auth: {
+        isAuthenticated: true,
+        email: '',
+        error: '',
+        token: '',
+        user: { userType: '' },
+      },
+      location: {
+        pathname: '/', search: '', state: '', hash: '',
+      },
+      history: anyProp,
+      match: anyProp,
     });
     aT.setState = () => {};
     const result = aT.close();
@@ -42,9 +71,27 @@ describe('AppTemplate', () => {
     done();
   }));
   it('closes the menu and logs in to google', () => new Promise<void>((done) => {
+    const targetRef: any = {};
+    const anyProp: any = {};
+    const dFunc = () => { };
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({
-      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+      width: 1300,
+      children: {},
+      targetRef: { current: targetRef },
+      dispatch: dFunc,
+      auth: {
+        isAuthenticated: true,
+        email: '',
+        error: '',
+        token: '',
+        user: { userType: '' },
+      },
+      location: {
+        pathname: '/', search: '', state: '', hash: '',
+      },
+      history: anyProp,
+      match: anyProp,
     });
     aT.setState = () => {};
     aT.changeNav = () => false;
@@ -54,8 +101,26 @@ describe('AppTemplate', () => {
     done();
   }));
   it('closes the mobile menu on clicking escape key', () => new Promise<void>((done) => {
+    const targetRef: any = {};
+    const anyProp: any = {};
+    const dFunc = () => { };
     const aT = new AppTemplate({
-      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+      width: 1300,
+      children: {},
+      targetRef: { current: targetRef },
+      dispatch: dFunc,
+      auth: {
+        isAuthenticated: true,
+        email: '',
+        error: '',
+        token: '',
+        user: { userType: '' },
+      },
+      location: {
+        pathname: '', search: '', state: '', hash: '',
+      },
+      history: anyProp,
+      match: anyProp,
     });
     aT.setState = jest.fn(() => true);
     const result = aT.handleKeyPress({ key: 'Escape' });
@@ -63,16 +128,52 @@ describe('AppTemplate', () => {
     done();
   }));
   it('does not closes the mobile menu on clicking Enter key', () => new Promise<void>((done) => {
+    const targetRef: any = {};
+    const anyProp: any = {};
+    const dFunc = () => { };
     const aT = new AppTemplate({
-      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+      width: 1300,
+      children: {},
+      targetRef: { current: targetRef },
+      dispatch: dFunc,
+      auth: {
+        isAuthenticated: true,
+        email: '',
+        error: '',
+        token: '',
+        user: { userType: '' },
+      },
+      location: {
+        pathname: '', search: '', state: '', hash: '',
+      },
+      history: anyProp,
+      match: anyProp,
     });
     const result = aT.handleKeyPress({ key: 'Enter' });
     expect(result).toBe(null);
     done();
   }));
   it('toggles the mobile menu on clicking Enter key', () => new Promise<void>((done) => {
+    const targetRef: any = {};
+    const anyProp: any = {};
+    const dFunc = () => { };
     const aT = new AppTemplate({
-      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+      width: 1300,
+      children: {},
+      targetRef: { current: targetRef },
+      dispatch: dFunc,
+      auth: {
+        isAuthenticated: true,
+        email: '',
+        error: '',
+        token: '',
+        user: { userType: '' },
+      },
+      location: {
+        pathname: '', search: '', state: '', hash: '',
+      },
+      history: anyProp,
+      match: anyProp,
     });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Enter' });
@@ -80,8 +181,26 @@ describe('AppTemplate', () => {
     done();
   }));
   it('does not toggle the mobile menu on clicking Escape key', () => new Promise<void>((done) => {
+    const targetRef: any = {};
+    const anyProp: any = {};
+    const dFunc = () => { };
     const aT = new AppTemplate({
-      width: 1300, children: {}, targetRef: { current: null }, dispatch: '', height: 1300, auth: {}, location: { pathname: '' },
+      width: 1300,
+      children: {},
+      targetRef: { current: targetRef },
+      dispatch: dFunc,
+      auth: {
+        isAuthenticated: true,
+        email: '',
+        error: '',
+        token: '',
+        user: { userType: '' },
+      },
+      location: {
+        pathname: '', search: '', state: '', hash: '',
+      },
+      history: anyProp,
+      match: anyProp,
     });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Escape' });

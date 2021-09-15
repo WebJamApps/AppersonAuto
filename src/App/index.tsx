@@ -1,6 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import React, { PureComponent } from 'react';
+import React, { Dispatch, PureComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AutoMaint from '../containers/AutoMaintenance';
@@ -10,15 +11,27 @@ import DefaultContact from '../containers/Contact';
 import AppFourOhFour from './404';
 import AppTemplateDefault from './AppTemplate';
 import DefaultHome from '../containers/Homepage';
-import mapStoreToProps from '../redux/mapStoreToProps';
+import mapStoreToProps, { Auth } from '../redux/mapStoreToProps';
 
-export class App extends PureComponent {
+export interface AppProps {
+  dispatch: Dispatch<unknown>;
+  auth: Auth;
+}
+
+export class App extends PureComponent<AppProps> {
+  static defaultProps = {
+    dispatch: /* istanbul ignore next */(): void => { },
+    auth: {
+      isAuthenticated: false, token: '', error: '', email: '', user: { userType: '' },
+    },
+  };
+
   render(): JSX.Element {
     return (
       <React.StrictMode>
         <div id="App" className="App">
           <Router>
-            <AppTemplateDefault>
+            <AppTemplateDefault dispatch={this.props.dispatch} auth={this.props.auth}>
               <Switch>
                 <Route exact path="/" component={DefaultHome} />
                 <Route path="/auto-maintenance" component={AutoMaint} />
