@@ -17,9 +17,9 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(props:MajorAutoProps) { super(props); }
 
-  componentDidMount() { this.commonUtils.setTitleAndScroll('Major Auto Repair', window.screen.width); }
+  componentDidMount(): void { this.commonUtils.setTitleAndScroll('Major Auto Repair', window.screen.width); }
 
-  coupon() { // eslint-disable-line class-methods-use-this
+  coupon(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
         <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
@@ -27,7 +27,7 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
     );
   }
 
-  service() {
+  service(): JSX.Element {
     const { targetRef, width } = this.props;
     const marginBottom = width < 1162 ? '20px' : '190px';
     return (
