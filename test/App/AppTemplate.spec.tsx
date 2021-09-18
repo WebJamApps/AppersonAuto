@@ -207,6 +207,26 @@ describe('AppTemplate', () => {
     expect(result).toBe(null);
     done();
   }));
+  it('toggles the mobile menu', () => {
+    const { wrapper } = setup();
+    wrapper.instance().setState = jest.fn();
+    wrapper.instance().toggleMobileMenu();
+    expect(wrapper.instance().setState).toHaveBeenCalledWith({ menuOpen: true });
+  });
+  it('calls the mobile menu', () => {
+    const { wrapper } = setup();
+    wrapper.instance().makeMenuLink = jest.fn();
+    wrapper.update();
+    wrapper.instance().mobileMenu();
+    expect(wrapper.instance().makeMenuLink).toHaveBeenCalled();
+  });
+  it('calls the mobile menu through navLinks', () => {
+    const { wrapper } = setup();
+    wrapper.instance().mobileMenu = jest.fn();
+    wrapper.update();
+    wrapper.instance().navLinks(300);
+    expect(wrapper.instance().mobileMenu).toHaveBeenCalled();
+  });
   it('makes a call us text link', () => {
     const { wrapper } = setup();
     wrapper.instance().callText = jest.fn();
