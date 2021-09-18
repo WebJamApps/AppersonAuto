@@ -2,6 +2,7 @@ import React from 'react';
 
 const NarrowMap = (): JSX.Element => (
   <div className="material-content">
+    <span className="top" />
     <h4
       className="pagetitle"
       style={{

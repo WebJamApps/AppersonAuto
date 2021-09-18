@@ -3,7 +3,7 @@ import React from 'react';
 const setTitleAndScroll = (pageTitle: string, width: number): void => {
   if (pageTitle !== '') pageTitle += ' | ';// eslint-disable-line no-param-reassign
   document.title = `${pageTitle}Apperson Automotive`;
-  let getClass = 'page-content';
+  let getClass = 'top';
   if (width !== undefined && width < 1004) getClass = 'headercontent';
   const top = document.getElementsByClassName(getClass)[0];
   if (top !== undefined && typeof top.scrollIntoView === 'function') top.scrollIntoView();
@@ -51,6 +51,7 @@ const renderer = (slidesArr: any, view: any, PicSlider: any): JSX.Element => {
         </div>
       ) : null}
       <div className="container-fluid">
+        <span className="top" />
         {view.mainPanel(marginLeft, width)}
       </div>
     </div>

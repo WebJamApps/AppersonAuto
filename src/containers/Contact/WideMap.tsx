@@ -2,6 +2,7 @@ import React from 'react';
 
 const WideMap = (): JSX.Element => (
   <div className="wideMap">
+    <span className="top" />
     <h4
       className="pagetitle"
       style={{
