@@ -17,6 +17,10 @@ body {
   text-align: left;
 }
 
+.pageTitle {
+  font-weight: 700;
+}
+
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -88,7 +92,7 @@ h6 {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: 'habibi';
+  font-family: 'habibi', sans-serif;
 }
 
 /* Forms Generic */
@@ -243,14 +247,11 @@ tbody.regformtbody td {
 
 /* Links */
 
-a:not([href]):not([tabindex]) {
+a {
   text-decoration: underline;
-  color: #007bff;
-}
-
-a:not([href]):not([tabindex]):hover {
-  text-decoration: underline;
-  color: #0056b3;
+  text-align: center;
+  cursor: pointer;
+  border: none !important;
 }
 
 a, label, p {
@@ -259,20 +260,23 @@ a, label, p {
 }
 
 a, p {
-  font-family: 'Habibi';
+  font-family: 'Habibi', sans-serif;
   font-size  : 18px;
   padding-top: 4px;
   margin-top : 0;
 }
 
-a {
-  text-decoration: underline;
-  text-align: center;
-  cursor: pointer;
-  border: none !important;
+a:hover {
+  color: #0056b3;
 }
 
-a:hover {
+a:not([href]):not([tabindex]) {
+  text-decoration: underline;
+  color: #007bff;
+}
+
+a:not([href]):not([tabindex]):hover {
+  text-decoration: underline;
   color: #0056b3;
 }
 

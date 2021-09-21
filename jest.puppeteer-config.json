@@ -1,9 +1,16 @@
 {
   "verbose": true,
   "bail": true,
-  "setupFiles": [
-    "core-js/stable",
-    "regenerator-runtime/runtime"
-  ],
-  "testURL": "http://localhost/"
+  "timers": "fake",
+  "testURL": "http://localhost/",
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "jsx",
+    "ts",
+    "tsx"
+  ]
 }
