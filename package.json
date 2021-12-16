@@ -15,8 +15,7 @@
   "files": [
     "webpack.config.js",
     "src/",
-    "static/",
-    "server.js"
+    "static/"
   ],
   "keywords": [
     "React",
