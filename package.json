@@ -10,7 +10,7 @@
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
     "node": ">=16.13.0 <17",
-    "npm": ">=8.1.4 <9"
+    "npm": ">=8.1.0 <9"
   },
   "files": [
     "webpack.config.js",
@@ -34,9 +34,7 @@
     "test": "npm run test:lint && npm run test:jest",
     "test:local": "npm run test:lint-fix && npm run test:jest && npm run test:puppeteer && npm run cc",
     "test:jest": "jest --config jest.config.json --no-cache --runInBand",
-    "test:puppeteer": "jest --preset jest-puppeteer --config jest.puppeteer-config.json /test/puppeteer --runInBand",
     "cleaninstall": "rm -rf yarn.lock && rm -rf package-lock.json && rm -rf node_modules && npm install",
-    "postinstall": "npm run build:prod",
     "test:stylelint": "stylelint \"static/**/*.scss\""
   },
   "dependencies": {
