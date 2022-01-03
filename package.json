@@ -33,7 +33,7 @@
     "test": "npm run test:lint && npm run test:jest",
     "test:local": "npm run test:lint-fix && npm run test:jest && npm run test:puppeteer && npm run cc",
     "test:jest": "jest --config jest.config.json --no-cache --runInBand",
-    "cleaninstall": "rm -rf yarn.lock && rm -rf package-lock.json && rm -rf node_modules && npm install",
+    "cleaninstall": "rm -rf yarn.lock && rm -rf package-lock.json && rm -rf node_modules && npm cache clean --force && npm install",
     "postinstall": "npm run build:prod",
     "test:stylelint": "stylelint \"static/**/*.scss\""
   },
@@ -81,7 +81,6 @@
     "mini-css-extract-plugin": "latest",
     "moment": "latest",
     "node-notifier": "^10.0.0",
-    "nps": "^5.10.0",
     "popper.js": "latest",
     "prop-types": "latest",
     "react": "^17.0.2",
