@@ -8,3 +8,7 @@
 # Apperson Automotive, Inc
 
 <https://www.appersonautomotive.com/>
+
+## HOSTING
+
+We use Heroku to host this website, which is a static React frontend that runs on a node server.js (Express.js) server. There is a Procfile that tells Heroku to run the server.js file and both of these files are needed so please do NOT delete them.
