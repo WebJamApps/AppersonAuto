@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { withResizeDetector } from 'react-resize-detector';
-import mapStoreToProps from '../../redux/mapStoreToProps';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
@@ -126,4 +124,4 @@ export class General extends Component<GeneralAutoRepairProps> {
   }
 }
 
-export default connect(mapStoreToProps, null)(withResizeDetector(General));
+export default withResizeDetector(General);

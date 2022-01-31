@@ -3,7 +3,6 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import React, { Dispatch, PureComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
 import AutoMaint from '../containers/AutoMaintenance';
 import GeneralAutoRepair from '../containers/GeneralAutoRepair';
 import MajorAutoRepair from '../containers/MajorAutoRepair';
@@ -11,11 +10,9 @@ import DefaultContact from '../containers/Contact';
 import AppFourOhFour from './404';
 import AppTemplateDefault from './AppTemplate';
 import DefaultHome from '../containers/Homepage';
-import mapStoreToProps, { Auth } from '../redux/mapStoreToProps';
 
 export interface AppProps {
   dispatch: Dispatch<unknown>;
-  auth: Auth;
 }
 
 export class App extends PureComponent<AppProps> {
@@ -31,7 +28,7 @@ export class App extends PureComponent<AppProps> {
       <React.StrictMode>
         <div id="App" className="App">
           <Router>
-            <AppTemplateDefault dispatch={this.props.dispatch} auth={this.props.auth}>
+            <AppTemplateDefault dispatch={this.props.dispatch}>
               <Switch>
                 <Route exact path="/" component={DefaultHome} />
                 <Route path="/auto-maintenance" component={AutoMaint} />
@@ -48,4 +45,4 @@ export class App extends PureComponent<AppProps> {
   }
 }
 
-export default connect(mapStoreToProps, null)(App);
+export default App;
