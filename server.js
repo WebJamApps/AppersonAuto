@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+// DO NOT DELETE THIS FILE - IT IS USED BY HEROKU FOR HOSTING THIS APP
 
 require('dotenv').config();
 const path = require('path');

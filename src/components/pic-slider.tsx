@@ -3,14 +3,9 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import type { Iimage } from '../redux/mapStoreToProps';
 import Caption from './PicSlider/caption';
 
-export interface PicSliderProps {
-  data?: Iimage[];
-}
-
-class PicSlider extends React.Component<PicSliderProps> {
+class PicSlider extends React.Component<any> {
   static defaultProps: { data: [{ url: ''; title: ''; _id: 0 }]; };
 
   settings: {
@@ -24,7 +19,7 @@ class PicSlider extends React.Component<PicSliderProps> {
     fade: boolean;
   };
 
-  constructor(props: PicSliderProps) {
+  constructor(props: any) {
     super(props);
     this.settings = {
       autoplay: true,

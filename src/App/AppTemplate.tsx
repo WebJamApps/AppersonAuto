@@ -1,9 +1,6 @@
 import React, { Dispatch, RefObject } from 'react';
 import { withResizeDetector } from 'react-resize-detector';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import authUtils from './authUtils';
-import mapStoreToProps, { Auth } from '../redux/mapStoreToProps';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 import commonUtils from '../lib/commonUtils';
@@ -11,7 +8,6 @@ import commonUtils from '../lib/commonUtils';
 export interface AppTemplateProps extends RouteComponentProps{
   dispatch: Dispatch<unknown>;
   targetRef: RefObject<HTMLDivElement>;
-  auth: Auth;
   width: number;
   children?: React.ReactNode;
 }
@@ -44,7 +40,6 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
     this.handleKeyMenu = this.handleKeyMenu.bind(this);
     this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
     this.navLinks = this.navLinks.bind(this);
-    this.authUtils = authUtils;
     this.commonUtils = commonUtils;
   }
 
@@ -198,4 +193,4 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
   }
 }
 
-export default withRouter(connect(mapStoreToProps, null)(withResizeDetector(AppTemplate)));
+export default withRouter(withResizeDetector(AppTemplate));

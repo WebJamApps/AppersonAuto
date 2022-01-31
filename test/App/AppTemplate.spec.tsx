@@ -13,13 +13,6 @@ function setup() {
       location={{
         pathname: '/', search: '', state: '', hash: '',
       }}
-      auth={{
-        isAuthenticated: true,
-        email: '',
-        error: '',
-        token: '',
-        user: { userType: '' },
-      }}
       dispatch={dFunc}
       history={anyProp}
       match={anyProp}
@@ -52,13 +45,6 @@ describe('AppTemplate', () => {
       children: {},
       targetRef: { current: targetRef },
       dispatch: dFunc,
-      auth: {
-        isAuthenticated: true,
-        email: '',
-        error: '',
-        token: '',
-        user: { userType: '' },
-      },
       location: {
         pathname: '/', search: '', state: '', hash: '',
       },
@@ -80,13 +66,6 @@ describe('AppTemplate', () => {
       children: {},
       targetRef: { current: targetRef },
       dispatch: dFunc,
-      auth: {
-        isAuthenticated: true,
-        email: '',
-        error: '',
-        token: '',
-        user: { userType: '' },
-      },
       location: {
         pathname: '/', search: '', state: '', hash: '',
       },
@@ -109,13 +88,6 @@ describe('AppTemplate', () => {
       children: {},
       targetRef: { current: targetRef },
       dispatch: dFunc,
-      auth: {
-        isAuthenticated: true,
-        email: '',
-        error: '',
-        token: '',
-        user: { userType: '' },
-      },
       location: {
         pathname: '', search: '', state: '', hash: '',
       },
@@ -136,13 +108,6 @@ describe('AppTemplate', () => {
       children: {},
       targetRef: { current: targetRef },
       dispatch: dFunc,
-      auth: {
-        isAuthenticated: true,
-        email: '',
-        error: '',
-        token: '',
-        user: { userType: '' },
-      },
       location: {
         pathname: '', search: '', state: '', hash: '',
       },
@@ -162,13 +127,6 @@ describe('AppTemplate', () => {
       children: {},
       targetRef: { current: targetRef },
       dispatch: dFunc,
-      auth: {
-        isAuthenticated: true,
-        email: '',
-        error: '',
-        token: '',
-        user: { userType: '' },
-      },
       location: {
         pathname: '', search: '', state: '', hash: '',
       },
@@ -189,13 +147,6 @@ describe('AppTemplate', () => {
       children: {},
       targetRef: { current: targetRef },
       dispatch: dFunc,
-      auth: {
-        isAuthenticated: true,
-        email: '',
-        error: '',
-        token: '',
-        user: { userType: '' },
-      },
       location: {
         pathname: '', search: '', state: '', hash: '',
       },

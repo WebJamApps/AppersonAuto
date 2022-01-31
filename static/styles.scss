@@ -1,5 +1,11 @@
 @import 'config';
 @import 'menu';
+@import 'footer';
+@import 'home';
+@import 'materialui';
+@import 'mobile';
+@import 'news';
+@import 'slideshow';
 
 /* General */
 * {
@@ -442,10 +448,3 @@ div.familyELCA, div.youthELCA, div.givingELCA, div.beliefsELCA, div.newsELCA {
 .material-header-h4-call:hover{
   text-decoration:underline;
 }
-
-@import 'footer';
-@import 'home';
-@import 'materialui';
-@import 'mobile';
-@import 'news';
-@import 'slideshow';
