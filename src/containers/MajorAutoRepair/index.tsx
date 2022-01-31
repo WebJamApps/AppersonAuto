@@ -1,7 +1,5 @@
 import React, { RefObject } from 'react';
-import { connect } from 'react-redux';
 import { withResizeDetector } from 'react-resize-detector';
-import mapStoreToProps from '../../redux/mapStoreToProps';
 import CommonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
@@ -114,4 +112,4 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
   }
 }
 
-export default connect(mapStoreToProps, null)(withResizeDetector(Major));
+export default withResizeDetector(Major);

@@ -1,20 +1,11 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import { PersistGate } from 'redux-persist/integration/react';
 import ConnectedApp from './App';
-import store from './redux/store';
 
 import '../static/styles.scss';
 
 render(
-  <React.StrictMode>
-    <Provider store={store.store}>
-      <PersistGate loading={null} persistor={store.persistor}>
-        <ConnectedApp />
-      </PersistGate>
-    </Provider>
-  </React.StrictMode>, document.getElementById('root'),
+  <React.StrictMode><ConnectedApp /></React.StrictMode>, document.getElementById('root'),
 );
 
 /* istanbul ignore next */
