@@ -5,7 +5,7 @@ import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 import commonUtils from '../lib/commonUtils';
 
-export interface AppTemplateProps extends RouteComponentProps{
+export interface AppTemplateProps extends RouteComponentProps {
   dispatch: Dispatch<unknown>;
   targetRef: RefObject<HTMLDivElement>;
   width: number;

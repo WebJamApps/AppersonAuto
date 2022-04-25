@@ -1,6 +1,6 @@
 {
   "name": "appersonautomotive.com",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "appersonautomotive.com",
   "main": "dist/index.html",
   "repository": {
@@ -9,8 +9,8 @@
   },
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
-    "node": ">=16.13.2 <17",
-    "npm": ">=8.4.0 <9"
+    "node": ">=18.0.0 <19",
+    "npm": ">=8.7.0 <9"
   },
   "files": [
     "webpack.config.js",
@@ -45,7 +45,6 @@
     "@types/enzyme": "^3.10.5",
     "@types/faker": "^4.1.12",
     "@types/html-webpack-plugin": "latest",
-    "@types/jest": "^25.1.4",
     "@types/materialize-css": "^1.0.8",
     "@types/mini-css-extract-plugin": "latest",
     "@types/node": "latest",
@@ -97,7 +96,7 @@
     "regenerator-runtime": "latest",
     "resize-observer-polyfill": "latest",
     "sass": "latest",
-    "sass-loader": "^7.3.1",
+    "sass-loader": "^12.6.0",
     "slick-carousel": "latest",
     "snyk": "^1.685.0",
     "source-map-loader": "latest",
@@ -117,8 +116,9 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "latest",
-    "@testing-library/react": "latest",
+    "@testing-library/react": "^12.1.5",
     "@types/expect-puppeteer": "latest",
+    "@types/jest": "^27.4.1",
     "@types/jest-environment-puppeteer": "latest",
     "@types/jsonwebtoken": "^8.5.4",
     "@types/puppeteer": "latest",
