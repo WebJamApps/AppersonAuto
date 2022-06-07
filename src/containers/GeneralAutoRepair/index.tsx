@@ -25,6 +25,14 @@ export class General extends Component<GeneralAutoRepairProps> {
 
   componentDidMount(): void { this.commonUtils.setTitleAndScroll('General Auto Repair', window.screen.width); }
 
+  coupon(): JSX.Element { // eslint-disable-line class-methods-use-this
+    return (
+      <div style={{ width: '295px', margin: 'auto' }}>
+        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
+      </div>
+    );
+  }
+
   uLists(): JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div>
@@ -64,6 +72,7 @@ export class General extends Component<GeneralAutoRepairProps> {
           <br />
           You can also stop by at 1601 Apperson Drive, Salem VA 24153.
         </p>
+        {width < 1162 ? this.coupon() : null}
       </div>
     );
   }
@@ -105,6 +114,7 @@ export class General extends Component<GeneralAutoRepairProps> {
     return (
       <div className="row">
         {this.pageText(marginLeft)}
+        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
   }

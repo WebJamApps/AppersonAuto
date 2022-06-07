@@ -21,6 +21,14 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
 
   componentDidMount(): void { this.commonUtils.setTitleAndScroll('Auto Maintenance', window.screen.width); }
 
+  coupon(): JSX.Element { // eslint-disable-line class-methods-use-this
+    return (
+      <div style={{ width: '295px', margin: 'auto' }}>
+        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
+      </div>
+    );
+  }
+
   filters(): JSX.Element {
     const { targetRef, width } = this.props;
     const marginBottom = width < 1162 ? '20px' : '40px';
@@ -44,6 +52,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
           {' '}
           <a style={{ textDecoration: 'none' }} href="tel:5404447337">540-444-7337</a>
         </p>
+        {width < 1162 ? this.coupon() : null}
       </div>
     );
   }
@@ -106,6 +115,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
     return (
       <div className="row">
         {this.pageText(marginLeft)}
+        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
   }

@@ -17,6 +17,14 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
 
   componentDidMount(): void { this.commonUtils.setTitleAndScroll('Major Auto Repair', window.screen.width); }
 
+  coupon(): JSX.Element { // eslint-disable-line class-methods-use-this
+    return (
+      <div style={{ width: '295px', margin: 'auto' }}>
+        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
+      </div>
+    );
+  }
+
   service(): JSX.Element {
     const { targetRef, width } = this.props;
     const marginBottom = width < 1162 ? '20px' : '190px';
@@ -33,7 +41,6 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
           <li>And much more</li>
         </ul>
         <p>{' '}</p>
-
         <p>
           We’ll provide you with trustworthy service. We stand behind our work.
         </p>
@@ -76,18 +83,22 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
     );
   }
 
-  
   mainPanel(marginLeft:string):JSX.Element {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef}>
         <div className="row">
           {this.majorPageText(marginLeft)}
+          {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
         </div>
+        {width < 1162 ? (
+          <div>
+            {this.coupon()}
+          </div>
+        ) : null}
       </div>
     );
   }
-  
 
   render():JSX.Element {
     return this.commonUtils.renderer(slidesArr, this, PicSlider);

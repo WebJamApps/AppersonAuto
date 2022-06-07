@@ -50,6 +50,14 @@ export class Homepage extends React.Component<HomepageProps, unknown> {
     );
   }
 
+  coupon():JSX.Element { // eslint-disable-line class-methods-use-this
+    return (
+      <div style={{ width: '295px', margin: 'auto' }}>
+        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
+      </div>
+    );
+  }
+
   mechanics():JSX.Element { // eslint-disable-line class-methods-use-this
     return (
       <div>
@@ -65,6 +73,7 @@ export class Homepage extends React.Component<HomepageProps, unknown> {
           Take advantage of our
           <br />
           <strong>FREE high mileage / vacation vehicle check over</strong>
+          .
         </p>
         <p>Shuttle service is available to you.</p>
       </div>
@@ -93,6 +102,7 @@ export class Homepage extends React.Component<HomepageProps, unknown> {
           <li>Coolant flush</li>
         </ul>
         {this.getToKnow()}
+        {width < 1162 ? this.coupon() : null}
       </div>
     );
   }
@@ -102,6 +112,7 @@ export class Homepage extends React.Component<HomepageProps, unknown> {
     return (
       <div ref={targetRef} className="row">
         {this.homeText(marginLeft)}
+        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
   }
