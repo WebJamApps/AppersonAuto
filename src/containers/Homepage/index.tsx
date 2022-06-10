@@ -75,14 +75,6 @@ export class Homepage extends React.Component<HomepageProps, unknown> {
           <strong>FREE high mileage / vacation vehicle check over</strong>
           .
         </p>
-        <p>
-          <br />
-          Receive
-          {' '}
-          <strong>5% OFF mechanical repairs</strong>
-          <br />
-          when you present the coupon from this site.
-        </p>
         <p>Shuttle service is available to you.</p>
       </div>
     );
