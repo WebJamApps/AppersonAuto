@@ -41,7 +41,6 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
           <li>And much more</li>
         </ul>
         <p>{' '}</p>
-        <p style={{ marginTop: '40px' }}><strong>Receive 5% OFF mechanical repairs (must present coupon):</strong></p>
         <p>
           We’ll provide you with trustworthy service. We stand behind our work.
         </p>
@@ -72,12 +71,6 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
           If you’re experiencing problems with your vehicle then bring it to us for our excellent diagnostic service.
         </p>
         <p>
-          Receive
-          {' '}
-          <b>5% OFF our mechanical repairs</b>
-          {' '}
-          when you present the coupon from this site.
-          <br />
           <br />
           You’ll receive a
           {' '}
