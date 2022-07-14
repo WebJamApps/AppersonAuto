@@ -77,7 +77,7 @@
     "jquery": "3.5.0",
     "jsonwebtoken": "^8.5.1",
     "mini-css-extract-plugin": "latest",
-    "moment": "latest",
+    "moment": "2.29.4",
     "node-notifier": "^10.0.0",
     "popper.js": "latest",
     "prop-types": "latest",
