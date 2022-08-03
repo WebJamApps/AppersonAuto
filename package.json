@@ -1,6 +1,6 @@
 {
   "name": "appersonautomotive.com",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "appersonautomotive.com",
   "main": "dist/index.html",
   "repository": {
@@ -9,8 +9,8 @@
   },
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
-    "node": ">=18.0.0 <19",
-    "npm": ">=8.7.0 <9"
+    "node": ">=16.16.0 <19",
+    "npm": ">=8.13.2 <9"
   },
   "files": [
     "webpack.config.js",
@@ -104,7 +104,7 @@
     "style-loader": "latest",
     "stylelint-config-recommended-scss": "latest",
     "superagent": "latest",
-    "terser-webpack-plugin": "latest",
+    "terser-webpack-plugin": "^5.3.3",
     "ts-loader": "latest",
     "typescript": "latest",
     "url-loader": "latest",
