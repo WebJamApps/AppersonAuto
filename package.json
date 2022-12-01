@@ -98,7 +98,7 @@
     "sass": "latest",
     "sass-loader": "^12.6.0",
     "slick-carousel": "latest",
-    "snyk": "^1.996.0",
+    "snyk": "^1.1064.0",
     "source-map-loader": "latest",
     "stream-browserify": "^3.0.0",
     "style-loader": "latest",
