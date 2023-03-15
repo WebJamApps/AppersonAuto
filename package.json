@@ -110,7 +110,7 @@
     "url-loader": "latest",
     "url-search-params-polyfill": "latest",
     "util": "^0.12.3",
-    "webpack": "^5.7.0",
+    "webpack": "^5.76.0",
     "webpack-bundle-analyzer": "latest",
     "webpack-cli": "^4.7.2"
   },
