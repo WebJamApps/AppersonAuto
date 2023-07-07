@@ -145,7 +145,7 @@
     "react-hot-loader": "latest",
     "react-test-renderer": "^17.0.0",
     "redux-mock-store": "latest",
-    "stylelint": "^15.6.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-standard": "^33.0.0",
     "stylelint-scss": "latest",
     "ts-jest": "latest",
