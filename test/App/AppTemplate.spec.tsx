@@ -27,7 +27,7 @@ describe('AppTemplate', () => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({
       width: 1300,
-      children: {},
+      children: null,
       targetRef: { current: targetRef },
       dispatch: dFunc,
       location: {
@@ -48,7 +48,7 @@ describe('AppTemplate', () => {
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({
       width: 1300,
-      children: {},
+      children: null,
       targetRef: { current: targetRef },
       dispatch: dFunc,
       location: {
@@ -70,7 +70,7 @@ describe('AppTemplate', () => {
     const dFunc = () => { };
     const aT = new AppTemplate({
       width: 1300,
-      children: {},
+      children: null,
       targetRef: { current: targetRef },
       dispatch: dFunc,
       location: {
@@ -90,7 +90,7 @@ describe('AppTemplate', () => {
     const dFunc = () => { };
     const aT = new AppTemplate({
       width: 1300,
-      children: {},
+      children: null,
       targetRef: { current: targetRef },
       dispatch: dFunc,
       location: {
@@ -109,7 +109,7 @@ describe('AppTemplate', () => {
     const dFunc = () => { };
     const aT = new AppTemplate({
       width: 1300,
-      children: {},
+      children: null,
       targetRef: { current: targetRef },
       dispatch: dFunc,
       location: {
@@ -129,7 +129,7 @@ describe('AppTemplate', () => {
     const dFunc = () => { };
     const aT = new AppTemplate({
       width: 1300,
-      children: {},
+      children: null,
       targetRef: { current: targetRef },
       dispatch: dFunc,
       location: {

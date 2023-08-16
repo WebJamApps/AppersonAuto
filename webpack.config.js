@@ -115,7 +115,7 @@ module.exports = (env) => ({
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
-      process: 'process/browser',
+      // process: 'process/browser',
     }),
     new HtmlWebpackPlugin({
       template: `${srcDir}/index.ejs`,
