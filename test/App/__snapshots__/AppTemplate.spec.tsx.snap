@@ -1,0 +1,700 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppTemplate calls the mobile menu 1`] = `
+<div
+  className="page-host"
+>
+  <div
+    className="close drawer-container"
+    id="sidebar"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <div
+      className="drawer"
+      style={
+        Object {
+          "backgroundColor": "#505050",
+        }
+      }
+    >
+      <div
+        className="nav-list"
+      >
+        <a
+          href="tel:5404447337"
+          style={
+            Object {
+              "backgroundColor": "#881204",
+              "color": "#fff",
+              "display": "block",
+              "height": "72px",
+              "marginTop": "-1px",
+              "paddingTop": "4px",
+              "textDecoration": "none",
+            }
+          }
+        >
+          <h4
+            className="material-header-h4-call"
+            style={
+              Object {
+                "marginRight": "280px",
+                "paddingBottom": 0,
+                "textAlign": "center",
+                "width": "200px",
+              }
+            }
+          >
+            Call
+            <br />
+            540-444-7337
+          </h4>
+        </a>
+        <div
+          className="menu-item"
+          style={
+            Object {
+              "backgroundColor": "black",
+              "margin": "8px",
+            }
+          }
+        >
+          <p
+            style={
+              Object {
+                "color": "#fff",
+                "marginBottom": "2px",
+              }
+            }
+          >
+            <a
+              className="menu-hover"
+              href="https://goo.gl/maps/5G47ib81DGj7o2gk9"
+              style={
+                Object {
+                  "color": "#45c9ff",
+                  "textDecoration": "none",
+                }
+              }
+            >
+              <span>
+                1601 Apperson Drive
+              </span>
+            </a>
+            <br />
+            Salem, VA 24153
+          </p>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/auto-maintenance"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              Auto Maintenance
+            </span>
+          </a>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/general-auto-repair"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              General Auto Repair
+            </span>
+          </a>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/major-auto-repair"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              Major Auto Repair
+            </span>
+          </a>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/contact"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              Contact
+            </span>
+          </a>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              Home
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="main-panel"
+  >
+    <span
+      id="mobilemenutoggle"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <i
+        className="fas fa-bars fa-2x"
+      />
+    </span>
+    <div
+      className="mainPanel"
+    >
+      <div
+        className="swipe-area"
+      />
+      <div
+        className="material-header"
+        id="header"
+      >
+        <div
+          className="headercontent"
+        />
+        <div>
+          <div
+            style={
+              Object {
+                "marginLeft": "5px",
+                "marginTop": "1px",
+              }
+            }
+          >
+            <img
+              alt="headerlogo"
+              className="style-scope iron-image"
+              id="ig"
+              src="https://dl.dropboxusercontent.com/s/qg69q7f5so4aqsb/appAutoLogo.png?dl=0"
+              width="272px"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="content-block"
+        id="contentBlock"
+        style={
+          Object {
+            "width": "auto",
+          }
+        }
+      >
+        <div
+          className="footer"
+          id="wjfooter"
+          style={
+            Object {
+              "bottom": "0",
+              "marginTop": "20px",
+              "paddingBottom": "20px",
+              "paddingTop": "20px",
+            }
+          }
+        >
+          <div
+            className="footerLinks"
+            style={
+              Object {
+                "padding": "6px",
+                "textAlign": "center",
+              }
+            }
+          >
+            <a
+              href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422"
+            >
+              <i
+                aria-hidden="true"
+                className="fab fa-facebook-square fa-2x"
+                style={
+                  Object {
+                    "color": "#45c9ff",
+                  }
+                }
+              />
+            </a>
+            <a
+              href="https://www.yellowpages.com/salem-va/mip/apperson-automotive-482421530"
+              style={
+                Object {
+                  "marginLeft": "40px",
+                }
+              }
+            >
+              <img
+                alt="yellowpages"
+                src="https://insightmg.com/wp-content/uploads/2015/12/YP_Insight-Marketing-Group_Marketing-for-Medical-Practices.png"
+                style={
+                  Object {
+                    "marginBottom": "15px",
+                    "verticalAlign": "middle",
+                  }
+                }
+                width="40px"
+              />
+            </a>
+            <a
+              href="https://www.yelp.com/biz/apperson-automotive-salem"
+              style={
+                Object {
+                  "marginLeft": "30px",
+                }
+              }
+            >
+              <img
+                alt="yelp"
+                src="https://dl.dropboxusercontent.com/s/pb5qn5wyps6k56t/yelp-logo-icon-7.jpg?dl=0"
+                style={
+                  Object {
+                    "marginBottom": "15px",
+                    "verticalAlign": "middle",
+                  }
+                }
+                width="40px"
+              />
+            </a>
+          </div>
+          <div
+            style={
+              Object {
+                "padding": "6px",
+                "textAlign": "center",
+              }
+            }
+          >
+            <span
+              className="nohover"
+            >
+              Powered by  
+            </span>
+            <a
+              className="wjllc"
+              href="https://www.web-jam.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Web Jam LLC
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AppTemplate renders the component 1`] = `
+<div
+  className="page-host"
+>
+  <div
+    className="close drawer-container"
+    id="sidebar"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <div
+      className="drawer"
+      style={
+        Object {
+          "backgroundColor": "#505050",
+        }
+      }
+    >
+      <div
+        className="material-header x-scope paper-material-0 drawer"
+        style={
+          Object {
+            "backgroundColor": "#881204",
+          }
+        }
+      >
+        <a
+          href="tel:5404447337"
+          style={
+            Object {
+              "backgroundColor": "#881204",
+              "color": "#fff",
+              "display": "block",
+              "height": "72px",
+              "marginTop": "-1px",
+              "paddingTop": "4px",
+              "textDecoration": "none",
+            }
+          }
+        >
+          <h4
+            className="material-header-h4-call"
+            style={
+              Object {
+                "marginRight": "280px",
+                "paddingBottom": 0,
+                "textAlign": "center",
+                "width": "200px",
+              }
+            }
+          >
+            Call
+            <br />
+            540-444-7337
+          </h4>
+        </a>
+      </div>
+      <div
+        className="nav-list"
+      >
+        <div
+          className="menu-item"
+          style={
+            Object {
+              "backgroundColor": "black",
+              "margin": "8px",
+            }
+          }
+        >
+          <p
+            style={
+              Object {
+                "color": "#fff",
+                "marginBottom": "2px",
+              }
+            }
+          >
+            <a
+              className="menu-hover"
+              href="https://goo.gl/maps/5G47ib81DGj7o2gk9"
+              style={
+                Object {
+                  "color": "#45c9ff",
+                  "textDecoration": "none",
+                }
+              }
+            >
+              <span>
+                1601 Apperson Drive
+              </span>
+            </a>
+            <br />
+            Salem, VA 24153
+          </p>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/auto-maintenance"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              Auto Maintenance
+            </span>
+          </a>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/general-auto-repair"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              General Auto Repair
+            </span>
+          </a>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/major-auto-repair"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              Major Auto Repair
+            </span>
+          </a>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/contact"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              Contact
+            </span>
+          </a>
+        </div>
+        <div
+          className="menu-item"
+        >
+          <a
+            className="nav-link"
+            href="/"
+            onClick={[Function]}
+          >
+            <i
+              className=""
+            />
+             
+            <span
+              className="nav-item"
+            >
+              Home
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="main-panel"
+  >
+    <span
+      id="mobilemenutoggle"
+      onClick={[Function]}
+      onKeyPress={[Function]}
+      role="button"
+      tabIndex={0}
+    >
+      <i
+        className="fas fa-bars fa-2x"
+      />
+    </span>
+    <div
+      className="mainPanel"
+    >
+      <div
+        className="swipe-area"
+      />
+      <div
+        className="material-header"
+        id="header"
+      >
+        <div
+          className="headercontent"
+        />
+        <div>
+          <div
+            style={
+              Object {
+                "marginLeft": "5px",
+                "marginTop": "1px",
+              }
+            }
+          >
+            <img
+              alt="headerlogo"
+              className="style-scope iron-image"
+              id="ig"
+              src="https://dl.dropboxusercontent.com/s/qg69q7f5so4aqsb/appAutoLogo.png?dl=0"
+              width="272px"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="content-block"
+        id="contentBlock"
+        style={
+          Object {
+            "width": "auto",
+          }
+        }
+      >
+        <div
+          className="footer"
+          id="wjfooter"
+          style={
+            Object {
+              "bottom": "0",
+              "marginTop": "20px",
+              "paddingBottom": "20px",
+              "paddingTop": "20px",
+            }
+          }
+        >
+          <div
+            className="footerLinks"
+            style={
+              Object {
+                "padding": "6px",
+                "textAlign": "center",
+              }
+            }
+          >
+            <a
+              href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422"
+            >
+              <i
+                aria-hidden="true"
+                className="fab fa-facebook-square fa-2x"
+                style={
+                  Object {
+                    "color": "#45c9ff",
+                  }
+                }
+              />
+            </a>
+            <a
+              href="https://www.yellowpages.com/salem-va/mip/apperson-automotive-482421530"
+              style={
+                Object {
+                  "marginLeft": "40px",
+                }
+              }
+            >
+              <img
+                alt="yellowpages"
+                src="https://insightmg.com/wp-content/uploads/2015/12/YP_Insight-Marketing-Group_Marketing-for-Medical-Practices.png"
+                style={
+                  Object {
+                    "marginBottom": "15px",
+                    "verticalAlign": "middle",
+                  }
+                }
+                width="40px"
+              />
+            </a>
+            <a
+              href="https://www.yelp.com/biz/apperson-automotive-salem"
+              style={
+                Object {
+                  "marginLeft": "30px",
+                }
+              }
+            >
+              <img
+                alt="yelp"
+                src="https://dl.dropboxusercontent.com/s/pb5qn5wyps6k56t/yelp-logo-icon-7.jpg?dl=0"
+                style={
+                  Object {
+                    "marginBottom": "15px",
+                    "verticalAlign": "middle",
+                  }
+                }
+                width="40px"
+              />
+            </a>
+          </div>
+          <div
+            style={
+              Object {
+                "padding": "6px",
+                "textAlign": "center",
+              }
+            }
+          >
+            <span
+              className="nohover"
+            >
+              Powered by  
+            </span>
+            <a
+              className="wjllc"
+              href="https://www.web-jam.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Web Jam LLC
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

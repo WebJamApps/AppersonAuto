@@ -1,3 +1,235 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`picture slider component test renders correctly 1`] = `ShallowWrapper {}`;
+exports[`picture slider component test renders the component 1`] = `
+<div>
+  <div
+    className="slick-slider slick-initialized"
+    dir="ltr"
+  >
+    <div
+      className="slick-list"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={null}
+      onMouseMove={null}
+      onMouseUp={[Function]}
+      onTouchCancel={null}
+      onTouchEnd={[Function]}
+      onTouchMove={null}
+      onTouchStart={[Function]}
+      style={Object {}}
+    >
+      <div
+        className="slick-track"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <div
+          aria-hidden={false}
+          className="slick-slide slick-active slick-current"
+          data-index={0}
+          onClick={[Function]}
+          style={
+            Object {
+              "left": -0,
+              "opacity": 1,
+              "outline": "none",
+              "position": "relative",
+              "transition": "opacity 1000ms ease, visibility 1000ms ease",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              style={
+                Object {
+                  "display": "inline-block",
+                  "width": "100%",
+                }
+              }
+              tabIndex={-1}
+            >
+               
+              <img
+                className="slide-images"
+                src="../static/imgs/ohaf/slideshow2.png"
+              />
+               
+              <div
+                className="slider-caption"
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "boxShadow": "0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.14)",
+                    "fontWeight": 600,
+                    "marginBottom": "10px",
+                    "padding": "15px 0",
+                    "textAlign": "center",
+                  }
+                }
+              >
+                 
+                
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden={true}
+          className="slick-slide"
+          data-index={1}
+          onClick={[Function]}
+          style={
+            Object {
+              "left": -0,
+              "opacity": 0,
+              "outline": "none",
+              "position": "relative",
+              "transition": "opacity 1000ms ease, visibility 1000ms ease",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              style={
+                Object {
+                  "display": "inline-block",
+                  "width": "100%",
+                }
+              }
+              tabIndex={-1}
+            >
+               
+              <img
+                className="slide-images"
+                src="../static/imgs/ohaf/slideshow3.png"
+              />
+               
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden={true}
+          className="slick-slide"
+          data-index={2}
+          onClick={[Function]}
+          style={
+            Object {
+              "left": -0,
+              "opacity": 0,
+              "outline": "none",
+              "position": "relative",
+              "transition": "opacity 1000ms ease, visibility 1000ms ease",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              style={
+                Object {
+                  "display": "inline-block",
+                  "width": "100%",
+                }
+              }
+              tabIndex={-1}
+            >
+               
+              <img
+                className="slide-images"
+                src="../static/imgs/ohaf/slideshow4.png"
+              />
+               
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden={true}
+          className="slick-slide"
+          data-index={3}
+          onClick={[Function]}
+          style={
+            Object {
+              "left": -0,
+              "opacity": 0,
+              "outline": "none",
+              "position": "relative",
+              "transition": "opacity 1000ms ease, visibility 1000ms ease",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              style={
+                Object {
+                  "display": "inline-block",
+                  "width": "100%",
+                }
+              }
+              tabIndex={-1}
+            >
+               
+              <img
+                className="slide-images"
+                src="../static/imgs/ohaf/slideshow5.png"
+              />
+               
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden={true}
+          className="slick-slide"
+          data-index={4}
+          onClick={[Function]}
+          style={
+            Object {
+              "left": -0,
+              "opacity": 0,
+              "outline": "none",
+              "position": "relative",
+              "transition": "opacity 1000ms ease, visibility 1000ms ease",
+              "width": 0,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            <div
+              style={
+                Object {
+                  "display": "inline-block",
+                  "width": "100%",
+                }
+              }
+              tabIndex={-1}
+            >
+               
+              <img
+                className="slide-images"
+                src="../static/imgs/ohaf/slideshow6.png"
+              />
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

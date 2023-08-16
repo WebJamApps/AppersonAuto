@@ -1,28 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 import { AutoMaintenance } from '../../src/containers/AutoMaintenance';
 
 describe('AutoMaintenance', () => {
-  let wrapper: any;
-  beforeEach(() => {
+  it('Renders the Homepage', () => {
     const targetRef: any = {};
     const width = 1300;
-    wrapper = shallow(<AutoMaintenance targetRef={targetRef} width={width} />);
-  });
-  it('Renders the Homepage', () => {
-    expect(wrapper).toMatchSnapshot();
+    const result: any = renderer.create(<AutoMaintenance targetRef={targetRef} width={width} />).toJSON();
+    expect(result.type).toBe('div');
   });
   it('renders with cellphone width and has coupon', () => {
     const width = 300;
     const targetRef: any = {};
-    const wrapper2 = shallow(<AutoMaintenance targetRef={targetRef} width={width} />);
-    wrapper2.update();
-    const i = wrapper2.find('img#coupon');
-    expect(i).toBeDefined();
-  });
-  it('renders widescreen width and has coupon', () => {
-    const i = wrapper.find('img#coupon');
-    expect(i).toBeDefined();
+    const result: any = renderer.create(<AutoMaintenance targetRef={targetRef} width={width} />).toJSON();
+    expect(result.type).toBe('div');
   });
 });

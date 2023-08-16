@@ -51,14 +51,15 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
   }
 
   handleKeyMenu(e: { key: string; }): (void | null) {
-    if (e.key === 'Enter') return this.toggleMobileMenu();
+    if (e.key === 'Enter') this.toggleMobileMenu();
     return null;
   }
 
-  toggleMobileMenu(): void {
+  toggleMobileMenu(): boolean {
     const { menuOpen } = this.state;
     const mO = !menuOpen;
     this.setState({ menuOpen: mO });
+    return mO;
   }
 
   close(): boolean {

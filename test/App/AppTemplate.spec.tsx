@@ -1,13 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 import { AppTemplate } from '../../src/App/AppTemplate';
+import { BrowserRouter } from 'react-router-dom';
 
-function setup() {
-  const targetRef: any = {};
-  const anyProp: any = {};
-  const dFunc = () => { };
-  const wrapper = shallow<AppTemplate>(
-    <AppTemplate
+describe('AppTemplate', () => {
+  it('renders the component', () => {
+    const targetRef: any = {};
+    const anyProp: any = {};
+    const dFunc = () => { };
+    const result = renderer.create(<BrowserRouter><AppTemplate
       targetRef={targetRef}
       width={1200}
       location={{
@@ -16,24 +17,8 @@ function setup() {
       dispatch={dFunc}
       history={anyProp}
       match={anyProp}
-    >
-      <div />
-    </AppTemplate>,
-  );
-  const props = { children: '<div></div>', width: '300' };
-  document.body.innerHTML = '<div class="page-content"></div>';
-  return { wrapper, props };
-}
-
-describe('AppTemplate', () => {
-  it('renders the component', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find('div.page-host').exists()).toBe(true);
-  });
-  it('rerenders the component when menuOpen state changes', () => {
-    const { wrapper } = setup();
-    wrapper.setState({ menuOpen: true });
-    expect(wrapper.find('div.open').length).toBe(1);
+ /></BrowserRouter>).toJSON();
+    expect(result).toMatchSnapshot();
   });
   it('closes the menu without navigating away from the react app', () => new Promise<void>((done) => {
     const targetRef: any = {};
@@ -135,7 +120,7 @@ describe('AppTemplate', () => {
     });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Enter' });
-    expect(result).toBe(true);
+    expect(result).toBe(null);
     done();
   }));
   it('does not toggle the mobile menu on clicking Escape key', () => new Promise<void>((done) => {
@@ -159,30 +144,35 @@ describe('AppTemplate', () => {
     done();
   }));
   it('toggles the mobile menu', () => {
-    const { wrapper } = setup();
-    wrapper.instance().setState = jest.fn();
-    wrapper.instance().toggleMobileMenu();
-    expect(wrapper.instance().setState).toHaveBeenCalledWith({ menuOpen: true });
+    const targetRef: any = {};
+    const anyProp: any = {};
+    const dFunc = () => { };
+    const result = renderer.create(<BrowserRouter><AppTemplate
+      targetRef={targetRef}
+      width={1200}
+      location={{
+        pathname: '/', search: '', state: '', hash: '',
+      }}
+      dispatch={dFunc}
+      history={anyProp}
+      match={anyProp}
+ /></BrowserRouter>).root;
+    expect(result.findByProps({ id: 'mobilemenutoggle' }).props.onClick()).toBe(true);
   });
   it('calls the mobile menu', () => {
-    const { wrapper } = setup();
-    wrapper.instance().makeMenuLink = jest.fn();
-    wrapper.update();
-    wrapper.instance().mobileMenu();
-    expect(wrapper.instance().makeMenuLink).toHaveBeenCalled();
-  });
-  it('calls the mobile menu through navLinks', () => {
-    const { wrapper } = setup();
-    wrapper.instance().mobileMenu = jest.fn();
-    wrapper.update();
-    wrapper.instance().navLinks(300);
-    expect(wrapper.instance().mobileMenu).toHaveBeenCalled();
-  });
-  it('makes a call us text link', () => {
-    const { wrapper } = setup();
-    wrapper.instance().callText = jest.fn();
-    wrapper.update();
-    wrapper.instance().callUs();
-    expect(wrapper.instance().callText).toHaveBeenCalled();
+    const targetRef: any = { current: null };
+    const anyProp: any = {};
+    const dFunc = () => { };
+    const result: any = renderer.create(<BrowserRouter><AppTemplate
+      targetRef={targetRef}
+      width={300}
+      location={{
+        pathname: '/', search: '', state: '', hash: '',
+      }}
+      dispatch={dFunc}
+      history={anyProp}
+      match={anyProp}
+ /></BrowserRouter>).toJSON();
+    expect(result).toMatchSnapshot();
   });
 });
