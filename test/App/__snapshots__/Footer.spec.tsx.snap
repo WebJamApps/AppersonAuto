@@ -5,7 +5,7 @@ exports[`Footer renders component 1`] = `
   className="footer"
   id="wjfooter"
   style={
-    Object {
+    {
       "bottom": "0",
       "marginTop": "20px",
       "paddingBottom": "20px",
@@ -16,7 +16,7 @@ exports[`Footer renders component 1`] = `
   <div
     className="footerLinks"
     style={
-      Object {
+      {
         "padding": "6px",
         "textAlign": "center",
       }
@@ -29,7 +29,7 @@ exports[`Footer renders component 1`] = `
         aria-hidden="true"
         className="fab fa-facebook-square fa-2x"
         style={
-          Object {
+          {
             "color": "#45c9ff",
           }
         }
@@ -38,7 +38,7 @@ exports[`Footer renders component 1`] = `
     <a
       href="https://www.yellowpages.com/salem-va/mip/apperson-automotive-482421530"
       style={
-        Object {
+        {
           "marginLeft": "40px",
         }
       }
@@ -47,7 +47,7 @@ exports[`Footer renders component 1`] = `
         alt="yellowpages"
         src="https://insightmg.com/wp-content/uploads/2015/12/YP_Insight-Marketing-Group_Marketing-for-Medical-Practices.png"
         style={
-          Object {
+          {
             "marginBottom": "15px",
             "verticalAlign": "middle",
           }
@@ -58,7 +58,7 @@ exports[`Footer renders component 1`] = `
     <a
       href="https://www.yelp.com/biz/apperson-automotive-salem"
       style={
-        Object {
+        {
           "marginLeft": "30px",
         }
       }
@@ -67,7 +67,7 @@ exports[`Footer renders component 1`] = `
         alt="yelp"
         src="https://dl.dropboxusercontent.com/s/pb5qn5wyps6k56t/yelp-logo-icon-7.jpg?dl=0"
         style={
-          Object {
+          {
             "marginBottom": "15px",
             "verticalAlign": "middle",
           }
@@ -78,7 +78,7 @@ exports[`Footer renders component 1`] = `
   </div>
   <div
     style={
-      Object {
+      {
         "padding": "6px",
         "textAlign": "center",
       }

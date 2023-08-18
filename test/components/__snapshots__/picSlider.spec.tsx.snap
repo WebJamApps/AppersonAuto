@@ -18,7 +18,7 @@ exports[`picture slider component test renders the component 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={null}
       onTouchStart={[Function]}
-      style={Object {}}
+      style={{}}
     >
       <div
         className="slick-track"
@@ -26,7 +26,7 @@ exports[`picture slider component test renders the component 1`] = `
         onMouseLeave={[Function]}
         onMouseOver={[Function]}
         style={
-          Object {
+          {
             "opacity": 1,
           }
         }
@@ -37,7 +37,7 @@ exports[`picture slider component test renders the component 1`] = `
           data-index={0}
           onClick={[Function]}
           style={
-            Object {
+            {
               "left": -0,
               "opacity": 1,
               "outline": "none",
@@ -51,7 +51,7 @@ exports[`picture slider component test renders the component 1`] = `
           <div>
             <div
               style={
-                Object {
+                {
                   "display": "inline-block",
                   "width": "100%",
                 }
@@ -67,7 +67,7 @@ exports[`picture slider component test renders the component 1`] = `
               <div
                 className="slider-caption"
                 style={
-                  Object {
+                  {
                     "backgroundColor": "#fff",
                     "boxShadow": "0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.14)",
                     "fontWeight": 600,
@@ -89,7 +89,7 @@ exports[`picture slider component test renders the component 1`] = `
           data-index={1}
           onClick={[Function]}
           style={
-            Object {
+            {
               "left": -0,
               "opacity": 0,
               "outline": "none",
@@ -103,7 +103,7 @@ exports[`picture slider component test renders the component 1`] = `
           <div>
             <div
               style={
-                Object {
+                {
                   "display": "inline-block",
                   "width": "100%",
                 }
@@ -125,7 +125,7 @@ exports[`picture slider component test renders the component 1`] = `
           data-index={2}
           onClick={[Function]}
           style={
-            Object {
+            {
               "left": -0,
               "opacity": 0,
               "outline": "none",
@@ -139,7 +139,7 @@ exports[`picture slider component test renders the component 1`] = `
           <div>
             <div
               style={
-                Object {
+                {
                   "display": "inline-block",
                   "width": "100%",
                 }
@@ -161,7 +161,7 @@ exports[`picture slider component test renders the component 1`] = `
           data-index={3}
           onClick={[Function]}
           style={
-            Object {
+            {
               "left": -0,
               "opacity": 0,
               "outline": "none",
@@ -175,7 +175,7 @@ exports[`picture slider component test renders the component 1`] = `
           <div>
             <div
               style={
-                Object {
+                {
                   "display": "inline-block",
                   "width": "100%",
                 }
@@ -197,7 +197,7 @@ exports[`picture slider component test renders the component 1`] = `
           data-index={4}
           onClick={[Function]}
           style={
-            Object {
+            {
               "left": -0,
               "opacity": 0,
               "outline": "none",
@@ -211,7 +211,7 @@ exports[`picture slider component test renders the component 1`] = `
           <div>
             <div
               style={
-                Object {
+                {
                   "display": "inline-block",
                   "width": "100%",
                 }
