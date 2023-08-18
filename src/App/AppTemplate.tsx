@@ -1,5 +1,4 @@
 import React, { Dispatch, RefObject } from 'react';
-import { withResizeDetector } from 'react-resize-detector';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
@@ -194,4 +193,5 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
   }
 }
 
-export default withRouter(withResizeDetector(AppTemplate));
+// export default withRouter(withResizeDetector(AppTemplate));
+export default withRouter(AppTemplate);

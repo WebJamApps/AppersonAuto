@@ -1,5 +1,4 @@
 import React, { RefObject } from 'react';
-import { withResizeDetector } from 'react-resize-detector';
 import CommonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
@@ -105,4 +104,4 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
   }
 }
 
-export default withResizeDetector(Major);
+export default Major;

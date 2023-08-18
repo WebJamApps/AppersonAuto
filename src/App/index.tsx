@@ -28,7 +28,7 @@ export class App extends PureComponent<AppProps> {
       <React.StrictMode>
         <div id="App" className="App">
           <Router>
-            <AppTemplateDefault dispatch={this.props.dispatch}>
+            <AppTemplateDefault dispatch={this.props.dispatch} width={0} targetRef={{ current: null }}>
               <Switch>
                 <Route exact path="/" component={DefaultHome} />
                 <Route path="/auto-maintenance" component={AutoMaint} />

@@ -1,5 +1,4 @@
 import React, { RefObject } from 'react';
-import { withResizeDetector } from 'react-resize-detector';
 import CommonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
@@ -122,4 +121,4 @@ export class Homepage extends React.Component<HomepageProps, unknown> {
   }
 }
 
-export default withResizeDetector(Homepage);
+export default Homepage;

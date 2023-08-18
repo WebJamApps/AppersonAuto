@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withResizeDetector } from 'react-resize-detector';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
@@ -124,4 +123,4 @@ export class General extends Component<GeneralAutoRepairProps> {
   }
 }
 
-export default withResizeDetector(General);
+export default General;

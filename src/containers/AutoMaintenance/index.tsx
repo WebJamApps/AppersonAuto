@@ -1,5 +1,4 @@
 import React, { Component, RefObject } from 'react';
-import { withResizeDetector } from 'react-resize-detector';
 import commonUtils from '../../lib/commonUtils';
 import PicSlider from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
@@ -125,4 +124,5 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
   }
 }
 
-export default withResizeDetector(AutoMaintenance);
+// export default withResizeDetector(AutoMaintenance);
+export default AutoMaintenance;

@@ -1,6 +1,4 @@
 import React, { Component, RefObject } from 'react';
-import { withResizeDetector } from
-  'react-resize-detector';
 import DefaultWideMap from './WideMap';
 import DefaultNarrowMap from './NarrowMap';
 import commonUtils from '../../lib/commonUtils';
@@ -43,4 +41,5 @@ export class Contact extends Component<ContactProps> {
   }
 }
 
-export default withResizeDetector(Contact);
+// export default withResizeDetector(Contact);
+export default Contact;
