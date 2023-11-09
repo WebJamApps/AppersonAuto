@@ -33,7 +33,7 @@ module.exports = (env) => ({
 
   entry: {
     app: [`${srcDir}/main.tsx`],
-    vendor: ['jquery', 'bootstrap'],
+    // vendor: ['jquery', 'bootstrap'],
   },
 
   mode: env.production ? 'production' : 'development',
@@ -110,13 +110,13 @@ module.exports = (env) => ({
   },
 
   plugins: [
-    new ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
-      // process: 'process/browser',
-    }),
+    // new ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    //   'window.jQuery': 'jquery',
+    //   Popper: ['popper.js', 'default'],
+    //   // process: 'process/browser',
+    // }),
     new HtmlWebpackPlugin({
       template: `${srcDir}/index.ejs`,
       minify: env.production ? { removeComments: true, collapseWhitespace: true } : undefined,
