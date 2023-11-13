@@ -1,11 +1,10 @@
-import React, { Dispatch, RefObject } from 'react';
+import React, { RefObject } from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 import commonUtils from '../lib/commonUtils';
 
 export interface AppTemplateProps extends RouteComponentProps {
-  dispatch: Dispatch<unknown>;
   targetRef: RefObject<HTMLDivElement>;
   width: number;
   children?: React.ReactNode;

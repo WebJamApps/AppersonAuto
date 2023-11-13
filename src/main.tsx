@@ -1,11 +1,11 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import { render } from 'react-dom';
-import ConnectedApp from './App';
+import { App } from './App';
 
 import '../static/styles.scss';
 
 render(
-  <React.StrictMode><ConnectedApp /></React.StrictMode>, document.getElementById('root'),
+  <StrictMode><App /></StrictMode>, document.getElementById('root'),
 );
 
 /* istanbul ignore next */

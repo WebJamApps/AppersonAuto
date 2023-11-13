@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "*": ["types/*"]
+      "*": ["types/*"],"src/*":["src/*"],"test/*":["test/*"]
     },
     "baseUrl": ".",
     "target": "ES2015",
@@ -14,19 +14,18 @@
     /* Redirect output structure to the directory. */
     /*"allowJs": true,
     /* Allow javascript files to be compiled. */
-    "jsx": "react",
+    "jsx": "react-jsx",
     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
     /*"checkJs": true,
     /* Report errors in .js files. */
     "lib": ["es2018", "dom", "dom.iterable", "esnext"],
     /* Specify library files to be included in the compilation. */
     "resolveJsonModule": true,
-    "skipLibCheck": true,
     // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "incremental": true,                   /* Enable incremental compilation */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
-    "rootDir": "./src",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    //"rootDir": "./src",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     // "composite": true,                     /* Enable project compilation */
     // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
     // "removeComments": true,                /* Do not emit comments to output. */
@@ -84,7 +83,9 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
 
     /* Advanced Options */
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
   },
-  "exclude": ["dist", "node_modules", "test"]
+  "include":["src","test"],
+  "exclude": ["dist", "node_modules", "webpack.config.js"]
 }
