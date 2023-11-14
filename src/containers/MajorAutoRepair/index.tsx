@@ -1,6 +1,6 @@
 import React, { RefObject } from 'react';
 import CommonUtils from '../../lib/commonUtils';
-import PicSlider from '../../components/pic-slider';
+import { PicSlider } from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
 
 interface MajorAutoProps {

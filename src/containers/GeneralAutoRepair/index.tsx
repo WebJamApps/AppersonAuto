@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import commonUtils from '../../lib/commonUtils';
-import PicSlider from '../../components/pic-slider';
+import { PicSlider } from '../../components/pic-slider';
 import slidesArr from '../../lib/slides';
 
 interface GeneralAutoRepairProps {

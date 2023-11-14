@@ -28,7 +28,10 @@ const cellPics = (width: number, slides: any, PicSlider: any): JSX.Element | nul
 };
 
 const widePics = (width: number, slides: any, PicSlider: any, coupon: () => JSX.Element, height: string): JSX.Element | null => {
+  console.log(width);
   if (width >= 1162) {
+    console.log('widePics');
+    console.log('widePics');
     return (
       <div className="col" style={{ padding: '1px', paddingRight: '0' }}>
         <div id="familySlideshowWide" style={{ display: 'flex', flexDirection: 'column' }}><PicSlider data={slides} /></div>
@@ -41,7 +44,9 @@ const widePics = (width: number, slides: any, PicSlider: any, coupon: () => JSX.
 };
 
 const renderer = (slidesArr: any, view: any, PicSlider: any): JSX.Element => {
+  console.log('renderer');
   const { targetRef, width } = view.props;
+  console.log(width);
   const marginLeft = width < 1162 ? '5px' : '15px';
   return (
     <div ref={targetRef}>

@@ -191,6 +191,6 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
     );
   }
 }
-
+// TODO need to fix resize detector
 // export default withRouter(withResizeDetector(AppTemplate));
 export default withRouter(AppTemplate);

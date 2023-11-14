@@ -1,7 +1,7 @@
-import React, { Component, RefObject } from 'react';
-import commonUtils from '../../lib/commonUtils';
-import PicSlider from '../../components/pic-slider';
-import slidesArr from '../../lib/slides';
+import { Component, RefObject } from 'react';
+import commonUtils from 'src/lib/commonUtils';
+import { PicSlider } from 'src/components/pic-slider';
+import slidesArr from 'src/lib/slides';
 
 interface AutoMaintenanceProps {
   width: number;

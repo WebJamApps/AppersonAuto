@@ -1,4 +1,4 @@
-import React, { Component, RefObject } from 'react';
+import { Component, RefObject } from 'react';
 import DefaultWideMap from './WideMap';
 import DefaultNarrowMap from './NarrowMap';
 import commonUtils from '../../lib/commonUtils';
