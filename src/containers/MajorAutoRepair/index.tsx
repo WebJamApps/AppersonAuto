@@ -1,13 +1,12 @@
 import React, { RefObject } from 'react';
+import CommonUtils from 'src/lib/commonUtils';
+import { PicSlider } from 'src/components/pic-slider';
+import slidesArr from 'src/lib/slides';
 import { withResizeDetector } from 'react-resize-detector';
-import CommonUtils from '../../lib/commonUtils';
-import PicSlider from '../../components/pic-slider';
-import slidesArr from '../../lib/slides';
 
 interface MajorAutoProps {
-  targetRef: RefObject<HTMLDivElement>;
-  width: number;
-  height: number;
+  targetRef?: RefObject<HTMLDivElement>;
+  width?: number;
 }
 export class Major extends React.Component<MajorAutoProps, unknown> {
   commonUtils = CommonUtils;
@@ -27,7 +26,7 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
 
   service(): JSX.Element {
     const { targetRef, width } = this.props;
-    const marginBottom = width < 1162 ? '20px' : '190px';
+    const marginBottom = width && width < 1162 ? '20px' : '190px';
     return (
       <div ref={targetRef}>
         <p>{' '}</p>
@@ -89,9 +88,9 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
       <div ref={targetRef}>
         <div className="row">
           {this.majorPageText(marginLeft)}
-          {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
+          {this.commonUtils.widePics(width || 400, slidesArr, PicSlider, this.coupon, '2.5in')}
         </div>
-        {width < 1162 ? (
+        {width && width < 1162 ? (
           <div>
             {this.coupon()}
           </div>

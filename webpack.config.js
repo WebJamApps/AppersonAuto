@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { ProvidePlugin } = require('webpack');
+// const { ProvidePlugin } = require('webpack');
 const webpack = require('webpack');
 
 // config helpers:
@@ -23,6 +23,7 @@ if (nodeEnv === 'development')envVars.push('PORT');
 
 module.exports = (env) => ({
   resolve: {
+    alias: { src: srcDir},
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     fallback: { // needed for jsonwebtoken
       crypto: require.resolve('crypto-browserify'),
@@ -33,7 +34,7 @@ module.exports = (env) => ({
 
   entry: {
     app: [`${srcDir}/main.tsx`],
-    vendor: ['jquery', 'bootstrap'],
+    // vendor: ['jquery', 'bootstrap'],
   },
 
   mode: env.production ? 'production' : 'development',
@@ -110,13 +111,13 @@ module.exports = (env) => ({
   },
 
   plugins: [
-    new ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
-      process: 'process/browser',
-    }),
+    // new ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    //   'window.jQuery': 'jquery',
+    //   Popper: ['popper.js', 'default'],
+    //   // process: 'process/browser',
+    // }),
     new HtmlWebpackPlugin({
       template: `${srcDir}/index.ejs`,
       minify: env.production ? { removeComments: true, collapseWhitespace: true } : undefined,

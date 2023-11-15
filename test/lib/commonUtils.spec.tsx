@@ -1,6 +1,5 @@
-import React from 'react';
 import commonUtils from '../../src/lib/commonUtils';
-import PicSlider from '../../src/components/pic-slider';
+import { PicSlider } from '../../src/components/pic-slider';
 
 describe('commonUtils', () => {
   let r: any;

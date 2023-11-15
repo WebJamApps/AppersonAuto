@@ -1,11 +1,11 @@
-import React, { Component, RefObject } from 'react';
 import { withResizeDetector } from 'react-resize-detector';
-import commonUtils from '../../lib/commonUtils';
-import PicSlider from '../../components/pic-slider';
-import slidesArr from '../../lib/slides';
+import { Component, RefObject } from 'react';
+import commonUtils from 'src/lib/commonUtils';
+import { PicSlider } from 'src/components/pic-slider';
+import slidesArr from 'src/lib/slides';
 
 interface AutoMaintenanceProps {
-  width: number;
+  width?: number;
   targetRef: RefObject<HTMLDivElement>;
 }
 
@@ -31,7 +31,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
 
   filters(): JSX.Element {
     const { targetRef, width } = this.props;
-    const marginBottom = width < 1162 ? '20px' : '40px';
+    const marginBottom = width && width < 1162 ? '20px' : '40px';
     return (
       <div ref={targetRef}>
         <p><strong>We’ll replace your car’s filters:</strong></p>
@@ -52,7 +52,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
           {' '}
           <a style={{ textDecoration: 'none' }} href="tel:5404447337">540-444-7337</a>
         </p>
-        {width < 1162 ? this.coupon() : null}
+        {width && width < 1162 ? this.coupon() : null}
       </div>
     );
   }
@@ -115,7 +115,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
     return (
       <div className="row">
         {this.pageText(marginLeft)}
-        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
+        {this.commonUtils.widePics(width || 400, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
   }
@@ -125,4 +125,5 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
   }
 }
 
+// export default withResizeDetector(AutoMaintenance);
 export default withResizeDetector(AutoMaintenance);
