@@ -1,7 +1,8 @@
-import { Component } from 'react';
-import commonUtils from '../../lib/commonUtils';
-import { PicSlider } from '../../components/pic-slider';
-import slidesArr from '../../lib/slides';
+import { Component, RefObject } from 'react';
+import commonUtils from 'src/lib/commonUtils';
+import { PicSlider } from 'src/components/pic-slider';
+import slidesArr from 'src/lib/slides';
+import { withResizeDetector } from 'react-resize-detector';
 
 interface GeneralAutoRepairProps {
   homeContent: {
@@ -9,7 +10,8 @@ interface GeneralAutoRepairProps {
     comments: string,
   };
 
-  width: number;
+  width?: number;
+  targetRef?: RefObject<HTMLDivElement>;
 }
 
 export class General extends Component<GeneralAutoRepairProps> {
@@ -55,7 +57,7 @@ export class General extends Component<GeneralAutoRepairProps> {
 
   love(): JSX.Element {
     const { width } = this.props;
-    const marginBottom = width < 1162 ? '20px' : '90px';
+    const marginBottom = width && width < 1162 ? '20px' : '90px';
     return (
       <div>
         <h4 style={{ marginTop: '30px' }}>Apperson Automotive - Salem, VA Vehicle Care</h4>
@@ -71,7 +73,7 @@ export class General extends Component<GeneralAutoRepairProps> {
           <br />
           You can also stop by at 1601 Apperson Drive, Salem VA 24153.
         </p>
-        {width < 1162 ? this.coupon() : null}
+        {width && width < 1162 ? this.coupon() : null}
       </div>
     );
   }
@@ -113,7 +115,7 @@ export class General extends Component<GeneralAutoRepairProps> {
     return (
       <div className="row">
         {this.pageText(marginLeft)}
-        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
+        {this.commonUtils.widePics(width || 400, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
   }
@@ -123,4 +125,4 @@ export class General extends Component<GeneralAutoRepairProps> {
   }
 }
 
-export default General;
+export default withResizeDetector(General);

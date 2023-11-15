@@ -11,7 +11,7 @@ export function App(): JSX.Element {
   return (
         <div id="App" className="App">
           <Router>
-            <AppTemplateDefault width={0} targetRef={{ current: null }}>
+            <AppTemplateDefault>
               <Switch>
                 <Route exact path="/" component={DefaultHome} />
                 <Route path="/auto-maintenance" component={AutoMaint} />

@@ -1,10 +1,11 @@
 import { Component, RefObject } from 'react';
 import DefaultWideMap from './WideMap';
 import DefaultNarrowMap from './NarrowMap';
-import commonUtils from '../../lib/commonUtils';
+import commonUtils from 'src/lib/commonUtils';
+import { withResizeDetector } from 'react-resize-detector';
 
 interface ContactProps {
-  width: number;
+  width?: number;
   targetRef: RefObject<HTMLDivElement>;
 }
 
@@ -24,7 +25,7 @@ export class Contact extends Component<ContactProps> {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef} style={{ flexGrow: 1 }}>
-        {width >= 1266
+        {width && width >= 1266
           ? (
             <div className="page-content">
               <DefaultWideMap />
@@ -41,5 +42,4 @@ export class Contact extends Component<ContactProps> {
   }
 }
 
-// export default withResizeDetector(Contact);
-export default Contact;
+export default withResizeDetector(Contact);

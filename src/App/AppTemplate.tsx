@@ -1,19 +1,20 @@
-import React, { RefObject } from 'react';
+import { withResizeDetector } from 'react-resize-detector';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 import commonUtils from '../lib/commonUtils';
+import { Component, RefObject } from 'react';
 
 export interface AppTemplateProps extends RouteComponentProps {
-  targetRef: RefObject<HTMLDivElement>;
-  width: number;
   children?: React.ReactNode;
+  width?: number;
+  targetRef: RefObject<HTMLDivElement>;
 }
 interface AppTemplateState {
   menuOpen: boolean;
 }
 
-export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateState> {
+export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
   authenticate: any;
 
   menus: { classname: string; type: string; iconClass: string; link: string; name: string; }[];
@@ -70,7 +71,7 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
       <div key={index} className="menu-item">
         <Link to={menu.link} className="nav-link" onClick={this.close}>
           <i className={`${menu.iconClass}`} />
-        &nbsp;
+          &nbsp;
           <span className="nav-item">{menu.name}</span>
         </Link>
       </div>
@@ -164,14 +165,14 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
     const { width, targetRef } = this.props;
     let logoWidth = '742px', marginTop = '-15px';
     const { menuOpen } = this.state;
-    if (width < 1232) { logoWidth = '272px'; marginTop = '1px'; }
+    if (width && width < 1232) { logoWidth = '272px'; marginTop = '1px'; }
     const style = `${menuOpen ? 'open' : 'close'}`;
     return (
       <div ref={targetRef} className="page-host">
         <div tabIndex={0} role="button" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
           <div className="drawer" style={{ backgroundColor: '#505050' }}>
-            {width > 1161 ? this.callUs() : null}
-            { this.navLinks(width) }
+            {width && width > 1161 ? this.callUs() : null}
+            {this.navLinks(width || 400)}
           </div>
         </div>
         <div className="main-panel">
@@ -182,7 +183,7 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
             <div className="swipe-area" />
             {this.headerSection(logoWidth, marginTop)}
             <div style={{ width: 'auto' }} id="contentBlock" className="content-block">
-              { this.children }
+              {this.children}
               <Footer />
             </div>
           </div>
@@ -191,6 +192,5 @@ export class AppTemplate extends React.Component<AppTemplateProps, AppTemplateSt
     );
   }
 }
-// TODO need to fix resize detector
-// export default withRouter(withResizeDetector(AppTemplate));
-export default withRouter(AppTemplate);
+
+export default withRouter(withResizeDetector(AppTemplate));
