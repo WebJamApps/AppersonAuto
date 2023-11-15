@@ -222,7 +222,7 @@ exports[`App component renders the component 1`] = `
               style={
                 {
                   "marginLeft": "5px",
-                  "marginTop": "1px",
+                  "marginTop": "-15px",
                 }
               }
             >
@@ -231,7 +231,7 @@ exports[`App component renders the component 1`] = `
                 className="style-scope iron-image"
                 id="ig"
                 src="https://dl.dropboxusercontent.com/s/qg69q7f5so4aqsb/appAutoLogo.png?dl=0"
-                width="272px"
+                width="742px"
               />
             </div>
           </div>
