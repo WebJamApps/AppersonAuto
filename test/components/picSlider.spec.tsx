@@ -16,6 +16,6 @@ describe('picture slider component test', () => {
   it('renders null when no array of data', () => {
     const data = [{} as any];
     const result:any = renderer.create(<PicSlider data={data} />).toJSON();
-    console.log(result);
+    expect(result.type).toBe('div');
   });
 });
