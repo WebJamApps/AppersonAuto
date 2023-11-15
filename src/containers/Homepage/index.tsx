@@ -1,15 +1,14 @@
-import React, { RefObject } from 'react';
 import { withResizeDetector } from 'react-resize-detector';
-import CommonUtils from '../../lib/commonUtils';
-import PicSlider from '../../components/pic-slider';
-import slidesArr from '../../lib/slides';
+import CommonUtils from 'src/lib/commonUtils';
+import { PicSlider } from 'src/components/pic-slider';
+import slidesArr from 'src/lib/slides';
+import { Component, RefObject } from 'react';
 
 interface HomepageProps {
-  targetRef: RefObject<HTMLDivElement>;
-  width: number;
-  height: number;
+  targetRef?: RefObject<HTMLDivElement>;
+  width?: number;
 }
-export class Homepage extends React.Component<HomepageProps, unknown> {
+export class Homepage extends Component<HomepageProps, unknown> {
   commonUtils = CommonUtils;
 
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
@@ -102,7 +101,7 @@ export class Homepage extends React.Component<HomepageProps, unknown> {
           <li>Coolant flush</li>
         </ul>
         {this.getToKnow()}
-        {width < 1162 ? this.coupon() : null}
+        {width && width < 1162 ? this.coupon() : null}
       </div>
     );
   }
@@ -112,7 +111,7 @@ export class Homepage extends React.Component<HomepageProps, unknown> {
     return (
       <div ref={targetRef} className="row">
         {this.homeText(marginLeft)}
-        {this.commonUtils.widePics(width, slidesArr, PicSlider, this.coupon, '2.5in')}
+        {this.commonUtils.widePics(width || 300, slidesArr, PicSlider, this.coupon, '2.5in')}
       </div>
     );
   }

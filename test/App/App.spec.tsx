@@ -1,10 +1,9 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { App } from '../../src/App';
+import renderer from 'react-test-renderer';
+import { App } from 'src/App';
 
 describe('App component', () => {
-  const wrapper = shallow(<App />);
   it('renders the component', () => {
-    expect(wrapper.find('div#App').exists()).toBe(true);
+    const result = renderer.create(<App />).toJSON();
+    expect(result).toMatchSnapshot();
   });
 });

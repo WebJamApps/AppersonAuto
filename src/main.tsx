@@ -1,12 +1,16 @@
-import React from 'react';
-import { render } from 'react-dom';
-import ConnectedApp from './App';
-
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { App } from './App';
 import '../static/styles.scss';
 
-render(
-  <React.StrictMode><ConnectedApp /></React.StrictMode>, document.getElementById('root'),
-);
+const root = createRoot(document.getElementById('root') as HTMLElement);
 
-/* istanbul ignore next */
-if (process.env.NODE_ENV === 'development' && module.hot) module.hot.accept();
+const renderMain = (): void => {
+  root.render(
+    <StrictMode>
+     <App />
+    </StrictMode>,
+  );
+};
+
+renderMain();
