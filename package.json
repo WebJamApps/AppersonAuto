@@ -59,7 +59,7 @@
     "css-loader": "^6.8.1",
     "dotenv": "^16.3.1",
     "expose-loader": "latest",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "express-sslify": "^1.2.0",
     "file-loader": "latest",
     "html-loader": "latest",
