@@ -1,4 +1,3 @@
-import React from 'react';
 
 const setTitleAndScroll = (pageTitle: string, width: number): void => {
   if (pageTitle !== '') pageTitle += ' | ';// eslint-disable-line no-param-reassign

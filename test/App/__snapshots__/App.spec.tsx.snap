@@ -299,9 +299,6 @@ exports[`App component renders the component 1`] = `
                       </strong>
                       .
                     </p>
-                    <p>
-                      Shuttle service is available to you.
-                    </p>
                   </div>
                   <h4
                     style={
