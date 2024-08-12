@@ -63,7 +63,6 @@ export class General extends Component<GeneralAutoRepairProps> {
         <h4 style={{ marginTop: '30px' }}>Apperson Automotive - Salem, VA Vehicle Care</h4>
         <p><strong>You’ll love our general auto repair at competitive prices:</strong></p>
         {this.uLists()}
-        <p>We’ll provide you with our quality shuttle service, taking you to and from work.</p>
         <p style={{ marginBottom }}>
           Quality general auto repair services including 12-month 12,000-mile warranty are available.
           {' '}

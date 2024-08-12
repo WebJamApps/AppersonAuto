@@ -38,8 +38,7 @@ const WideMap = (): JSX.Element => (
         Jim Hosey - Owner &nbsp;
         <a href="mailto:jhaminal@aol.com">jhaminal@aol.com</a>
         <br />
-        Mitchell Sylveste - Owner &nbsp;
-        <a href="mailto:z24racer1@aol.com">z24racer1@aol.com</a>
+        Mitchell Sylvester - Owner
       </p>
 
       <p>

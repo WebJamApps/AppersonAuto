@@ -74,7 +74,6 @@ export class Homepage extends Component<HomepageProps, unknown> {
           <strong>FREE high mileage / vacation vehicle check over</strong>
           .
         </p>
-        <p>Shuttle service is available to you.</p>
       </div>
     );
   }
