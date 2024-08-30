@@ -89,7 +89,7 @@
     "url-loader": "latest",
     "url-search-params-polyfill": "latest",
     "util": "^0.12.3",
-    "webpack": "^5.89.0",
+    "webpack": "^5.94.0",
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^5.1.4"
   },
