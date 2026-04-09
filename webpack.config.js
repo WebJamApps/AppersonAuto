@@ -18,7 +18,7 @@ const title = 'Apperson Automotive';
 const outDir = path.resolve(__dirname, 'dist');
 const srcDir = path.resolve(__dirname, 'src');
 const baseUrl = '/';
-const envVars = ['NODE_ENV', 'userRoles'];
+const envVars = ['NODE_ENV'];
 if (nodeEnv === 'development')envVars.push('PORT');
 
 module.exports = (env) => ({
