@@ -5,7 +5,7 @@ import slidesArr from 'src/lib/slides';
 import { withResizeDetector } from 'react-resize-detector';
 
 interface GeneralAutoRepairProps {
-  homeContent: {
+  homeContent?: {
     title: string,
     comments: string,
   };
