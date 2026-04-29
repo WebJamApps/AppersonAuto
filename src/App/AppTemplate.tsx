@@ -1,11 +1,11 @@
 import { withResizeDetector } from 'react-resize-detector';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 import commonUtils from '../lib/commonUtils';
 import { Component, RefObject } from 'react';
 
-export interface AppTemplateProps extends RouteComponentProps {
+export interface AppTemplateProps {
   children?: React.ReactNode;
   width?: number;
   targetRef: RefObject<HTMLDivElement>;
@@ -193,4 +193,4 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
   }
 }
 
-export default withRouter(withResizeDetector(AppTemplate));
+export default withResizeDetector(AppTemplate);

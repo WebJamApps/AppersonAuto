@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`picture slider component test renders the component 1`] = `
+exports[`picture slider component test > renders the component 1`] = `
 <div>
   <div
     className="slick-slider slick-initialized"

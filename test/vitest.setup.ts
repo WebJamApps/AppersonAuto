@@ -1,17 +1,20 @@
 import { config } from 'dotenv';
-
-global.ResizeObserver = require('resize-observer-polyfill');
+import { vi } from 'vitest';
 
 config();
 
-// global.ResizeObserver = require('resize-observer-polyfill');
+global.ResizeObserver = class {
+  observe(): void { /* no-op */ }
+  unobserve(): void { /* no-op */ }
+  disconnect(): void { /* no-op */ }
+} as unknown as typeof ResizeObserver;
 
-window.matchMedia = jest.fn().mockImplementation((query) => ({
+window.matchMedia = vi.fn().mockImplementation((query) => ({
   matches: false,
   media: query,
   onchange: null,
-  addListener: jest.fn(),
-  removeListener: jest.fn(),
+  addListener: vi.fn(),
+  removeListener: vi.fn(),
 }));
 
 document.body.innerHTML = '<div id="root"><div id="mAndP"></div><div id="play-buttons">'
@@ -19,11 +22,5 @@ document.body.innerHTML = '<div id="root"><div id="mAndP"></div><div id="play-bu
 window.HTMLMediaElement.prototype.load = () => { /* do nothing */ };
 window.HTMLMediaElement.prototype.play = () => Promise.resolve();
 window.HTMLMediaElement.prototype.pause = () => { /* do nothing */ };
-Object.defineProperty(window, 'location', { value: { assign: () => { }, reload: () => { } }, writable: true });
-window.location = {
-  ...window.location,
-  href: 'https://web-jam.com',
-  reload: jest.fn(),
-  assign: jest.fn(),
-};
 
+(globalThis as any).jest = vi;
