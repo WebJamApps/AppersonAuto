@@ -4,7 +4,7 @@ import { PicSlider } from '../../src/components/pic-slider';
 describe('commonUtils', () => {
   let r: any;
   it('calls scrollIntoView', () => {
-    const scrollIntoViewMock = jest.fn();
+    const scrollIntoViewMock = vi.fn();
     window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
     document.body.innerHTML = '<div class="page-content material-header top"></div>';
     commonUtils.setTitleAndScroll('home', 1300);

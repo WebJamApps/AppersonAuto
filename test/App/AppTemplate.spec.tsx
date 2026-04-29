@@ -5,31 +5,19 @@ import { BrowserRouter } from 'react-router-dom';
 describe('AppTemplate', () => {
   it('renders the component', () => {
     const targetRef: any = {};
-    const anyProp: any = {};
     const result = renderer.create(<BrowserRouter><AppTemplate
       targetRef={targetRef}
       width={1200}
-      location={{
-        pathname: '/', search: '', state: '', hash: '',
-      }}
-      history={anyProp}
-      match={anyProp}
- /></BrowserRouter>).toJSON();
+    /></BrowserRouter>).toJSON();
     expect(result).toMatchSnapshot();
   });
   it('closes the menu without navigating away from the react app', () => new Promise<void>((done) => {
     const targetRef: any = {};
-    const anyProp: any = {};
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({
       width: 1300,
       children: null,
       targetRef: { current: targetRef },
-      location: {
-        pathname: '/', search: '', state: '', hash: '',
-      },
-      history: anyProp,
-      match: anyProp,
     });
     aT.setState = () => {};
     const result = aT.close();
@@ -38,17 +26,11 @@ describe('AppTemplate', () => {
   }));
   it('closes the menu and logs in to google', () => new Promise<void>((done) => {
     const targetRef: any = {};
-    const anyProp: any = {};
     document.body.innerHTML = '<button class="googleLogin"/><button class="googleLogout"/>';
     const aT = new AppTemplate({
       width: 1300,
       children: null,
       targetRef: { current: targetRef },
-      location: {
-        pathname: '/', search: '', state: '', hash: '',
-      },
-      history: anyProp,
-      match: anyProp,
     });
     aT.setState = () => {};
     aT.changeNav = () => false;
@@ -59,34 +41,22 @@ describe('AppTemplate', () => {
   }));
   it('closes the mobile menu on clicking escape key', () => new Promise<void>((done) => {
     const targetRef: any = {};
-    const anyProp: any = {};
     const aT = new AppTemplate({
       width: 1300,
       children: null,
       targetRef: { current: targetRef },
-      location: {
-        pathname: '', search: '', state: '', hash: '',
-      },
-      history: anyProp,
-      match: anyProp,
     });
-    aT.setState = jest.fn(() => true);
+    aT.setState = vi.fn(() => true);
     const result = aT.handleKeyPress({ key: 'Escape' });
     expect(result).toBe(true);
     done();
   }));
   it('does not closes the mobile menu on clicking Enter key', () => new Promise<void>((done) => {
     const targetRef: any = {};
-    const anyProp: any = {};
     const aT = new AppTemplate({
       width: 1300,
       children: null,
       targetRef: { current: targetRef },
-      location: {
-        pathname: '', search: '', state: '', hash: '',
-      },
-      history: anyProp,
-      match: anyProp,
     });
     const result = aT.handleKeyPress({ key: 'Enter' });
     expect(result).toBe(null);
@@ -94,16 +64,10 @@ describe('AppTemplate', () => {
   }));
   it('toggles the mobile menu on clicking Enter key', () => new Promise<void>((done) => {
     const targetRef: any = {};
-    const anyProp: any = {};
     const aT = new AppTemplate({
       width: 1300,
       children: null,
       targetRef: { current: targetRef },
-      location: {
-        pathname: '', search: '', state: '', hash: '',
-      },
-      history: anyProp,
-      match: anyProp,
     });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Enter' });
@@ -112,16 +76,10 @@ describe('AppTemplate', () => {
   }));
   it('does not toggle the mobile menu on clicking Escape key', () => new Promise<void>((done) => {
     const targetRef: any = {};
-    const anyProp: any = {};
     const aT = new AppTemplate({
       width: 1300,
       children: null,
       targetRef: { current: targetRef },
-      location: {
-        pathname: '', search: '', state: '', hash: '',
-      },
-      history: anyProp,
-      match: anyProp,
     });
     aT.toggleMobileMenu = () => true;
     const result = aT.handleKeyMenu({ key: 'Escape' });
@@ -130,30 +88,18 @@ describe('AppTemplate', () => {
   }));
   it('toggles the mobile menu', () => {
     const targetRef: any = {};
-    const anyProp: any = {};
     const result = renderer.create(<BrowserRouter><AppTemplate
       targetRef={targetRef}
       width={1200}
-      location={{
-        pathname: '/', search: '', state: '', hash: '',
-      }}
-      history={anyProp}
-      match={anyProp}
- /></BrowserRouter>).root;
+    /></BrowserRouter>).root;
     expect(result.findByProps({ id: 'mobilemenutoggle' }).props.onClick()).toBe(true);
   });
   it('calls the mobile menu', () => {
     const targetRef: any = { current: null };
-    const anyProp: any = {};
     const result: any = renderer.create(<BrowserRouter><AppTemplate
       targetRef={targetRef}
       width={300}
-      location={{
-        pathname: '/', search: '', state: '', hash: '',
-      }}
-      history={anyProp}
-      match={anyProp}
- /></BrowserRouter>).toJSON();
+    /></BrowserRouter>).toJSON();
     expect(result).toMatchSnapshot();
   });
 });
