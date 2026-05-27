@@ -125,7 +125,6 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
   }
 }
 
-// export default withResizeDetector(AutoMaintenance);
 function AutoMaintenanceWithResize() {
   const width = useWindowWidth();
   return <AutoMaintenance width={width || 0} />;
