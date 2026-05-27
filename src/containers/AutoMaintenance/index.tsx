@@ -1,12 +1,12 @@
-import { withResizeDetector } from 'react-resize-detector';
-import { Component, RefObject } from 'react';
+import { useWindowWidth } from 'src/lib/useWindowWidth';
+import { Component, type Ref } from 'react';
 import commonUtils from 'src/lib/commonUtils';
 import { PicSlider } from 'src/components/pic-slider';
 import slidesArr from 'src/lib/slides';
 
 interface AutoMaintenanceProps {
   width?: number;
-  targetRef: RefObject<HTMLDivElement>;
+  targetRef?: Ref<HTMLDivElement>;
 }
 
 export class AutoMaintenance extends Component<AutoMaintenanceProps> {
@@ -21,7 +21,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
 
   componentDidMount(): void { this.commonUtils.setTitleAndScroll('Auto Maintenance', window.screen.width); }
 
-  coupon(): JSX.Element { // eslint-disable-line class-methods-use-this
+  coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
         <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
@@ -29,7 +29,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
     );
   }
 
-  filters(): JSX.Element {
+  filters() {
     const { targetRef, width } = this.props;
     const marginBottom = width && width < 1162 ? '20px' : '40px';
     return (
@@ -57,7 +57,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
     );
   }
 
-  quality(): JSX.Element { // eslint-disable-line class-methods-use-this
+  quality() { // eslint-disable-line class-methods-use-this
     return (
       <div>
         <h4 style={{ marginTop: '20px' }}>Apperson Automotive - Salem, VA Vehicle Care</h4>
@@ -81,7 +81,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
     );
   }
 
-  pageText(marginLeft: string): JSX.Element { // eslint-disable-line class-methods-use-this
+  pageText(marginLeft: string) { // eslint-disable-line class-methods-use-this
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4 className="pagetitle" style={{ marginTop: '25px', fontWeight: 'bold', fontSize: '16pt' }}>
@@ -110,7 +110,7 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
     );
   }
 
-  mainPanel(marginLeft: string): JSX.Element {
+  mainPanel(marginLeft: string) {
     const { width } = this.props;
     return (
       <div className="row">
@@ -120,10 +120,14 @@ export class AutoMaintenance extends Component<AutoMaintenanceProps> {
     );
   }
 
-  render(): JSX.Element {
+  render() {
     return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
 // export default withResizeDetector(AutoMaintenance);
-export default withResizeDetector(AutoMaintenance);
+function AutoMaintenanceWithResize() {
+  const width = useWindowWidth();
+  return <AutoMaintenance width={width || 0} />;
+}
+export default AutoMaintenanceWithResize;

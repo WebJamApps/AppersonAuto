@@ -1,14 +1,14 @@
-import { withResizeDetector } from 'react-resize-detector';
+import { useWindowWidth } from 'src/lib/useWindowWidth';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import MenuItems, { ImenuItem } from './menuItems';
 import commonUtils from '../lib/commonUtils';
-import { Component, RefObject } from 'react';
+import { Component, type Ref } from 'react';
 
 export interface AppTemplateProps {
   children?: React.ReactNode;
   width?: number;
-  targetRef: RefObject<HTMLDivElement>;
+  targetRef?: Ref<HTMLDivElement>;
 }
 interface AppTemplateState {
   menuOpen: boolean;
@@ -66,7 +66,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     return true;
   }
 
-  makeMenuLink(menu: ImenuItem, index: number): JSX.Element {
+  makeMenuLink(menu: ImenuItem, index: number) {
     return (
       <div key={index} className="menu-item">
         <Link to={menu.link} className="nav-link" onClick={this.close}>
@@ -78,7 +78,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     );
   }
 
-  addressBlock(): JSX.Element { // eslint-disable-line class-methods-use-this
+  addressBlock() { // eslint-disable-line class-methods-use-this
     return (
       <div className="menu-item" style={{ backgroundColor: 'black', margin: '8px' }}>
         <p style={{ color: '#fff', marginBottom: '2px' }}>
@@ -92,7 +92,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     );
   }
 
-  callText(): JSX.Element { // eslint-disable-line class-methods-use-this
+  callText() { // eslint-disable-line class-methods-use-this
     return (
       <a
         style={{
@@ -114,7 +114,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     );
   }
 
-  mobileMenu(): JSX.Element {
+  mobileMenu() {
     return (
       <div className="nav-list">
         {this.callText()}
@@ -124,7 +124,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     );
   }
 
-  navLinks(width: number): JSX.Element {
+  navLinks(width: number) {
     if (width < 1162) return this.mobileMenu();
     return (
       <div className="nav-list">
@@ -134,7 +134,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     );
   }
 
-  headerSection(logoWidth: string, marginTop: string): JSX.Element { // eslint-disable-line class-methods-use-this
+  headerSection(logoWidth: string, marginTop: string) { // eslint-disable-line class-methods-use-this
     return (
       <div id="header" className="material-header">
         <div className="headercontent" />
@@ -153,7 +153,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     );
   }
 
-  callUs(): JSX.Element { // eslint-disable-line class-methods-use-this
+  callUs() { // eslint-disable-line class-methods-use-this
     return (
       <div className="material-header x-scope paper-material-0 drawer" style={{ backgroundColor: '#881204' }}>
         {this.callText()}
@@ -161,7 +161,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     );
   }
 
-  render(): JSX.Element {
+  render() {
     const { width, targetRef } = this.props;
     let logoWidth = '742px', marginTop = '-15px';
     const { menuOpen } = this.state;
@@ -193,4 +193,8 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
   }
 }
 
-export default withResizeDetector(AppTemplate);
+function AppTemplateWithResize({ children }: { children?: React.ReactNode }) {
+  const width = useWindowWidth();
+  return <AppTemplate width={width || 0}>{children}</AppTemplate>;
+}
+export default AppTemplateWithResize;

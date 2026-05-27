@@ -1,9 +1,9 @@
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import { App } from 'src/App';
 
 describe('App component', () => {
   it('renders the component', () => {
-    const result = renderer.create(<App />).toJSON();
+    const result = render(<App />).container;
     expect(result).toMatchSnapshot();
   });
 });

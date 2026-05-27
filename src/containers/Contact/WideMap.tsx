@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WideMap = (): JSX.Element => (
+const WideMap = () => (
   <div className="wideMap">
     <span className="top" />
     <h4
