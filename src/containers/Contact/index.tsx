@@ -1,12 +1,12 @@
-import { Component, RefObject } from 'react';
+import { Component, type Ref } from 'react';
 import DefaultWideMap from './WideMap';
 import DefaultNarrowMap from './NarrowMap';
 import commonUtils from 'src/lib/commonUtils';
-import { withResizeDetector } from 'react-resize-detector';
+import { useWindowWidth } from 'src/lib/useWindowWidth';
 
 interface ContactProps {
   width?: number;
-  targetRef: RefObject<HTMLDivElement>;
+  targetRef?: Ref<HTMLDivElement>;
 }
 
 export class Contact extends Component<ContactProps> {
@@ -21,7 +21,7 @@ export class Contact extends Component<ContactProps> {
 
   componentDidMount(): void { this.commonUtils.setTitleAndScroll('Contact', window.screen.width); }
 
-  render(): JSX.Element {
+  render() {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef} style={{ flexGrow: 1 }}>
@@ -42,4 +42,8 @@ export class Contact extends Component<ContactProps> {
   }
 }
 
-export default withResizeDetector(Contact);
+function ContactWithResize() {
+  const width = useWindowWidth();
+  return <Contact width={width || 0} />;
+}
+export default ContactWithResize;

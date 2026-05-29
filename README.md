@@ -12,3 +12,12 @@
 <https://www.appersonautomotive.com/>
 
 We use Heroku to host this website, which is a static React frontend that runs on a node server.js (Express.js) server. There is a Procfile that tells Heroku to run the server.js file and both of these files are needed so please do NOT delete them.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+The Vite dev server runs on **port 7779** (set via `PORT` in `.env` / `.env.example`). It was moved off the previous default of `7777` so AppersonAuto no longer clashes with CollegeLutheran — every WebJamApps frontend and backend can run at the same time. Current local port map: web-jam-back `7000`, WebJamSocketCluster `8000`, JaMmusic `7878`, CollegeLutheran `7777`, AppersonAuto `7779`.

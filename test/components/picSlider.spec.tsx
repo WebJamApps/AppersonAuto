@@ -1,4 +1,4 @@
-import renderer from 'react-test-renderer';
+import { render } from '@testing-library/react';
 import { PicSlider } from 'src/components/pic-slider';
 
 describe('picture slider component test', () => {
@@ -10,12 +10,12 @@ describe('picture slider component test', () => {
       { _id: 4, url: '../static/imgs/ohaf/slideshow5.png' },
       { _id: 5, url: '../static/imgs/ohaf/slideshow6.png' },
     ];
-    const result = renderer.create(<PicSlider data={data} />).toJSON();
+    const result = render(<PicSlider data={data} />).container;
     expect(result).toMatchSnapshot();
   });
-  it('renders null when no array of data', () => {
+  it('renders a div when data items have no useful fields', () => {
     const data = [{} as any];
-    const result:any = renderer.create(<PicSlider data={data} />).toJSON();
-    expect(result.type).toBe('div');
+    const result = render(<PicSlider data={data} />).container;
+    expect(result.firstChild?.nodeName).toBe('DIV');
   });
 });

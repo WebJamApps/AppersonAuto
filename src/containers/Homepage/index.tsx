@@ -1,11 +1,11 @@
-import { withResizeDetector } from 'react-resize-detector';
+import { useWindowWidth } from 'src/lib/useWindowWidth';
 import CommonUtils from 'src/lib/commonUtils';
 import { PicSlider } from 'src/components/pic-slider';
 import slidesArr from 'src/lib/slides';
-import { Component, RefObject } from 'react';
+import { Component, type Ref } from 'react';
 
 interface HomepageProps {
-  targetRef?: RefObject<HTMLDivElement>;
+  targetRef?: Ref<HTMLDivElement>;
   width?: number;
 }
 export class Homepage extends Component<HomepageProps, unknown> {
@@ -16,7 +16,7 @@ export class Homepage extends Component<HomepageProps, unknown> {
 
   componentDidMount():void { this.commonUtils.setTitleAndScroll('', window.screen.width); }
 
-  getToKnow():JSX.Element { // eslint-disable-line class-methods-use-this
+  getToKnow() { // eslint-disable-line class-methods-use-this
     return (
       <div>
         <p><strong>Get to Know Apperson Automotive:</strong></p>
@@ -49,7 +49,7 @@ export class Homepage extends Component<HomepageProps, unknown> {
     );
   }
 
-  coupon():JSX.Element { // eslint-disable-line class-methods-use-this
+  coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
         <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
@@ -57,7 +57,7 @@ export class Homepage extends Component<HomepageProps, unknown> {
     );
   }
 
-  mechanics():JSX.Element { // eslint-disable-line class-methods-use-this
+  mechanics() { // eslint-disable-line class-methods-use-this
     return (
       <div>
         <p>
@@ -78,7 +78,7 @@ export class Homepage extends Component<HomepageProps, unknown> {
     );
   }
 
-  homeText(marginLeft: string):JSX.Element {
+  homeText(marginLeft: string) {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef} className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
@@ -105,7 +105,7 @@ export class Homepage extends Component<HomepageProps, unknown> {
     );
   }
 
-  mainPanel(marginLeft:string):JSX.Element {
+  mainPanel(marginLeft:string) {
     const { targetRef, width } = this.props;
     return (
       <div ref={targetRef} className="row">
@@ -115,9 +115,13 @@ export class Homepage extends Component<HomepageProps, unknown> {
     );
   }
 
-  render():JSX.Element {
+  render() {
     return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
-export default withResizeDetector(Homepage);
+function HomepageWithResize() {
+  const width = useWindowWidth();
+  return <Homepage width={width || 0} />;
+}
+export default HomepageWithResize;

@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 
-const FourOhFour = (): JSX.Element => (
+const FourOhFour = () => (
   <div className="page-content">
     <div className="fof">
       404 - Page not available

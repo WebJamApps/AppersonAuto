@@ -2,228 +2,128 @@
 
 exports[`picture slider component test > renders the component 1`] = `
 <div>
-  <div
-    className="slick-slider slick-initialized"
-    dir="ltr"
-  >
+  <div>
     <div
-      className="slick-list"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onMouseDown={[Function]}
-      onMouseLeave={null}
-      onMouseMove={null}
-      onMouseUp={[Function]}
-      onTouchCancel={null}
-      onTouchEnd={[Function]}
-      onTouchMove={null}
-      onTouchStart={[Function]}
-      style={{}}
+      class="slick-slider slick-initialized"
+      dir="ltr"
     >
       <div
-        className="slick-track"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseOver={[Function]}
-        style={
-          {
-            "opacity": 1,
-          }
-        }
+        class="slick-list"
       >
         <div
-          aria-hidden={false}
-          className="slick-slide slick-active slick-current"
-          data-index={0}
-          onClick={[Function]}
-          style={
-            {
-              "left": -0,
-              "opacity": 1,
-              "outline": "none",
-              "position": "relative",
-              "transition": "opacity 1000ms ease, visibility 1000ms ease",
-              "width": 0,
-            }
-          }
-          tabIndex="-1"
+          class="slick-track"
+          style="opacity: 1;"
         >
-          <div>
-            <div
-              style={
-                {
-                  "display": "inline-block",
-                  "width": "100%",
-                }
-              }
-              tabIndex={-1}
-            >
-               
-              <img
-                className="slide-images"
-                src="../static/imgs/ohaf/slideshow2.png"
-              />
-               
+          <div
+            aria-hidden="false"
+            class="slick-slide slick-active slick-current"
+            data-index="0"
+            style="outline: none; width: 0px; position: relative; left: 0px; opacity: 1; z-index: 999; transition: opacity 1000ms ease, visibility 1000ms ease;"
+            tabindex="-1"
+          >
+            <div>
               <div
-                className="slider-caption"
-                style={
-                  {
-                    "backgroundColor": "#fff",
-                    "boxShadow": "0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.14)",
-                    "fontWeight": 600,
-                    "marginBottom": "10px",
-                    "padding": "15px 0",
-                    "textAlign": "center",
-                  }
-                }
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
               >
                  
+                <img
+                  class="slide-images"
+                  src="../static/imgs/ohaf/slideshow2.png"
+                />
+                 
+                <div
+                  class="slider-caption"
+                  style="text-align: center; font-weight: 600; padding: 15px 0px; box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.14); background-color: rgb(255, 255, 255); margin-bottom: 10px;"
+                >
+                   
+                   
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="1"
+            style="outline: none; width: 0px; position: relative; left: 0px; opacity: 0; z-index: 998; transition: opacity 1000ms ease, visibility 1000ms ease;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                 
+                <img
+                  class="slide-images"
+                  src="../static/imgs/ohaf/slideshow3.png"
+                />
                  
               </div>
             </div>
           </div>
-        </div>
-        <div
-          aria-hidden={true}
-          className="slick-slide"
-          data-index={1}
-          onClick={[Function]}
-          style={
-            {
-              "left": -0,
-              "opacity": 0,
-              "outline": "none",
-              "position": "relative",
-              "transition": "opacity 1000ms ease, visibility 1000ms ease",
-              "width": 0,
-            }
-          }
-          tabIndex="-1"
-        >
-          <div>
-            <div
-              style={
-                {
-                  "display": "inline-block",
-                  "width": "100%",
-                }
-              }
-              tabIndex={-1}
-            >
-               
-              <img
-                className="slide-images"
-                src="../static/imgs/ohaf/slideshow3.png"
-              />
-               
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="2"
+            style="outline: none; width: 0px; position: relative; left: 0px; opacity: 0; z-index: 998; transition: opacity 1000ms ease, visibility 1000ms ease;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                 
+                <img
+                  class="slide-images"
+                  src="../static/imgs/ohaf/slideshow4.png"
+                />
+                 
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          aria-hidden={true}
-          className="slick-slide"
-          data-index={2}
-          onClick={[Function]}
-          style={
-            {
-              "left": -0,
-              "opacity": 0,
-              "outline": "none",
-              "position": "relative",
-              "transition": "opacity 1000ms ease, visibility 1000ms ease",
-              "width": 0,
-            }
-          }
-          tabIndex="-1"
-        >
-          <div>
-            <div
-              style={
-                {
-                  "display": "inline-block",
-                  "width": "100%",
-                }
-              }
-              tabIndex={-1}
-            >
-               
-              <img
-                className="slide-images"
-                src="../static/imgs/ohaf/slideshow4.png"
-              />
-               
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="3"
+            style="outline: none; width: 0px; position: relative; left: 0px; opacity: 0; z-index: 998; transition: opacity 1000ms ease, visibility 1000ms ease;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                 
+                <img
+                  class="slide-images"
+                  src="../static/imgs/ohaf/slideshow5.png"
+                />
+                 
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          aria-hidden={true}
-          className="slick-slide"
-          data-index={3}
-          onClick={[Function]}
-          style={
-            {
-              "left": -0,
-              "opacity": 0,
-              "outline": "none",
-              "position": "relative",
-              "transition": "opacity 1000ms ease, visibility 1000ms ease",
-              "width": 0,
-            }
-          }
-          tabIndex="-1"
-        >
-          <div>
-            <div
-              style={
-                {
-                  "display": "inline-block",
-                  "width": "100%",
-                }
-              }
-              tabIndex={-1}
-            >
-               
-              <img
-                className="slide-images"
-                src="../static/imgs/ohaf/slideshow5.png"
-              />
-               
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden={true}
-          className="slick-slide"
-          data-index={4}
-          onClick={[Function]}
-          style={
-            {
-              "left": -0,
-              "opacity": 0,
-              "outline": "none",
-              "position": "relative",
-              "transition": "opacity 1000ms ease, visibility 1000ms ease",
-              "width": 0,
-            }
-          }
-          tabIndex="-1"
-        >
-          <div>
-            <div
-              style={
-                {
-                  "display": "inline-block",
-                  "width": "100%",
-                }
-              }
-              tabIndex={-1}
-            >
-               
-              <img
-                className="slide-images"
-                src="../static/imgs/ohaf/slideshow6.png"
-              />
-               
+          <div
+            aria-hidden="true"
+            class="slick-slide"
+            data-index="4"
+            style="outline: none; width: 0px; position: relative; left: 0px; opacity: 0; z-index: 998; transition: opacity 1000ms ease, visibility 1000ms ease;"
+            tabindex="-1"
+          >
+            <div>
+              <div
+                style="width: 100%; display: inline-block;"
+                tabindex="-1"
+              >
+                 
+                <img
+                  class="slide-images"
+                  src="../static/imgs/ohaf/slideshow6.png"
+                />
+                 
+              </div>
             </div>
           </div>
         </div>
