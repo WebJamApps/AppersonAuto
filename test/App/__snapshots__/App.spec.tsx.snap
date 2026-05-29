@@ -157,6 +157,7 @@ exports[`App component > renders the component 1`] = `
         class="main-panel"
       >
         <span
+          aria-label="Toggle menu"
           id="mobilemenutoggle"
           role="button"
           tabindex="0"
@@ -666,6 +667,7 @@ exports[`App component > renders the component 1`] = `
                 style="text-align: center; padding: 6px;"
               >
                 <a
+                  aria-label="Facebook"
                   href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422"
                 >
                   <i

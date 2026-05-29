@@ -12,6 +12,7 @@ exports[`Footer > renders component 1`] = `
       style="text-align: center; padding: 6px;"
     >
       <a
+        aria-label="Facebook"
         href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422"
       >
         <i

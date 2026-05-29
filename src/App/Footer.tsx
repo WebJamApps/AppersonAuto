@@ -3,7 +3,7 @@ import React from 'react';
 const footerLinks = () => (
   <>
     <div style={{ textAlign: 'center', padding: '6px' }} className="footerLinks">
-      <a href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422">
+      <a aria-label="Facebook" href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422">
         <i style={{ color: '#45c9ff' }} className="fab fa-facebook-square fa-2x" aria-hidden="true" />
       </a>
       <a href="https://www.yellowpages.com/salem-va/mip/apperson-automotive-482421530" style={{ marginLeft: '40px' }}>

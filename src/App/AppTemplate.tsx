@@ -176,7 +176,14 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
           </div>
         </div>
         <div className="main-panel">
-          <span onClick={this.toggleMobileMenu} onKeyPress={this.handleKeyMenu} id="mobilemenutoggle" tabIndex={0} role="button">
+          <span
+            onClick={this.toggleMobileMenu}
+            onKeyPress={this.handleKeyMenu}
+            id="mobilemenutoggle"
+            aria-label="Toggle menu"
+            tabIndex={0}
+            role="button"
+          >
             <i className="fas fa-bars fa-2x" />
           </span>
           <div className="mainPanel">
