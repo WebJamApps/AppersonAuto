@@ -16,7 +16,7 @@ const settings = {
 export interface IpicData {
   _id: string, url: string, title: string, comments: string
 }
-export function PicSlider({ data }: { data: IpicData[] }): JSX.Element {
+export function PicSlider({ data }: { data: IpicData[] }) {
   return (
     <div>
       <Slider {...settings}>

@@ -7,7 +7,7 @@ import AppFourOhFour from './404';
 import AppTemplateDefault from './AppTemplate';
 import DefaultHome from '../containers/Homepage';
 
-export function App(): JSX.Element {
+export function App() {
   return (
     <div id="App" className="App">
       <Router>

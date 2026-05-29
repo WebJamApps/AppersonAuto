@@ -9,8 +9,7 @@
   },
   "author": "https://github.com/orgs/WebJamApps/teams/the-95-theses",
   "engines": {
-    "node": "24.15.0",
-    "npm": "11.12.1"
+    "node": "24.16.0"
   },
   "files": [
     "vite.config.ts",
@@ -46,35 +45,32 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
-    "@types/node": "^22.9.0",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
     "@types/react-router-hash-link": "^2.4.5",
-    "@types/react-slick": "^0.23.4",
+    "@types/react-slick": "^0.23.10",
     "@vitejs/plugin-react": "^6.0.1",
-    "dotenv": "^16.3.1",
-    "express": "^4.21.2",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "express-sslify": "^1.2.0",
-    "moment": "^2.29.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-resize-detector": "^9.1.0",
-    "react-router-dom": "^6.16.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-router": "^7.15.1",
+    "react-router-dom": "^7.15.1",
     "react-router-hash-link": "^2.4.3",
-    "react-slick": "^0.29.0",
-    "sass": "^1.69.5",
+    "react-slick": "^0.31.0",
+    "sass": "^1.99.0",
     "slick-carousel": "^1.8.1",
-    "stylelint-config-recommended-scss": "^17.0.1",
     "typescript": "^5.2.2",
     "vite": "^8.0.10",
     "vite-plugin-checker": "^0.13.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.0.0",
-    "@types/react-test-renderer": "^18.0.2",
-    "@vitest/coverage-v8": "^4.1.5",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@vitest/coverage-v8": "^4.1.7",
     "@vitest/eslint-plugin": "^1.6.16",
     "eslint": "^10.2.1",
     "eslint-plugin-import-x": "^4.16.2",
@@ -84,12 +80,12 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-security": "^4.0.0",
     "globals": "^15.14.0",
-    "jsdom": "^26.1.0",
-    "react-test-renderer": "^18.2.0",
+    "jsdom": "^29.1.1",
     "stylelint": "^17.0.0",
+    "stylelint-config-recommended-scss": "^17.0.1",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-scss": "^7.0.0",
     "typescript-eslint": "^8.59.1",
-    "vitest": "^4.1.5"
+    "vitest": "^4.1.7"
   }
 }

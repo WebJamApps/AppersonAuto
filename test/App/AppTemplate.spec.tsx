@@ -1,15 +1,15 @@
-import renderer from 'react-test-renderer';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { render, fireEvent } from '@testing-library/react';
 import { AppTemplate } from '../../src/App/AppTemplate';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('AppTemplate', () => {
   it('renders the component', () => {
     const targetRef: any = {};
-    const result = renderer.create(<BrowserRouter><AppTemplate
-      targetRef={targetRef}
-      width={1200}
-    /></BrowserRouter>).toJSON();
-    expect(result).toMatchSnapshot();
+    const { container } = render(
+      <BrowserRouter><AppTemplate targetRef={targetRef} width={1200} /></BrowserRouter>,
+    );
+    expect(container).toMatchSnapshot();
   });
   it('closes the menu without navigating away from the react app', () => new Promise<void>((done) => {
     const targetRef: any = {};
@@ -88,18 +88,18 @@ describe('AppTemplate', () => {
   }));
   it('toggles the mobile menu', () => {
     const targetRef: any = {};
-    const result = renderer.create(<BrowserRouter><AppTemplate
-      targetRef={targetRef}
-      width={1200}
-    /></BrowserRouter>).root;
-    expect(result.findByProps({ id: 'mobilemenutoggle' }).props.onClick()).toBe(true);
+    const { container } = render(
+      <BrowserRouter><AppTemplate targetRef={targetRef} width={1200} /></BrowserRouter>,
+    );
+    const toggle = container.querySelector('#mobilemenutoggle') as HTMLElement | null;
+    expect(toggle).not.toBeNull();
+    fireEvent.click(toggle!);
   });
   it('calls the mobile menu', () => {
     const targetRef: any = { current: null };
-    const result: any = renderer.create(<BrowserRouter><AppTemplate
-      targetRef={targetRef}
-      width={300}
-    /></BrowserRouter>).toJSON();
-    expect(result).toMatchSnapshot();
+    const { container } = render(
+      <BrowserRouter><AppTemplate targetRef={targetRef} width={300} /></BrowserRouter>,
+    );
+    expect(container).toMatchSnapshot();
   });
 });
