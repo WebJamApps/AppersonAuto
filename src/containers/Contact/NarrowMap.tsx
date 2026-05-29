@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NarrowMap = (): JSX.Element => (
+const NarrowMap = () => (
   <div className="material-content">
     <span className="top" />
     <h4

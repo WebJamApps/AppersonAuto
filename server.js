@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'production') app.use(enforce.HTTPS({ trustProtoHea
 
 app.use(express.static(path.normalize(path.join(__dirname, 'dist'))));
 app.use('/', express.static(path.normalize(path.join(__dirname, 'dist'))));
-app.get('/*', (request, response) => {
+app.get('/*splat', (request, response) => {
   response.sendFile(path.normalize(path.join(__dirname, 'dist/index.html')));
 });
 app.listen(process.env.PORT, () => {

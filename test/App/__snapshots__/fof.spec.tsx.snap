@@ -1,13 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`/404 > renders the component 1`] = `
-<div
-  className="page-content"
->
-  <div
-    className="fof"
-  >
-    404 - Page not available
-  </div>
+<div>
+  <div />
 </div>
 `;

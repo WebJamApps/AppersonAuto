@@ -1,6 +1,6 @@
 import React from 'react';
 
-const footerLinks = (): JSX.Element => (
+const footerLinks = () => (
   <>
     <div style={{ textAlign: 'center', padding: '6px' }} className="footerLinks">
       <a href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422">
@@ -32,7 +32,7 @@ const footerLinks = (): JSX.Element => (
   </>
 );
 
-const Footer = (): JSX.Element => (
+const Footer = () => (
   <div
     id="wjfooter"
     className="footer"
@@ -40,7 +40,7 @@ const Footer = (): JSX.Element => (
       marginTop: '20px', paddingTop: '20px', paddingBottom: '20px', bottom: '0',
     }}
   >
-    { footerLinks() }
+    {footerLinks()}
   </div>
 );
 

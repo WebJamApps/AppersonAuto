@@ -1,8 +1,8 @@
-import { Component, RefObject } from 'react';
+import { Component, type Ref } from 'react';
 import commonUtils from 'src/lib/commonUtils';
 import { PicSlider } from 'src/components/pic-slider';
 import slidesArr from 'src/lib/slides';
-import { withResizeDetector } from 'react-resize-detector';
+import { useWindowWidth } from 'src/lib/useWindowWidth';
 
 interface GeneralAutoRepairProps {
   homeContent?: {
@@ -11,7 +11,7 @@ interface GeneralAutoRepairProps {
   };
 
   width?: number;
-  targetRef?: RefObject<HTMLDivElement>;
+  targetRef?: Ref<HTMLDivElement>;
 }
 
 export class General extends Component<GeneralAutoRepairProps> {
@@ -26,7 +26,7 @@ export class General extends Component<GeneralAutoRepairProps> {
 
   componentDidMount(): void { this.commonUtils.setTitleAndScroll('General Auto Repair', window.screen.width); }
 
-  coupon(): JSX.Element { // eslint-disable-line class-methods-use-this
+  coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
         <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
@@ -34,7 +34,7 @@ export class General extends Component<GeneralAutoRepairProps> {
     );
   }
 
-  uLists(): JSX.Element { // eslint-disable-line class-methods-use-this
+  uLists() { // eslint-disable-line class-methods-use-this
     return (
       <div>
         <ul>
@@ -55,7 +55,7 @@ export class General extends Component<GeneralAutoRepairProps> {
     );
   }
 
-  love(): JSX.Element {
+  love() {
     const { width } = this.props;
     const marginBottom = width && width < 1162 ? '20px' : '90px';
     return (
@@ -77,7 +77,7 @@ export class General extends Component<GeneralAutoRepairProps> {
     );
   }
 
-  pageText(marginLeft: string): JSX.Element { // eslint-disable-line class-methods-use-this
+  pageText(marginLeft: string) { // eslint-disable-line class-methods-use-this
     return (
       <div className="col" style={{ top: '0', paddingRight: '6px', marginLeft }}>
         <h4
@@ -109,7 +109,7 @@ export class General extends Component<GeneralAutoRepairProps> {
     );
   }
 
-  mainPanel(marginLeft: string): JSX.Element {
+  mainPanel(marginLeft: string) {
     const { width } = this.props;
     return (
       <div className="row">
@@ -119,9 +119,13 @@ export class General extends Component<GeneralAutoRepairProps> {
     );
   }
 
-  render(): JSX.Element {
+  render() {
     return this.commonUtils.renderer(slidesArr, this, PicSlider);
   }
 }
 
-export default withResizeDetector(General);
+function GeneralWithResize() {
+  const width = useWindowWidth();
+  return <General width={width || 0} />;
+}
+export default GeneralWithResize;

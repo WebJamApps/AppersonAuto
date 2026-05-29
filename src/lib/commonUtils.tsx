@@ -1,3 +1,4 @@
+import type React from 'react';
 
 const setTitleAndScroll = (pageTitle: string, width: number): void => {
   if (pageTitle !== '') pageTitle += ' | ';// eslint-disable-line no-param-reassign
@@ -8,7 +9,7 @@ const setTitleAndScroll = (pageTitle: string, width: number): void => {
   if (top !== undefined && typeof top.scrollIntoView === 'function') top.scrollIntoView();
 };
 
-const cellPics = (width: number, slides: any, PicSlider: any): JSX.Element | null => {
+const cellPics = (width: number, slides: any, PicSlider: any) => {
   if (width < 1162) {
     return (
       <div className="col" style={{ padding: '0' }}>
@@ -26,7 +27,7 @@ const cellPics = (width: number, slides: any, PicSlider: any): JSX.Element | nul
   return null;
 };
 
-const widePics = (width: number, slides: any, PicSlider: any, coupon: () => JSX.Element, height: string): JSX.Element | null => {
+const widePics = (width: number, slides: any, PicSlider: any, coupon: () => React.JSX.Element, height: string) => {
   if (width >= 1162) {
     return (
       <div className="col" style={{ padding: '1px', paddingRight: '0' }}>
@@ -39,7 +40,7 @@ const widePics = (width: number, slides: any, PicSlider: any, coupon: () => JSX.
   return null;
 };
 
-const renderer = (slidesArr: any, view: any, PicSlider: any): JSX.Element => {
+const renderer = (slidesArr: any, view: any, PicSlider: any) => {
   const { targetRef, width } = view.props;
   const marginLeft = width < 1162 ? '5px' : '15px';
   return (
