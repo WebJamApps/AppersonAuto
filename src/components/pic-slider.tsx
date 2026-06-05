@@ -5,13 +5,16 @@ import Caption from './PicSlider/caption';
 
 const settings = {
   autoplay: true,
-  autoplaySpeed: 3000,
+  autoplaySpeed: 5000,
   infinite: true,
   speed: 1000,
   slidesToShow: 1,
   slidesToScroll: 1,
   arrows: false,
   fade: true,
+  // even out the first slide's interval (react-slick fade+autoplay quirk
+  // makes the first photo otherwise linger longer than the rest)
+  waitForAnimate: false,
 };
 export interface IpicData {
   _id: string, url: string, title: string, comments: string
