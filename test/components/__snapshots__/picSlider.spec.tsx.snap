@@ -29,7 +29,7 @@ exports[`picture slider component test > renders the component 1`] = `
                  
                 <img
                   class="slide-images"
-                  src="../static/imgs/ohaf/slideshow2.png"
+                  src="/imgs/ohaf/slideshow2.png"
                 />
                  
                 <div
@@ -57,7 +57,7 @@ exports[`picture slider component test > renders the component 1`] = `
                  
                 <img
                   class="slide-images"
-                  src="../static/imgs/ohaf/slideshow3.png"
+                  src="/imgs/ohaf/slideshow3.png"
                 />
                  
               </div>
@@ -78,7 +78,7 @@ exports[`picture slider component test > renders the component 1`] = `
                  
                 <img
                   class="slide-images"
-                  src="../static/imgs/ohaf/slideshow4.png"
+                  src="/imgs/ohaf/slideshow4.png"
                 />
                  
               </div>
@@ -99,7 +99,7 @@ exports[`picture slider component test > renders the component 1`] = `
                  
                 <img
                   class="slide-images"
-                  src="../static/imgs/ohaf/slideshow5.png"
+                  src="/imgs/ohaf/slideshow5.png"
                 />
                  
               </div>
@@ -120,7 +120,7 @@ exports[`picture slider component test > renders the component 1`] = `
                  
                 <img
                   class="slide-images"
-                  src="../static/imgs/ohaf/slideshow6.png"
+                  src="/imgs/ohaf/slideshow6.png"
                 />
                  
               </div>

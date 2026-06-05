@@ -19,7 +19,7 @@ export class Major extends React.Component<MajorAutoProps, unknown> {
   coupon() { // eslint-disable-line class-methods-use-this
     return (
       <div style={{ width: '295px', margin: 'auto' }}>
-        <img id="coupon" alt="graphic coupon" src="../static/imgs/banner5.png" />
+        <img id="coupon" alt="graphic coupon" src="/imgs/banner5.png" />
       </div>
     );
   }
