@@ -3,10 +3,7 @@ import React from 'react';
 const footerLinks = () => (
   <>
     <div style={{ textAlign: 'center', padding: '6px' }} className="footerLinks">
-      <a aria-label="Facebook" href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422">
-        <i style={{ color: '#45c9ff' }} className="fab fa-facebook-square fa-2x" aria-hidden="true" />
-      </a>
-      <a href="https://www.yellowpages.com/salem-va/mip/apperson-automotive-482421530" style={{ marginLeft: '40px' }}>
+      <a href="https://www.yellowpages.com/salem-va/mip/apperson-automotive-482421530">
         <img
           style={{ marginBottom: '15px', verticalAlign: 'middle' }}
           src="https://insightmg.com/wp-content/uploads/2015/12/YP_Insight-Marketing-Group_Marketing-for-Medical-Practices.png"

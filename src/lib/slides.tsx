@@ -3,9 +3,9 @@ export default [
     _id: '2',
     url: 'https://dl.dropboxusercontent.com/scl/fi/q83bcnvyyla2zavixfc5m/2-Jimmy-sized.jpg?rlkey=wecrucndun8vtj9gxcblo42l1&dl=0',
   },
-  { _id: '3', url: '../../static/imgs/photo3.png' },
-  { _id: '4', url: '../../static/imgs/photo4.png' },
-  { _id: '9', url: '../../static/imgs/photo9.png' },
+  { _id: '3', url: '/imgs/photo3.png' },
+  { _id: '4', url: '/imgs/photo4.png' },
+  { _id: '9', url: '/imgs/photo9.png' },
   {
     _id: '10',
     url: 'https://dl.dropboxusercontent.com/scl/fi/qmy8rex28nlhgdv1qblqo/5-red-truck-lifted-sized.jpg?rlkey=j10z4papyvkcwc5tt8vz3hyiv&dl=0',

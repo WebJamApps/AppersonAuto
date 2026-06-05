@@ -1,6 +1,6 @@
 {
   "name": "appersonautomotive.com",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "appersonautomotive.com",
   "main": "dist/index.html",
   "repository": {
@@ -14,7 +14,6 @@
   "files": [
     "vite.config.ts",
     "src/",
-    "static/",
     "public/"
   ],
   "keywords": [
@@ -31,7 +30,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test:stylelint": "stylelint \"static/**/*.scss\"",
+    "test:stylelint": "stylelint \"src/**/*.scss\"",
     "lint:fix": "eslint . --fix",
     "test:lint-fix": "npm run test:stylelint && npm run lint:fix",
     "test:lint": "npm run test:stylelint && eslint .",

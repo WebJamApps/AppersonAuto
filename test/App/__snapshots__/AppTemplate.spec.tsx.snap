@@ -204,18 +204,7 @@ exports[`AppTemplate > calls the mobile menu 1`] = `
               style="text-align: center; padding: 6px;"
             >
               <a
-                aria-label="Facebook"
-                href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422"
-              >
-                <i
-                  aria-hidden="true"
-                  class="fab fa-facebook-square fa-2x"
-                  style="color: rgb(69, 201, 255);"
-                />
-              </a>
-              <a
                 href="https://www.yellowpages.com/salem-va/mip/apperson-automotive-482421530"
-                style="margin-left: 40px;"
               >
                 <img
                   alt="yellowpages"
@@ -470,18 +459,7 @@ exports[`AppTemplate > renders the component 1`] = `
               style="text-align: center; padding: 6px;"
             >
               <a
-                aria-label="Facebook"
-                href="https://www.facebook.com/pages/Apperson-Automotive/361511727202422"
-              >
-                <i
-                  aria-hidden="true"
-                  class="fab fa-facebook-square fa-2x"
-                  style="color: rgb(69, 201, 255);"
-                />
-              </a>
-              <a
                 href="https://www.yellowpages.com/salem-va/mip/apperson-automotive-482421530"
-                style="margin-left: 40px;"
               >
                 <img
                   alt="yellowpages"
