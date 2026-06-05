@@ -256,7 +256,7 @@ exports[`App component > renders the component 1`] = `
                                    
                                   <img
                                     class="slide-images"
-                                    src="../../static/imgs/photo3.png"
+                                    src="/imgs/photo3.png"
                                   />
                                    
                                 </div>
@@ -277,7 +277,7 @@ exports[`App component > renders the component 1`] = `
                                    
                                   <img
                                     class="slide-images"
-                                    src="../../static/imgs/photo4.png"
+                                    src="/imgs/photo4.png"
                                   />
                                    
                                 </div>
@@ -298,7 +298,7 @@ exports[`App component > renders the component 1`] = `
                                    
                                   <img
                                     class="slide-images"
-                                    src="../../static/imgs/photo9.png"
+                                    src="/imgs/photo9.png"
                                   />
                                    
                                 </div>
@@ -650,7 +650,7 @@ exports[`App component > renders the component 1`] = `
                       <img
                         alt="graphic coupon"
                         id="coupon"
-                        src="../static/imgs/banner5.png"
+                        src="/imgs/banner5.png"
                       />
                     </div>
                   </div>

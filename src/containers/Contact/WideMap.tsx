@@ -65,7 +65,7 @@ const WideMap = () => (
         <br />
         Cash and Personal Checks
         <br />
-        <img alt="Accepted Credit Cards" src="/static/imgs/creditCards.gif" />
+        <img alt="Accepted Credit Cards" src="/imgs/creditCards.gif" />
         <br />
         Fleet Maintenance Cards
         <br />
