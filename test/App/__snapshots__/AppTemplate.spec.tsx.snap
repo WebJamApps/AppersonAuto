@@ -8,8 +8,7 @@ exports[`AppTemplate > calls the mobile menu 1`] = `
     <div
       class="close drawer-container"
       id="sidebar"
-      role="button"
-      tabindex="0"
+      role="presentation"
     >
       <div
         class="drawer"
@@ -258,8 +257,7 @@ exports[`AppTemplate > renders the component 1`] = `
     <div
       class="close drawer-container"
       id="sidebar"
-      role="button"
-      tabindex="0"
+      role="presentation"
     >
       <div
         class="drawer"
