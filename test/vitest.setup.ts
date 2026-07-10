@@ -1,5 +1,8 @@
 import { config } from 'dotenv';
-import { vi } from 'vitest';
+import { expect, vi } from 'vitest';
+import * as axeMatchers from 'vitest-axe/matchers';
+
+expect.extend(axeMatchers);
 
 config();
 

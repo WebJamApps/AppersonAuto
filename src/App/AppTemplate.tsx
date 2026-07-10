@@ -169,7 +169,9 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     const style = `${menuOpen ? 'open' : 'close'}`;
     return (
       <div ref={targetRef} className="page-host">
-        <div tabIndex={0} role="button" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
+        {/* click-away backdrop that closes the drawer; the menu links inside are the
+            keyboard-accessible controls, so this wrapper must not be a nested button */}
+        <div role="presentation" id="sidebar" onClick={this.close} onKeyPress={this.handleKeyPress} className={`${style} drawer-container`}>
           <div className="drawer" style={{ backgroundColor: '#505050' }}>
             {width && width > 1161 ? this.callUs() : null}
             {this.navLinks(width || 400)}

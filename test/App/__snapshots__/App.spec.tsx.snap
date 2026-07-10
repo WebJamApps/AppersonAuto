@@ -12,8 +12,7 @@ exports[`App component > renders the component 1`] = `
       <div
         class="close drawer-container"
         id="sidebar"
-        role="button"
-        tabindex="0"
+        role="presentation"
       >
         <div
           class="drawer"
@@ -234,6 +233,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive team member Jimmy"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/q83bcnvyyla2zavixfc5m/2-Jimmy-sized.jpg?rlkey=wecrucndun8vtj9gxcblo42l1&dl=0"
                                   />
@@ -255,6 +255,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive shop with three service bay doors"
                                     class="slide-images"
                                     src="/imgs/photo3.png"
                                   />
@@ -276,6 +277,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive team member working in the office"
                                     class="slide-images"
                                     src="/imgs/photo4.png"
                                   />
@@ -297,6 +299,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Customer waiting lounge with couch, TV, and coffee station"
                                     class="slide-images"
                                     src="/imgs/photo9.png"
                                   />
@@ -318,6 +321,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Red truck raised on a lift for repairs"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/qmy8rex28nlhgdv1qblqo/5-red-truck-lifted-sized.jpg?rlkey=j10z4papyvkcwc5tt8vz3hyiv&dl=0"
                                   />
@@ -339,6 +343,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive team member Dave"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/m90mkgijgfiihffnqttak/6-Dave-sized.jpg?rlkey=jfd4ov320qvlwuzbh8l87xxnv&dl=0"
                                   />
@@ -360,6 +365,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Front of the Apperson Automotive building"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/o7699nrg7g69pfawlcw01/7-New-Front-cleaned-up-sized.jpg?rlkey=agnez1fuos4cnk03abpsu9rpj&dl=0"
                                   />
@@ -381,6 +387,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive mechanic at work"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/mcv2sjtdxc4z7i627c9os/8-Guy-1-sized.jpg?rlkey=wusoimwz4a5n3n2q4nf6q7d22&dl=0"
                                   />
@@ -402,6 +409,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive mechanic working on a vehicle"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/ype1xag5txc52jngbvk3n/10-Guy-2-sized.jpg?rlkey=vuz9m9el3it1mv2h0j0h2g799&dl=0"
                                   />
@@ -423,6 +431,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Customer waiting lounge"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/zki5v56nkvchuk77bhdfd/11-lounge-2-sized.jpg?rlkey=9jd0us9dn537fzdg33b1iw0kq&dl=0"
                                   />
@@ -444,6 +453,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive mechanic in the shop"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/u4fu6oq4pyyxy4y7sh8fg/12-Guy-3-sized.jpg?rlkey=a9fzx4pz1udaxrgfkls88fmkv&dl=0"
                                   />
@@ -465,6 +475,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Front door of Apperson Automotive"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/i7we05d2zjt3y3jooeytd/13-front-door-sized.jpg?rlkey=0t39sbm309hjvvt3u3jl0oyk8&dl=0"
                                   />
@@ -486,6 +497,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive mechanic servicing a car"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/b1him8c3eefavdcn1hezw/14-Guy-4-sized.jpg?rlkey=dptv8ipthupj8wsby0xaxg68j&dl=0"
                                   />
@@ -507,6 +519,7 @@ exports[`App component > renders the component 1`] = `
                                 >
                                    
                                   <img
+                                    alt="Apperson Automotive building exterior"
                                     class="slide-images"
                                     src="https://dl.dropboxusercontent.com/scl/fi/23hau5oaxf3jqnofc4qjk/Front-sized.jpg?rlkey=lv5xkmkm3ptg7vkuyhgbsqrwr&dl=0"
                                   />
