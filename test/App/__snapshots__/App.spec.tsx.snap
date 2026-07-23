@@ -149,6 +149,18 @@ exports[`App component > renders the component 1`] = `
                 </span>
               </a>
             </div>
+            <div
+              class="menu-item version-label"
+              style="position: absolute; bottom: 15px; left: 0px; right: 0px; justify-content: center; opacity: 0.6; pointer-events: none;"
+            >
+              <span
+                id="app-version"
+                style="font-size: 13px; color: rgb(192, 192, 192); font-family: Habibi, ChivoBlack, Arial, sans-serif;"
+              >
+                v
+                3.2.0
+              </span>
+            </div>
           </div>
         </div>
       </div>

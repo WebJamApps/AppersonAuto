@@ -33,7 +33,9 @@ A React + TypeScript + Vite front-end for Apperson Auto.
   manual cleanup.
 
 ## Memory
-(Add lessons learned here, one bullet each.)
+- Declare Vite `define` variables (e.g., `__APP_VERSION__`) in `src/global.d.ts` to ensure TypeScript resolves them cleanly.
+- Ensure the mobile navigation list (`.nav-list`) has `height: 100%` when using absolute positioning for bottom-anchored elements.
+
 
 ## Pull requests
 
