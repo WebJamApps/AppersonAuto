@@ -33,4 +33,15 @@ A React + TypeScript + Vite front-end for Apperson Auto.
   manual cleanup.
 
 ## Memory
-(Add lessons learned here, one bullet each.)
+- Declare Vite `define` variables (e.g., `__APP_VERSION__`) in `src/global.d.ts` to ensure TypeScript resolves them cleanly.
+- Ensure the mobile navigation list (`.nav-list`) has `height: 100%` when using absolute positioning for bottom-anchored elements.
+
+
+## Pull requests
+
+### PR body conventions (violations may be machine-rejected)
+
+- **Summary**: markdown bullet points, one change per bullet — never a run-on paragraph.
+- **Test evidence**: paste the REAL runner output verbatim (the lines showing pass/fail and test counts), inside a ``` fence — never a description like "all tests passed". If the output has scrolled out of view, re-run the test command and paste what it prints.
+- **Test plan**: exact commands and manual steps that exercise the change (start command, route/page, what to click, expected visible result) — a green test suite alone is not a plan.
+- **Attribution**: `--author` names the model actually doing the work. Antigravity/agy sessions are ALWAYS `agy — Gemini 3.5 Flash (Medium)` or `(High)` — never write any other Gemini model name (models misremember their own identity; use this exact string).

@@ -1,10 +1,13 @@
 /// <reference types="vitest" />
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
 import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker';
 
 const srcDir = fileURLToPath(new URL('./src', import.meta.url));
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf-8'));
+
 
 const APP_ENV_KEYS = [
   'BackendUrl',
@@ -31,6 +34,9 @@ export default defineConfig(({ mode }) => {
   const env: Record<string, string> = { ...loadEnv(mode, process.cwd(), ''), NODE_ENV: mode };
   const isTest = mode === 'test' || process.env.VITEST;
   return {
+    define: {
+      __APP_VERSION__: JSON.stringify(pkg.version),
+    },
     plugins: [
       ...(isTest ? [] : [replaceProcessEnv(env), checker({ typescript: { tsconfigPath: './tsconfig.build.json' } })]),
       react(),
