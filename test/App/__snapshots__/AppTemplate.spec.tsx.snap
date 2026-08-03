@@ -154,7 +154,7 @@ exports[`AppTemplate > calls the mobile menu 1`] = `
               style="font-size: 13px; color: rgb(192, 192, 192); font-family: Habibi, ChivoBlack, Arial, sans-serif;"
             >
               v
-              3.2.0
+              3.2.2
             </span>
           </div>
         </div>
@@ -420,7 +420,7 @@ exports[`AppTemplate > renders the component 1`] = `
               style="font-size: 13px; color: rgb(192, 192, 192); font-family: Habibi, ChivoBlack, Arial, sans-serif;"
             >
               v
-              3.2.0
+              3.2.2
             </span>
           </div>
         </div>
