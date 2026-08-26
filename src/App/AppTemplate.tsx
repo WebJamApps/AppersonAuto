@@ -114,7 +114,7 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
     );
   }
 
-  mobileMenu() {
+  versionLabel() { // eslint-disable-line class-methods-use-this
     const labelStyle: React.CSSProperties = {
       position: 'absolute', bottom: '15px', left: 0, right: 0, justifyContent: 'center', opacity: 0.6, pointerEvents: 'none',
     };
@@ -122,36 +122,32 @@ export class AppTemplate extends Component<AppTemplateProps, AppTemplateState> {
       fontSize: '13px', color: '#c0c0c0', fontFamily: 'Habibi, ChivoBlack, Arial, sans-serif',
     };
     return (
+      <div className="menu-item version-label" style={labelStyle}>
+        <span id="app-version" style={spanStyle}>
+          v{__APP_VERSION__}
+        </span>
+      </div>
+    );
+  }
+
+  mobileMenu() {
+    return (
       <div className="nav-list">
         {this.callText()}
         {this.addressBlock()}
         {this.menus.map((menu, index) => this.makeMenuLink(menu, index))}
-        <div className="menu-item version-label" style={labelStyle}>
-          <span id="app-version" style={spanStyle}>
-            v{__APP_VERSION__}
-          </span>
-        </div>
+        {this.versionLabel()}
       </div>
     );
   }
 
   navLinks(width: number) {
     if (width < 1162) return this.mobileMenu();
-    const labelStyle: React.CSSProperties = {
-      position: 'absolute', bottom: '15px', left: 0, right: 0, justifyContent: 'center', opacity: 0.6, pointerEvents: 'none',
-    };
-    const spanStyle: React.CSSProperties = {
-      fontSize: '13px', color: '#c0c0c0', fontFamily: 'Habibi, ChivoBlack, Arial, sans-serif',
-    };
     return (
       <div className="nav-list">
         {this.addressBlock()}
         {this.menus.map((menu, index) => this.makeMenuLink(menu, index))}
-        <div className="menu-item version-label" style={labelStyle}>
-          <span id="app-version" style={spanStyle}>
-            v{__APP_VERSION__}
-          </span>
-        </div>
+        {this.versionLabel()}
       </div>
     );
   }
