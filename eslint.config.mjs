@@ -5,6 +5,9 @@ import importX from 'eslint-plugin-import-x';
 import vitest from '@vitest/eslint-plugin';
 import n from 'eslint-plugin-n';
 import security from 'eslint-plugin-security';
+import sonarjs from 'eslint-plugin-sonarjs';
+import unicorn from 'eslint-plugin-unicorn';
+import promise from 'eslint-plugin-promise';
 import json from 'eslint-plugin-json';
 import jsxA11yX from 'eslint-plugin-jsx-a11y-x';
 import globals from 'globals';
@@ -36,6 +39,18 @@ export default [
     },
   },
   js.configs.recommended,
+  {
+    ...sonarjs.configs.recommended,
+    files: ['**/*.{ts,tsx,js,jsx,mjs}'],
+  },
+  {
+    ...unicorn.configs['flat/recommended'],
+    files: ['**/*.{ts,tsx,js,jsx,mjs}'],
+  },
+  {
+    ...promise.configs['flat/recommended'],
+    files: ['**/*.{ts,tsx,js,jsx,mjs}'],
+  },
   ...tseslint.configs.recommended,
   {
     files: ['**/*.{ts,tsx}'],
@@ -71,6 +86,21 @@ export default [
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'max-len': ['error', { code: 150 }],
       'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      'sonarjs/no-small-switch': 'off',
+      'sonarjs/public-static-readonly': 'off',
+      'unicorn/filename-case': 'off',
+      'unicorn/name-replacements': 'off',
+      'unicorn/no-null': 'off',
+      'unicorn/prefer-global-this': 'off',
+      'unicorn/no-empty-file': 'off',
+      'unicorn/default-export-style': 'off',
+      'unicorn/consistent-boolean-name': 'off',
+      'unicorn/consistent-class-member-order': 'off',
+      'unicorn/prefer-ternary': 'off',
+      'unicorn/prefer-query-selector': 'off',
+      'unicorn/no-negated-condition': 'off',
+      'unicorn/prefer-observer-apis': 'off',
+      'unicorn/no-array-reduce': 'off',
     },
   },
   {
@@ -88,6 +118,9 @@ export default [
       ...vitest.configs.recommended.rules,
       'vitest/no-conditional-expect': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
+      'sonarjs/no-skipped-tests': 'off',
+      'promise/param-names': 'off',
+      'unicorn/no-global-object-property-assignment': 'off',
     },
   },
   {
